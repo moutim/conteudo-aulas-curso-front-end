@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aula 3: Protocolos e Navegadores</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    .section-title {
+      border-bottom: 3px solid #e80170;
+      padding-bottom: 0.5rem;
+      display: inline-block;
+    }
+
+    code {
+      background-color: #374151;
+      /* Gray-700 */
+      color: #F9FAFB;
+      /* Gray-50 */
+      padding: 0.2rem 0.5rem;
+      border-radius: 6px;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.9em;
+    }
+
+    img {
+      object-fit: cover;
+      aspect-ratio: 3 / 2;
+    }
+
+    .logo {
+      border-radius: 20px;
+      width: 100px;
+      object-fit: contain;
+    }
+  </style>
+</head>
+
+<body class="bg-gray-900 text-gray-300">
+
+  <!-- Header -->
+  <header class="bg-gray-800 shadow-lg sticky top-0 z-10">
+    <div class="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
+      <div>
+        <h1 class="text-xl font-bold text-white">Módulo 1: Fundamentos do Desenvolvimento Web</h1>
+        <p class="text-md font-semibold" style="color: #e80170;">Aula 3: Protocolos, Navegadores e Servidores</p>
+      </div>
+      <img src="https://passaportefc.com/wp-content/uploads/2024/03/serasa-logo-2-1024x432.png" alt="Logo Serasa"
+        class="logo">
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="max-w-5xl mx-auto p-6 md:p-8">
+
+    <!-- Section 1: O Navegador -->
+    <section id="navegador" class="mb-16">
+      <h2 class="text-3xl font-bold mb-6 section-title">1. O Navegador: Sua Janela para a Web</h2>
+      <div class="grid md:grid-cols-2 gap-8 items-center">
+        <div>
+          <p class="text-lg mb-6 leading-relaxed">
+            O navegador (ou *browser*) é o principal programa que usamos para acessar a Web. Ele não apenas exibe sites,
+            mas também <strong style="color: #e80170;">interpreta códigos</strong> (HTML, CSS, JS) e <strong
+              style="color: #e80170;">faz requisições</strong> a servidores para buscar o conteúdo que você vê.
+          </p>
+          <p class="text-lg leading-relaxed">
+            Pense nele como um tradutor universal que transforma código em páginas interativas.
+          </p>
+        </div>
+        <img src="https://images.unsplash.com/photo-1616401784845-180882ba9ba8?q=80&w=2070&auto=format&fit=crop"
+          alt="Logos de diversos navegadores web como Chrome, Firefox e Safari"
+          class="rounded-lg shadow-md w-full h-auto">
+      </div>
+    </section>
+
+    <!-- Section 2: Protocolo HTTP -->
+    <section id="http" class="mb-16">
+      <h2 class="text-3xl font-bold mb-6 section-title">2. O Protocolo HTTP: A Linguagem da Web</h2>
+      <div class="grid md:grid-cols-2 gap-8 items-center">
+        <img src="https://becode.com.br/wp-content/uploads/2017/10/o-que-e-http-1.jpg"
+          alt="Código de programação sendo exibido num laptop"
+          class="rounded-lg shadow-md w-full h-auto order-last md:order-first">
+        <div>
+          <p class="text-lg mb-6 leading-relaxed">
+            HTTP significa <strong class="text-white">Hypertext Transfer Protocol</strong>. É o conjunto de regras que
+            define como as mensagens são formatadas e transmitidas entre o cliente (navegador) e o servidor. É a
+            "língua" que ambos falam para se entender.
+          </p>
+          <div class="bg-gray-800 p-6 rounded-lg border border-gray-700 shadow-sm">
+            <h3 class="text-xl font-semibold mb-4 text-white">Como funciona? (Request-Response)</h3>
+            <ol class="space-y-3 list-decimal list-inside">
+              <li><strong>Requisição (Request):</strong> Seu navegador pede um recurso (ex: "me dê a página inicial do
+                Google").</li>
+              <li><strong>Resposta (Response):</strong> O servidor do Google recebe o pedido, processa e envia de volta
+                os arquivos da página.</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+            <div class="bg-gray-800 p-6 rounded-lg border border-gray-700 shadow-sm mt-8">
+        <h3 class="text-xl font-semibold mb-4 text-white">Verbos HTTP: A Intenção do Pedido</h3>
+        <p class="text-lg mb-6">Cada requisição HTTP tem um "verbo" que indica a intenção daquela ação. Os mais comuns são:</p>
+        <ul class="space-y-3">
+          <li><code>GET</code><strong>:</strong> Usado para <strong>buscar</strong> ou ler dados. É o que acontece quando você acessa um site.</li>
+          <li><code>POST</code><strong>:</strong> Usado para <strong>enviar</strong> ou criar novos dados. Ex: preencher um formulário de cadastro.</li>
+          <li><code>PUT</code><strong>:</strong> Usado para <strong>atualizar</strong> um dado que já existe. Ex: editar seu perfil em uma rede social.</li>
+          <li><code>DELETE</code><strong>:</strong> Usado para <strong>remover</strong> um dado. Ex: apagar uma foto que você postou.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Section 3: HTTP vs HTTPS -->
+    <section id="https" class="mb-16">
+      <h2 class="text-3xl font-bold mb-6 section-title">3. HTTP vs. HTTPS: A Camada de Segurança</h2>
+      <div class="grid md:grid-cols-2 gap-8 items-center">
+        <div>
+          <p class="text-lg mb-6 leading-relaxed">
+            Você já deve ter notado o "S" a mais e o ícone de cadeado em alguns sites. O <strong
+              style="color: #e80170;">S</strong> em HTTPS significa <strong class="text-white">Secure (Seguro)</strong>.
+          </p>
+          <div class="bg-gray-800 p-6 rounded-lg border border-gray-700 shadow-sm">
+            <ul class="space-y-4">
+              <li class="flex items-start"><span class="text-2xl mr-4">🔓</span>
+                <div><strong class="text-lg">HTTP:</strong> Os dados entre navegador e servidor são enviados em texto
+                  puro. Qualquer um no meio do caminho pode ler.</div>
+              </li>
+              <li class="flex items-start"><span class="text-2xl mr-4">🔒</span>
+                <div><strong class="text-lg text-green-400">HTTPS:</strong> Usa uma camada extra (SSL/TLS) para <strong
+                    class="text-green-400">criptografar</strong> os dados. Essencial para lojas, bancos e qualquer site
+                  que lide com informações sensíveis.</div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop"
+          alt="Imagem de um cadeado digital simbolizando segurança na internet"
+          class="rounded-lg shadow-md w-full h-auto">
+      </div>
+    </section>
+
+    <!-- Section 4: Anatomia de uma URL -->
+    <section id="url" class="mb-16">
+      <h2 class="text-3xl font-bold mb-6 section-title">4. Anatomia de uma URL</h2>
+      <div class="bg-gray-800 p-8 rounded-lg border border-gray-700 shadow-sm">
+        <p class="text-lg text-center mb-6">Uma URL (Uniform Resource Locator) é o endereço único de um recurso na web.
+          Ela tem partes bem definidas:</p>
+        <div class="bg-gray-900 p-4 rounded-lg text-center text-lg md:text-xl font-mono break-words">
+          <span class="text-green-400">https</span><span class="text-gray-400">://</span><span
+            class="text-sky-400">www.serasa.com.br</span><span class="text-purple-400">/ecred/simular</span><span
+            class="text-amber-400">?tipo=cartao</span>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mt-6 text-sm">
+          <div class="bg-gray-700 p-3 rounded"><strong class="text-green-400 block font-bold">Protocolo:</strong> Define
+            como a comunicação será feita (https, http, ftp).</div>
+          <div class="bg-gray-700 p-3 rounded"><strong class="text-sky-400 block font-bold">Domínio:</strong> O endereço
+            principal do site.</div>
+          <div class="bg-gray-700 p-3 rounded"><strong class="text-purple-400 block font-bold">Caminho (Path):</strong>
+            A "pasta" ou página específica dentro do site.</div>
+          <div class="bg-gray-700 p-3 rounded"><strong class="text-amber-400 block font-bold">Parâmetros
+              (Query):</strong> Informações extras enviadas ao servidor.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 5: Síntese e Próximos Passos -->
+    <section id="sintese">
+      <h2 class="text-3xl font-bold mb-6 section-title">5. Síntese e Próximos Passos</h2>
+      <div class="bg-gray-800 text-gray-200 p-6 rounded-lg" style="border-left: 4px solid #e80170;">
+        <h3 class="text-xl font-semibold text-white mb-3">Resumo da Aula</h3>
+        <ul class="list-disc list-inside space-y-2">
+          <li>O <strong>Navegador</strong> é o software que interpreta códigos e faz requisições.</li>
+          <li><strong>HTTP</strong> é o protocolo padrão para a comunicação na web (requisição e resposta).</li>
+          <li><strong>HTTPS</strong> é a versão segura do HTTP, que criptografa os dados.</li>
+          <li>Uma <strong>URL</strong> é um endereço estruturado que nos leva a um recurso específico.</li>
+        </ul>
+        <h3 class="text-xl font-semibold text-white mt-6 mb-3">Na Próxima Aula...</h3>
+        <p>Vamos finalmente começar a "construir": uma visão geral das linguagens da web: <strong>HTML, CSS e
+            JavaScript</strong>.</p>
+      </div>
+    </section>
+
+  </main>
+
+</body>
+
+</html>

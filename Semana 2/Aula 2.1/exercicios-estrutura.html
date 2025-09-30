@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercícios de Estrutura com HTML</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    .lesson-title {
+        font-size: 2.5rem;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+    .logo {
+      border-radius: 20px;
+      width: 100px;
+      object-fit: contain;
+    }
+    .exercise-card {
+        background-color: #1F2937;
+        border: 1px solid #374151;
+        border-left: 4px solid #e80170;
+        border-radius: 8px;
+        padding: 1.5rem;
+    }
+    .code-area {
+      display: block;
+      width: 100%;
+      min-height: 150px;
+      white-space: pre;
+      background-color: #111827;
+      color: #F9FAFB;
+      padding: 1rem;
+      border-radius: 8px;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.9em;
+      line-height: 1.5;
+      border: 1px solid #374151;
+    }
+  </style>
+</head>
+<body class="bg-gray-900 text-gray-300">
+
+  <!-- Header -->
+  <header class="bg-gray-800 shadow-lg sticky top-0 z-20">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+      <div>
+        <h1 class="text-xl font-bold text-white">Módulo 2: Construindo com HTML</h1>
+        <p class="text-md font-semibold" style="color: #e80170;">Exercícios de Estrutura</p>
+      </div>
+      <img src="https://passaportefc.com/wp-content/uploads/2024/03/serasa-logo-2-1024x432.png" alt="Logo Serasa" class="logo">
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="max-w-5xl mx-auto p-6 md:p-8">
+    <section id="exercicios">
+      <h2 class="lesson-title">Exercícios: Estrutura HTML</h2>
+      <p class="text-lg text-center mb-12 leading-relaxed">
+          Crie o código HTML para resolver os desafios abaixo.
+      </p>
+      <div class="space-y-10">
+
+        <!-- Exercício 1 -->
+        <div class="exercise-card">
+          <h3 class="text-2xl font-bold mb-4 text-white">Exercício 1: Post de Blog</h3>
+          <p class="mb-4">Crie a estrutura de um post simples. Ele deve ter um `h1` para o título principal, um `h2` para o subtítulo, e dois parágrafos `p` com texto genérico.</p>
+          <textarea class="code-area" spellcheck="false"></textarea>
+        </div>
+
+        <!-- Exercício 2 -->
+        <div class="exercise-card">
+          <h3 class="text-2xl font-bold mb-4 text-white">Exercício 2: Cartão de Apresentação</h3>
+          <p class="mb-4">Use uma `div` como container. Dentro dela, adicione uma imagem (`img`), um `<h2>` para o seu nome e um `p` com uma breve descrição sobre você.</p>
+          <textarea class="code-area" spellcheck="false"></textarea>
+        </div>
+
+        <!-- Exercício 3 -->
+        <div class="exercise-card">
+          <h3 class="text-2xl font-bold mb-4 text-white">Exercício 3: Receita de Bolo</h3>
+          <p class="mb-4">Crie uma pequena página de receita. Use um `<h1>` para o nome da receita, um `<h2>` para "Ingredientes" seguido de uma lista não ordenada (`ul`) e outro `<h2>` para "Modo de Preparo" seguido de uma lista ordenada (`ol`).</p>
+          <textarea class="code-area" spellcheck="false"></textarea>
+        </div>
+        
+        <!-- Exercício 4 -->
+        <div class="exercise-card">
+          <h3 class="text-2xl font-bold mb-4 text-white">Exercício 4: Página de Links Favoritos</h3>
+          <p class="mb-4">Crie uma página com um `<h1>` "Meus Sites Favoritos". Abaixo, crie uma lista não ordenada onde cada item da lista contém um link (`a`) para um site diferente (ex: Google, YouTube, etc.).</p>
+          <textarea class="code-area" spellcheck="false"></textarea>
+        </div>
+
+        <!-- Exercício 5 -->
+        <div class="exercise-card">
+          <h3 class="text-2xl font-bold mb-4 text-white">Exercício 5: Formulário de Contato Simples</h3>
+          <p class="mb-4">Crie um formulário (`form`) que peça o nome e o e-mail do usuário. Use a tag `<label>` para cada campo e a tag `<input>` para os campos de texto. Adicione um botão de envio no final.</p>
+          <textarea class="code-area" spellcheck="false"></textarea>
+        </div>
+
+        <!-- Exercício 6 -->
+        <div class="exercise-card">
+          <h3 class="text-2xl font-bold mb-4 text-white">Exercício 6: Juntando Tudo</h3>
+          <p class="mb-4">Crie uma `div` principal que servirá como um card. Dentro dela, coloque uma imagem, um título `<h3>`, um parágrafo `<p>` e, por fim, um link `<a>` que diz "Saiba Mais".</p>
+          <textarea class="code-area" spellcheck="false"></textarea>
+        </div>
+            
+      </div>
+    </section>
+  </main>
+</body>
+</html>

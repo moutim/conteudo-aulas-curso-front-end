@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercícios de Estilização com CSS</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    .lesson-title {
+        font-size: 2.5rem;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+    .logo {
+      border-radius: 20px;
+      width: 100px;
+      object-fit: contain;
+    }
+    .exercise-card {
+        background-color: #1F2937;
+        border: 1px solid #374151;
+        border-left: 4px solid #e80170;
+        border-radius: 8px;
+        padding: 1.5rem;
+    }
+    .code-area {
+      display: block;
+      width: 100%;
+      min-height: 100px;
+      white-space: pre;
+      background-color: #111827;
+      color: #F9FAFB;
+      padding: 1rem;
+      border-radius: 8px;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.9em;
+      line-height: 1.5;
+      border: 1px solid #374151;
+    }
+    code.inline {
+      background-color: #374151;
+      color: #F9FAFB;
+      padding: 0.2rem 0.5rem;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+<body class="bg-gray-900 text-gray-300">
+
+  <!-- Header -->
+  <header class="bg-gray-800 shadow-lg sticky top-0 z-20">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+      <div>
+        <h1 class="text-xl font-bold text-white">Módulo 2: Estilizando com CSS</h1>
+        <p class="text-md font-semibold" style="color: #e80170;">Exercícios de Estilização</p>
+      </div>
+      <img src="https://passaportefc.com/wp-content/uploads/2024/03/serasa-logo-2-1024x432.png" alt="Logo Serasa" class="logo">
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="max-w-5xl mx-auto p-6 md:p-8">
+    <section id="exercicios">
+      <h2 class="lesson-title">Exercícios: Estilização com CSS</h2>
+      
+      <div class="bg-gray-800 text-gray-200 p-6 rounded-lg border-l-4 border-sky-500 mb-12">
+        <h3 class="text-xl font-semibold text-white mb-3">Instruções Iniciais</h3>
+        <p class="mb-2">Para os exercícios abaixo, você vai aplicar os estilos em um arquivo CSS externo. Siga os passos:</p>
+        <ol class="list-decimal list-inside space-y-1">
+          <li>Crie um novo arquivo e salve-o como <code class="inline">estilos.css</code>.</li>
+          <li>Em cada um dos seus arquivos dos exercícios de HTML, adicione a seguinte linha dentro da tag <code class="inline">&lt;head&gt;</code> para lincar seu CSS:</li>
+        </ol>
+        <div class="bg-gray-900 p-2 rounded-md mt-2">
+            <code class="code-area" style="min-height: 40px;">&lt;link rel="stylesheet" href="estilos.css"&gt;</code>
+        </div>
+        <p class="mt-3">Agora, escreva todas as suas regras de CSS apenas no arquivo <code class="inline">estilos.css</code>.</p>
+      </div>
+      
+      <div class="space-y-10">
+
+        <!-- Exercício 1 -->
+        <div class="exercise-card">
+          <h3 class="text-2xl font-bold mb-4 text-white">Exercício 1: Estilizando o Post</h3>
+          <p class="mb-4">Para a sua página do "Post de Blog", crie regras no seu arquivo CSS para: <br> 1. Centralizar o texto dos elementos `h1` e `h2`. <br> 2. Mudar a cor do `h1` para `#e80170`.</p>
+          <div class="code-area" contenteditable="true" spellcheck="false">/* Seu código CSS aqui */</div>
+        </div>
+
+        <!-- Exercício 2 -->
+        <div class="exercise-card">
+          <h3 class="text-2xl font-bold mb-4 text-white">Exercício 2: Criando um Card de Verdade</h3>
+          <p class="mb-4">No seu HTML do "Cartão de Apresentação", adicione uma classe `card` à `div` principal. No CSS, estilize essa classe para ter:<br> 1. Largura de `300px`.<br> 2. Cor de fundo `#374151`.<br> 3. `20px` de padding.<br> 4. Borda arredondada de `10px`.</p>
+          <div class="code-area" contenteditable="true" spellcheck="false">/* Seu código CSS aqui */</div>
+        </div>
+
+        <!-- Exercício 3 -->
+        <div class="exercise-card">
+          <h3 class="text-2xl font-bold mb-4 text-white">Exercício 3: Melhorando a Receita</h3>
+          <p class="mb-4">Para a página da "Receita de Bolo":<br> 1. Remova os marcadores padrão da lista de ingredientes (`ul`).<br> 2. Mude a cor do texto de todos os `<h2>` para `#e80170`.</p>
+          <div class="code-area" contenteditable="true" spellcheck="false">/* Seu código CSS aqui */</div>
+        </div>
+        
+        <!-- Exercício 4 -->
+        <div class="exercise-card">
+          <h3 class="text-2xl font-bold mb-4 text-white">Exercício 4: Links sem Sublinhado</h3>
+          <p class="mb-4">Na sua "Página de Links Favoritos":<br> 1. Remova o sublinhado de todos os links (`a`).<br> 2. Mude a cor do texto dos links para `#e80170`.</p>
+          <div class="code-area" contenteditable="true" spellcheck="false">/* Seu código CSS aqui */</div>
+        </div>
+
+        <!-- Exercício 5 -->
+        <div class="exercise-card">
+          <h3 class="text-2xl font-bold mb-4 text-white">Exercício 5: Formulário Agradável</h3>
+          <p class="mb-4">Para o "Formulário de Contato", estilize todos os campos `input` para que eles tenham:<br> 1. `10px` de padding.<br> 2. Uma borda de `1px solid gray`.<br> 3. Cantos arredondados de `5px`.</p>
+          <div class="code-area" contenteditable="true" spellcheck="false">/* Seu código CSS aqui */</div>
+        </div>
+
+        <!-- Exercício 6 -->
+        <div class="exercise-card">
+          <h3 class="text-2xl font-bold mb-4 text-white">Exercício 6: Estilizando o Botão</h3>
+          <p class="mb-4">Na estrutura do exercício "Juntando Tudo", adicione a classe `botao` ao link. No CSS, estilize essa classe para que o link pareça um botão:<br> 1. Cor de fundo `#e80170`.<br> 2. Cor do texto `white`.<br> 3. `10px` de padding.<br> 4. Sem sublinhado (`text-decoration: none`).<br> 5. Borda arredondada de `5px`.</p>
+          <div class="code-area" contenteditable="true" spellcheck="false">/* Seu código CSS aqui */</div>
+        </div>
+            
+      </div>
+    </section>
+  </main>
+</body>
+</html>
+

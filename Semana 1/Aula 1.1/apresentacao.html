@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aula 1: Fundamentos da Web</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    .section-title {
+      border-bottom: 3px solid #e80170;
+      padding-bottom: 0.5rem;
+      display: inline-block;
+    }
+
+    code {
+      background-color: #374151;
+      /* Gray-700 */
+      color: #F9FAFB;
+      /* Gray-50 */
+      padding: 0.2rem 0.5rem;
+      border-radius: 6px;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.9em;
+    }
+
+    img {
+      object-fit: cover;
+      aspect-ratio: 3 / 2;
+    }
+
+    .logo {
+      border-radius: 20px;
+      width: 100px;
+      object-fit: contain;
+    }
+  </style>
+</head>
+
+<body class="bg-gray-900 text-gray-300">
+
+  <!-- Header -->
+  <header class="bg-gray-800 shadow-lg sticky top-0 z-10">
+    <div class="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
+      <div>
+        <h1 class="text-xl font-bold text-white">Módulo 1: Fundamentos do Desenvolvimento Web</h1>
+        <p class="text-md font-semibold" style="color: #e80170;">Aula 1: Arquitetura da Web - Da Infraestrutura à
+          Requisição
+        </p>
+      </div>
+      <img src="https://passaportefc.com/wp-content/uploads/2024/03/serasa-logo-2-1024x432.png" alt="Logo Serasa" class="logo">
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="max-w-5xl mx-auto p-6 md:p-8">
+
+    <!-- Section 1: Internet -->
+    <section id="internet" class="mb-16">
+      <h2 class="text-3xl font-bold mb-6 section-title">1. A Internet: A Infraestrutura Global</h2>
+      <div class="grid md:grid-cols-2 gap-8 items-center">
+        <div>
+          <p class="text-lg mb-6 leading-relaxed">
+            É a <strong style="color: #e80170;">rede global de computadores</strong> que conecta o mundo, permitindo a
+            transmissão de dados. Pense nela como a infraestrutura física de estradas e cabos.
+          </p>
+          <div class="bg-gray-800 p-6 rounded-lg border border-gray-700 shadow-sm">
+            <h3 class="text-xl font-semibold mb-4" style="color: #e80170;">Marcos Históricos</h3>
+            <ul class="space-y-3">
+              <li><strong>Anos 60:</strong> Nasce como <code class="font-bold">ARPANET</code>, um projeto militar dos
+                EUA.</li>
+              <li><strong>Anos 70-80:</strong> Surge o protocolo <code class="font-bold">TCP/IP</code>, que padroniza a
+                comunicação.</li>
+              <li><strong>Anos 90:</strong> Expansão comercial e popularização para o grande público.</li>
+            </ul>
+          </div>
+        </div>
+        <img
+          src="https://s2-oglobo.glbimg.com/-KuB1cldu8rUDxRrOj0rJK5obX8=/0x0:992x715/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_da025474c0c44edd99332dddb09cabe8/internal_photos/bs/2023/Q/d/KLDeT8SHq8F9V7LBMLvQ/infrapedia.png"
+          alt="Ilustração de uma rede global de computadores" class="rounded-lg shadow-md w-full h-auto">
+      </div>
+    </section>
+
+    <!-- Section 2: Web -->
+    <section id="web" class="mb-16">
+      <h2 class="text-3xl font-bold mb-6 section-title">2. A Web: Um Universo de Informação</h2>
+      <p class="text-lg mb-8 leading-relaxed">
+        A World Wide Web (WWW) é um <strong class="text-green-700">serviço que opera sobre a Internet</strong>. É um
+        sistema de documentos e recursos interligados, acessados via navegador.
+      </p>
+      <div class="grid md:grid-cols-2 gap-8 items-center mb-8">
+        <img
+          src="https://i0.wp.com/energiainteligenteufjf.com.br/wp-content/uploads/2024/11/tim-berners-lee.jpg?fit=1240%2C826&ssl=1"
+          alt="Foto de Tim Berners-Lee, inventor da Web" class="rounded-lg shadow-md w-full h-auto">
+        <div class="bg-gray-800 p-6 rounded-lg border border-gray-700 shadow-sm">
+          <h3 class="text-xl font-semibold mb-4" style="color: #e80170;">O Nascimento da Web (1990)</h3>
+          <p class="mb-4">Criada por <strong>Tim Berners-Lee</strong>, baseada em três pilares:</p>
+          <ul class="list-disc list-inside space-y-2">
+            <li><strong>HTML:</strong> A linguagem para estruturar as páginas.</li>
+            <li><strong>URL:</strong> O sistema de endereços únicos.</li>
+            <li><strong>HTTP:</strong> O protocolo para a comunicação.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="bg-gray-800 p-6 rounded-lg border border-gray-700 shadow-sm">
+        <h3 class="text-2xl text-center font-semibold mb-6" style="color: #e80170;">A Evolução da Web</h3>
+        <div class="grid md:grid-cols-3 gap-6 text-center">
+          <div>
+            <img src="https://securiumsolutions.com/wp-content/uploads/2023/07/Post-01-min-1024x1024.jpg"
+              alt="Ilustração Web 1.0" class="rounded-lg shadow-sm mx-auto mb-3">
+            <h4 class="font-bold text-lg">Web 1.0 (Estática)</h4>
+            <p class="text-sm">Páginas "somente leitura". O usuário era um consumidor de conteúdo.</p>
+          </div>
+          <div>
+            <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?q=80&w=1974&auto=format&fit=crop"
+              alt="Ilustração Web 2.0" class="rounded-lg shadow-sm mx-auto mb-3">
+            <h4 class="font-bold text-lg">Web 2.0 (Social)</h4>
+            <p class="text-sm">O usuário se torna produtor de conteúdo (redes sociais, blogs).</p>
+          </div>
+          <div>
+            <img
+              src="https://files.selar.co/product-images/2022/products/coursea/how-to-build-web-3-0-apps-selar.co-6282d40491241.jpg"
+              alt="Ilustração Web 3.0" class="rounded-lg shadow-sm mx-auto mb-3">
+            <h4 class="font-bold text-lg">Web 3.0 (Semântica)</h4>
+            <p class="text-sm">Focada em IA, descentralização e uma experiência mais inteligente.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Cliente-Servidor e Servidores -->
+    <section id="arquitetura" class="mb-16">
+      <h2 class="text-3xl font-bold mb-6 section-title">3. Arquitetura Web: Clientes e Servidores</h2>
+      <div
+        class="bg-gray-800 p-8 rounded-lg border border-gray-700 shadow-sm flex flex-col md:flex-row items-center justify-between space-y-8 md:space-y-0 mb-8">
+        <div class="text-center w-full md:w-2/5">
+          <h3 class="text-2xl font-semibold mb-2">Cliente (Client)</h3>
+          <p class="text-6xl mb-3">💻</p>
+          <p>Seu navegador, que <strong>solicita</strong> os recursos.</p>
+        </div>
+        <div class="text-center w-full md:w-1/5">
+          <div class="text-2xl font-mono text-gray-400">&lt;-- HTTP --&gt;</div>
+          <p class="text-sm text-gray-500">(Requisição & Resposta)</p>
+        </div>
+        <div class="text-center w-full md:w-2/5">
+          <h3 class="text-2xl font-semibold mb-2">Servidor (Server)</h3>
+          <p class="text-6xl mb-3">🗄️</p>
+          <p>A máquina que <strong>armazena</strong> e responde.</p>
+        </div>
+      </div>
+      <div class="grid md:grid-cols-2 gap-8 items-center">
+        <div class="bg-gray-800 p-6 rounded-lg border border-gray-700 shadow-sm">
+          <h3 class="text-xl font-semibold text-gray-100 mb-4">Tipos Comuns de Servidores</h3>
+          <ul class="list-disc list-inside space-y-2">
+            <li><strong>Servidor Web:</strong> Entrega a "fachada" do site (HTML, CSS).</li>
+            <li><strong>Servidor de Aplicação:</strong> Processa a lógica de negócio ("backend").</li>
+            <li><strong>Servidor de Banco de Dados:</strong> Armazena e gerencia os dados.</li>
+          </ul>
+        </div>
+        <img
+          src="https://i.ytimg.com/vi/sTQgSE2dCqA/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLCUi5UEX4IUp6u3MjM_EYmzyqr-7Q"
+          alt="Foto de um data center com vários servidores" class="rounded-lg shadow-md w-full h-auto">
+      </div>
+    </section>
+
+    <!-- Section 4: Atividade Prática -->
+    <section id="atividade" class="mb-16">
+      <h2 class="text-3xl font-bold mb-6 section-title">4. Atividade Prática: Analisando uma Requisição</h2>
+      <div class="bg-gray-800 p-8 rounded-lg border border-gray-700 shadow-sm">
+        <p class="text-lg mb-4">Vamos usar as "Ferramentas do Desenvolvedor" do navegador para ver essa conversa
+          acontecer:</p>
+        <ol class="list-decimal list-inside space-y-4">
+          <li>Pressione <strong>F12</strong> e clique na aba <strong>"Rede"</strong> (ou "Network").</li>
+          <li>Acesse um site (ex: google.com) e observe a lista de requisições.</li>
+          <li><strong>Tente identificar:</strong> O arquivo principal (<code>document</code>), os códigos de status
+            (<code>200 OK</code>) e os tipos de arquivo.</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Section 5: Síntese e Próximos Passos -->
+    <section id="sintese">
+      <h2 class="text-3xl font-bold mb-6 section-title">5. Síntese e Próximos Passos</h2>
+      <div class="bg-gray-800 text-gray-200 p-6 rounded-lg" style="border-left: 4px solid #e80170;">
+        <h3 class="text-xl font-semibold text-white mb-3">Resumo da Aula</h3>
+        <ul class="list-disc list-inside space-y-2">
+          <li><strong>Internet</strong> é a infraestrutura; <strong>Web</strong> é um serviço sobre ela.</li>
+          <li>A Web evoluiu de um modelo estático (<strong>1.0</strong>) para um social (<strong>2.0</strong>).</li>
+          <li>A comunicação web segue o modelo <strong>Cliente-Servidor</strong> via <strong>HTTP/HTTPS</strong>.</li>
+        </ul>
+        <h3 class="text-xl font-semibold text-white mt-6 mb-3">Na Próxima Aula...</h3>
+        <p>Vamos mergulhar nos dois lados dessa conversa: o que é <strong>Front-End</strong> e
+          <strong>Back-End</strong>.
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+</body>
+
+</html>

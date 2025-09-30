@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aula 9: Introdução ao Git e GitHub</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    .section-title {
+      border-bottom: 3px solid #e80170;
+      padding-bottom: 0.5rem;
+      display: inline-block;
+    }
+
+    .lesson-title {
+      font-size: 2.5rem;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    code.block {
+      display: block;
+      white-space: pre;
+      background-color: #1F2937;
+      /* Gray-800 */
+      color: #F9FAFB;
+      /* Gray-50 */
+      padding: 1rem;
+      border-radius: 8px;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.9em;
+      line-height: 1.5;
+    }
+
+    code.inline {
+      background-color: #374151;
+      color: #F9FAFB;
+      padding: 0.2rem 0.5rem;
+      border-radius: 6px;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.9em;
+    }
+
+    .logo {
+      border-radius: 20px;
+      width: 100px;
+      object-fit: contain;
+    }
+  </style>
+</head>
+
+<body class="bg-gray-900 text-gray-300">
+
+  <!-- Header -->
+  <header class="bg-gray-800 shadow-lg sticky top-0 z-20">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+      <div>
+        <h1 class="text-xl font-bold text-white">Módulo 3: Ferramentas do Desenvolvedor</h1>
+        <p class="text-md font-semibold" style="color: #e80170;">Aula 9: Introdução ao Git e GitHub</p>
+      </div>
+      <img src="https://passaportefc.com/wp-content/uploads/2024/03/serasa-logo-2-1024x432.png" alt="Logo Serasa"
+        class="logo">
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="max-w-5xl mx-auto p-6 md:p-8">
+
+    <section id="aula-9">
+      <h2 class="lesson-title">Git e GitHub: Controlando a História do seu Código</h2>
+      <div class="space-y-16">
+
+        <div id="o-problema">
+          <h3 class="text-3xl font-bold mb-6 section-title">1. O Problema: "trabalho_final_agora_vai.zip"</h3>
+          <p class="text-lg mb-6 leading-relaxed">
+            Imagine que você está escrevendo um trabalho importante. Você salva várias versões: <code
+              class="inline">versao1.docx</code>, <code class="inline">versao_revisada.docx</code>, <code
+              class="inline">versao_final.docx</code>, <code class="inline">versao_final_final_mesmo.docx</code>. Fica
+            uma bagunça, e se você apagar algo importante por engano?
+          </p>
+          <p class="text-lg leading-relaxed">
+            No mundo da programação, onde dezenas de pessoas podem trabalhar no mesmo projeto, esse caos seria
+            impossível de gerenciar. Precisamos de uma forma organizada de controlar as versões do nosso código.
+          </p>
+        </div>
+
+        <div id="o-que-e-git">
+          <h3 class="text-3xl font-bold mb-6 section-title">2. O que é Git? Um "Save Game" para seu Código</h3>
+          <p class="text-lg mb-6 leading-relaxed">
+            <strong>Git é um sistema de controle de versão.</strong> Pense nele como um sistema de "checkpoints" ou
+            "save points" de um videogame. A qualquer momento, você pode salvar o estado atual do seu projeto e, se algo
+            der errado no futuro, você pode simplesmente voltar para um checkpoint anterior que estava funcionando.
+          </p>
+          <div class="grid md:grid-cols-2 gap-6">
+            <div class="bg-gray-800 p-6 rounded-lg">
+              <h4 class="text-xl font-bold text-white mb-2">Repositório (Repo)</h4>
+              <p>A pasta do seu projeto que está sendo "vigiada" pelo Git.</p>
+            </div>
+            <div class="bg-gray-800 p-6 rounded-lg">
+              <h4 class="text-xl font-bold text-white mb-2">Commit</h4>
+              <p>Um "snapshot" ou uma foto do seu código em um ponto específico no tempo, com uma mensagem descrevendo o
+                que foi alterado.</p>
+            </div>
+          </div>
+        </div>
+
+        <div id="o-que-e-github">
+          <h3 class="text-3xl font-bold mb-6 section-title">3. O que é GitHub? A Rede Social do seu Código</h3>
+          <p class="text-lg mb-6 leading-relaxed">
+            Se o Git é a ferramenta que você instala no seu computador, o <strong>GitHub é um serviço online que hospeda
+              seus repositórios Git.</strong> Pense nele como um "Google Drive" ou "Dropbox" para seus projetos de
+            código, mas com superpoderes.
+          </p>
+          <div class="grid md:grid-cols-3 gap-6">
+            <div class="bg-gray-800 p-6 rounded-lg">
+              <h4 class="text-xl font-bold text-white mb-2">☁️ Backup na Nuvem</h4>
+              <p>Seus projetos ficam salvos online, seguros contra perdas no seu computador.</p>
+            </div>
+            <div class="bg-gray-800 p-6 rounded-lg">
+              <h4 class="text-xl font-bold text-white mb-2">🤝 Colaboração</h4>
+              <p>É a principal plataforma para que equipes trabalhem juntas no mesmo projeto de forma organizada.</p>
+            </div>
+            <div class="bg-gray-800 p-6 rounded-lg">
+              <h4 class="text-xl font-bold text-white mb-2"> portfolio</h4>
+              <p>Seu perfil no GitHub se torna um portfólio, onde você pode mostrar seus projetos para o mundo e para
+                recrutadores.</p>
+            </div>
+          </div>
+        </div>
+
+        <div id="diferenca">
+          <h3 class="text-3xl font-bold mb-6 section-title">4. Git vs. GitHub: A Diferença Crucial</h3>
+          <div class="bg-gray-800 p-8 rounded-lg grid md:grid-cols-2 gap-8 items-center">
+            <div class="text-center">
+              <h4 class="text-2xl font-bold text-white mb-2">Git</h4>
+              <p class="text-lg">É a <strong style="color: #e80170;">ferramenta</strong> que você instala e roda no seu
+                computador para versionar o código.</p>
+            </div>
+            <div class="text-center border-t-2 md:border-t-0 md:border-l-2 border-gray-700 pt-8 md:pt-0 md:pl-8">
+              <h4 class="text-2xl font-bold text-white mb-2">GitHub</h4>
+              <p class="text-lg">É o <strong style="color: #e80170;">serviço online</strong> que hospeda seus projetos e
+                permite a colaboração.</p>
+            </div>
+          </div>
+        </div>
+
+        <div id="conclusao-git">
+          <h3 class="text-3xl font-bold mb-6 section-title">5. Conclusão</h3>
+          <div class="bg-gray-800 text-gray-200 p-6 rounded-lg" style="border-left: 4px solid #e80170;">
+            <h4 class="text-xl font-semibold text-white mb-3">Resumo da Aula</h4>
+            <p class="mb-4">Aprender Git e GitHub não é opcional, é uma <strong class="text-white">habilidade
+                fundamental</strong> para qualquer pessoa que queira trabalhar com desenvolvimento de software. Eles
+              garantem organização, segurança e, acima de tudo, a capacidade de colaborar em projetos de qualquer
+              tamanho.</p>
+            <p class="font-bold mt-4">Na próxima aula, vamos criar nossas contas e fazer nosso primeiro "commit"!</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+
+</html>

@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Módulo 1: Fundamentos do Desenvolvimento Web (Completo)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    .section-title {
+      border-bottom: 3px solid #e80170;
+      padding-bottom: 0.5rem;
+      display: inline-block;
+    }
+    
+    .lesson-title {
+        font-size: 2.5rem;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 1rem;
+        padding-top: 5rem; /* Space for the sticky header */
+        margin-top: -5rem; /* Negative margin to correct anchor position */
+    }
+
+    code {
+      background-color: #374151;
+      color: #F9FAFB;
+      padding: 0.2rem 0.5rem;
+      border-radius: 6px;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.9em;
+    }
+
+    img {
+      object-fit: cover;
+      aspect-ratio: 3 / 2;
+    }
+    
+    .logo {
+      border-radius: 20px;
+      width: 100px;
+      object-fit: contain;
+    }
+    .nav-link {
+        transition: color 0.3s, border-bottom-color 0.3s;
+    }
+    .nav-link:hover {
+        color: #e80170;
+        border-bottom-color: #e80170;
+    }
+  </style>
+</head>
+
+<body class="bg-gray-900 text-gray-300">
+
+  <!-- Header -->
+  <header class="bg-gray-800 shadow-lg sticky top-0 z-20">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+      <div>
+        <h1 class="text-xl font-bold text-white">Módulo 1: Fundamentos do Desenvolvimento Web</h1>
+        <p class="text-md font-semibold" style="color: #e80170;">Material Completo</p>
+      </div>
+      <img src="https://passaportefc.com/wp-content/uploads/2024/03/serasa-logo-2-1024x432.png" alt="Logo Serasa"
+        class="logo">
+    </div>
+     <!-- Navigation -->
+    <nav class="bg-gray-800/80 backdrop-blur-sm">
+        <div class="max-w-6xl mx-auto px-6 py-2">
+            <ul class="flex justify-center items-center space-x-6 md:space-x-10 text-sm md:text-base font-medium">
+                <li><a href="#aula-1" class="text-gray-300 hover:text-white border-b-2 border-transparent nav-link pb-1">Aula 1</a></li>
+                <li><a href="#aula-2" class="text-gray-300 hover:text-white border-b-2 border-transparent nav-link pb-1">Aula 2</a></li>
+                <li><a href="#aula-3" class="text-gray-300 hover:text-white border-b-2 border-transparent nav-link pb-1">Aula 3</a></li>
+                <li><a href="#aula-4" class="text-gray-300 hover:text-white border-b-2 border-transparent nav-link pb-1">Aula 4</a></li>
+                <li><a href="#aula-5" class="text-gray-300 hover:text-white border-b-2 border-transparent nav-link pb-1">Aula 5</a></li>
+            </ul>
+        </div>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main class="max-w-5xl mx-auto p-6 md:p-8">
+
+    <!-- AULA 1 -->
+    <section id="aula-1" class="pt-16">
+        <h2 class="lesson-title">Aula 1: Introdução à Web, Internet e Servidores</h2>
+        <div class="space-y-16">
+            <!-- Content from Aula 1 -->
+            <div id="internet-historia">
+              <h3 class="text-3xl font-bold mb-6 section-title">1. A Internet: A Infraestrutura Global</h3>
+              <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div>
+                  <p class="text-lg mb-4 leading-relaxed">A Internet é a <strong style="color: #e80170;">rede mundial de computadores</strong>, a infraestrutura física (cabos, satélites, roteadores) que permite que dispositivos troquem informações entre si.</p>
+                  <p class="text-lg leading-relaxed">É a base sobre a qual vários serviços, incluindo a Web, funcionam.</p>
+                </div>
+                <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070&auto=format&fit=crop" alt="Imagem abstrata de cabos de rede e conexões globais" class="rounded-lg shadow-md w-full h-auto">
+              </div>
+            </div>
+            <div id="web-conceito">
+              <h3 class="text-3xl font-bold mb-6 section-title">2. A Web: Um Serviço na Internet</h3>
+              <div class="grid md:grid-cols-2 gap-8 items-center">
+                 <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Sir_Tim_Berners-Lee_%28cropped%29.jpg" alt="Foto de Tim Berners-Lee, o criador da World Wide Web" class="rounded-lg shadow-md w-full h-auto order-last md:order-first">
+                <div>
+                  <p class="text-lg mb-4 leading-relaxed">A World Wide Web (ou apenas "Web") é um <strong class="text-white">sistema de documentos e recursos interligados</strong>, acessados através da Internet. Foi criada por <strong style="color: #e80170;">Tim Berners-Lee</strong> em 1990.</p>
+                  <p class="text-lg leading-relaxed">Ela usa protocolos como o HTTP para permitir a navegação entre páginas por meio de hiperlinks.</p>
+                </div>
+              </div>
+            </div>
+            <div id="web-evolução">
+              <h3 class="text-3xl font-bold mb-6 section-title">3. A Evolução da Web</h3>
+               <div class="grid md:grid-cols-3 gap-6">
+                  <div class="bg-gray-800 p-6 rounded-lg border border-gray-700">
+                    <h4 class="text-xl font-bold text-white mb-2">Web 1.0 (Estática)</h4>
+                    <p>Páginas "somente leitura". O conteúdo era produzido por poucos e consumido por muitos. Interação mínima.</p>
+                  </div>
+                  <div class="bg-gray-800 p-6 rounded-lg border border-gray-700">
+                    <h4 class="text-xl font-bold text-white mb-2">Web 2.0 (Social)</h4>
+                    <p>A era das redes sociais e blogs. Os usuários se tornam produtores de conteúdo, com alta interatividade.</p>
+                  </div>
+                  <div class="bg-gray-800 p-6 rounded-lg border border-gray-700">
+                    <h4 class="text-xl font-bold text-white mb-2">Web 3.0 (Semântica/Descentralizada)</h4>
+                    <p>Foco em inteligência artificial, dados conectados e tecnologias como blockchain, buscando uma web mais inteligente e descentralizada.</p>
+                  </div>
+               </div>
+            </div>
+            <div id="servidores">
+              <h3 class="text-3xl font-bold mb-6 section-title">4. Servidores: Os Guardiões do Conteúdo</h3>
+              <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div>
+                  <p class="text-lg mb-4 leading-relaxed">Um servidor é um computador potente, sempre conectado à internet, cujo trabalho é <strong style="color: #e80170;">armazenar, processar e entregar</strong> os arquivos de um site para o seu navegador quando você faz uma requisição.</p>
+                   <p class="text-lg leading-relaxed">Quando você digita um endereço no navegador, está pedindo a um servidor que lhe envie a página correspondente.</p>
+                </div>
+                 <img src="https://images.unsplash.com/photo-1580894908361-967195033215?q=80&w=2070&auto=format&fit=crop" alt="Foto de um data center com vários racks de servidores" class="rounded-lg shadow-md w-full h-auto">
+              </div>
+            </div>
+        </div>
+    </section>
+
+    <hr class="border-gray-700 my-20">
+
+    <!-- AULA 2 -->
+    <section id="aula-2" class="pt-16">
+        <h2 class="lesson-title">Aula 2: Front-End vs. Back-End</h2>
+        <div class="space-y-16">
+            <!-- Content from Aula 2 -->
+            <div id="analogia-restaurante">
+                <h3 class="text-3xl font-bold mb-6 section-title">1. A Analogia do Restaurante</h3>
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <p class="text-lg mb-6 leading-relaxed">
+                            A forma mais fácil de entender a diferença entre Front-End e Back-End é pensar em um restaurante.
+                        </p>
+                        <ul class="list-disc list-inside space-y-3">
+                            <li>O <strong style="color: #e80170;">Front-End</strong> é o salão: as mesas, a decoração, o menu que você lê. É tudo com o que você, o cliente, interage diretamente.</li>
+                            <li>O <strong style="color: #e80170;">Back-End</strong> é a cozinha: os chefs, os fogões, o estoque. É onde o seu pedido é preparado e toda a operação acontece, longe dos seus olhos.</li>
+                        </ul>
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=1974&auto=format&fit=crop" alt="[Imagem de um salão de restaurante elegante ao lado de uma cozinha profissional movimentada]" class="rounded-lg shadow-md w-full h-auto">
+                </div>
+            </div>
+            <div id="front-end">
+                <h3 class="text-3xl font-bold mb-6 section-title">2. O Front-End: O Lado do Cliente</h3>
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2070&auto=format&fit=crop" alt="[Imagem de uma pessoa interagindo com uma interface de usuário em um computador]" class="rounded-lg shadow-md w-full h-auto order-last md:order-first">
+                    <div>
+                        <p class="text-lg mb-6 leading-relaxed">
+                            O Front-End é tudo que roda no <strong class="text-white">navegador do usuário</strong> (o lado do cliente). É a camada visual e interativa da aplicação.
+                        </p>
+                        <div class="bg-gray-800 p-4 rounded-lg">
+                            <h4 class="font-bold text-lg mb-2 text-white">Principais Tecnologias:</h4>
+                            <p><code>HTML</code> para a estrutura, <code>CSS</code> para o estilo e <code>JavaScript</code> para a interatividade.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="back-end">
+                <h3 class="text-3xl font-bold mb-6 section-title">3. O Back-End: O Lado do Servidor</h3>
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <p class="text-lg mb-6 leading-relaxed">
+                            O Back-End é a parte que roda no <strong class="text-white">servidor</strong>. Ele cuida da lógica do negócio, do banco de dados e da comunicação com o Front-End.
+                        </p>
+                        <div class="bg-gray-800 p-4 rounded-lg">
+                            <h4 class="font-bold text-lg mb-2 text-white">Principais Responsabilidades:</h4>
+                            <ul class="list-disc list-inside space-y-2">
+                                <li>Gerenciar o banco de dados.</li>
+                                <li>Autenticar usuários (login e senha).</li>
+                                <li>Processar regras de negócio.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1593349480503-64d421d8caf6?q=80&w=1974&auto=format&fit=crop" alt="[Imagem de linhas de código em um terminal escuro, representando lógica de servidor]" class="rounded-lg shadow-md w-full h-auto">
+                </div>
+            </div>
+            <div id="sintese-front-back">
+                <h3 class="text-3xl font-bold mb-6 section-title">4. Síntese e Próximos Passos</h3>
+                <div class="bg-gray-800 text-gray-200 p-6 rounded-lg" style="border-left: 4px solid #e80170;">
+                    <h4 class="text-xl font-semibold text-white mb-3">Resumo da Aula</h4>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li><strong>Front-End</strong> é o que o usuário vê e com o que interage (roda no navegador).</li>
+                        <li><strong>Back-End</strong> é a lógica por trás das cenas (roda no servidor).</li>
+                        <li>Ambos são essenciais e se comunicam constantemente para que uma aplicação funcione.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr class="border-gray-700 my-20">
+
+    <!-- AULA 3 -->
+    <section id="aula-3" class="pt-16">
+        <h2 class="lesson-title">Aula 3: Protocolos, Navegadores e Servidores</h2>
+        <div class="space-y-16">
+            <!-- Content from Aula 3 -->
+             <div id="navegador">
+                <h3 class="text-3xl font-bold mb-6 section-title">1. O Navegador: Sua Janela para a Web</h3>
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <p class="text-lg mb-6 leading-relaxed">
+                            O navegador (ou *browser*) é o principal programa que usamos para acessar a Web. Ele não apenas exibe sites, mas também <strong style="color: #e80170;">interpreta códigos</strong> (HTML, CSS, JS) e <strong style="color: #e80170;">faz requisições</strong> a servidores para buscar o conteúdo que você vê.
+                        </p>
+                        <p class="text-lg leading-relaxed">
+                            Pense nele como um tradutor universal que transforma código em páginas interativas.
+                        </p>
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1616401784845-180882ba9ba8?q=80&w=2070&auto=format&fit=crop" alt="[Logos de diversos navegadores web como Chrome, Firefox e Safari]" class="rounded-lg shadow-md w-full h-auto">
+                </div>
+            </div>
+            <div id="http">
+                <h3 class="text-3xl font-bold mb-6 section-title">2. O Protocolo HTTP: A Linguagem da Web</h3>
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <img src="https://images.unsplash.com/photo-1555949963-ff98c872d2e8?q=80&w=1974&auto=format&fit=crop" alt="[Código de programação sendo exibido num laptop]" class="rounded-lg shadow-md w-full h-auto order-last md:order-first">
+                    <div>
+                        <p class="text-lg mb-6 leading-relaxed">
+                            HTTP significa <strong class="text-white">Hypertext Transfer Protocol</strong>. É o conjunto de regras que define como as mensagens são formatadas e transmitidas entre o cliente (navegador) e o servidor.
+                        </p>
+                         <div class="bg-gray-800 p-6 rounded-lg border border-gray-700 shadow-sm">
+                            <h4 class="text-xl font-semibold mb-4 text-white">Verbos HTTP (Principais Ações)</h4>
+                            <ul class="space-y-2">
+                                <li><code>GET</code>: <strong>Buscar</strong> dados de um servidor.</li>
+                                <li><code>POST</code>: <strong>Enviar</strong> dados para um servidor criar um novo recurso.</li>
+                                <li><code>PUT</code>: <strong>Atualizar</strong> um recurso existente no servidor.</li>
+                                <li><code>DELETE</code>: <strong>Remover</strong> um recurso do servidor.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="https">
+                <h3 class="text-3xl font-bold mb-6 section-title">3. HTTP vs. HTTPS: A Camada de Segurança</h3>
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <p class="text-lg mb-6 leading-relaxed">
+                            O <strong style="color: #e80170;">S</strong> em HTTPS significa <strong class="text-white">Secure (Seguro)</strong>.
+                        </p>
+                        <div class="bg-gray-800 p-6 rounded-lg border border-gray-700 shadow-sm">
+                            <ul class="space-y-4">
+                                <li class="flex items-start"><span class="text-2xl mr-4">🔓</span> <div><strong class="text-lg">HTTP:</strong> Os dados são enviados em texto puro.</div></li>
+                                <li class="flex items-start"><span class="text-2xl mr-4">🔒</span> <div><strong class="text-lg text-green-400">HTTPS:</strong> Usa criptografia para proteger os dados. Essencial para sites que lidam com informações sensíveis.</div></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop" alt="[Imagem de um cadeado digital simbolizando segurança na internet]" class="rounded-lg shadow-md w-full h-auto">
+                </div>
+            </div>
+            <div id="url">
+                <h3 class="text-3xl font-bold mb-6 section-title">4. Anatomia de uma URL</h3>
+                <div class="bg-gray-800 p-8 rounded-lg border border-gray-700 shadow-sm">
+                    <div class="bg-gray-900 p-4 rounded-lg text-center text-lg md:text-xl font-mono break-words">
+                        <span class="text-green-400">https</span><span class="text-gray-400">://</span><span class="text-sky-400">www.serasa.com.br</span><span class="text-purple-400">/ecred/simular</span><span class="text-amber-400">?tipo=cartao</span>
+                    </div>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mt-6 text-sm">
+                        <div class="bg-gray-700 p-3 rounded"><strong class="text-green-400 block font-bold">Protocolo</strong></div>
+                        <div class="bg-gray-700 p-3 rounded"><strong class="text-sky-400 block font-bold">Domínio</strong></div>
+                        <div class="bg-gray-700 p-3 rounded"><strong class="text-purple-400 block font-bold">Caminho</strong></div>
+                        <div class="bg-gray-700 p-3 rounded"><strong class="text-amber-400 block font-bold">Parâmetros</strong></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr class="border-gray-700 my-20">
+
+    <!-- AULA 4 -->
+    <section id="aula-4" class="pt-16">
+        <h2 class="lesson-title">Aula 4: As Linguagens da Web</h2>
+        <div class="space-y-16">
+            <!-- Content from Aula 4 -->
+            <div id="intro-linguagens">
+                <h3 class="text-3xl font-bold mb-6 section-title">1. A Trindade da Web: Estrutura, Estilo e Comportamento</h3>
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <p class="text-lg mb-6 leading-relaxed">
+                            Construir um site é como construir uma casa. Precisamos da <strong style="color: #e80170;">estrutura</strong> (paredes), da <strong style="color: #e80170;">aparência</strong> (pintura) e da <strong style="color: #e80170;">funcionalidade</strong> (eletricidade).
+                        </p>
+                        <p class="text-lg leading-relaxed">
+                            Na web, essas três camadas são representadas por HTML, CSS e JavaScript.
+                        </p>
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1572949645841-094f3a9c4c94?q=80&w=1974&auto=format&fit=crop" alt="[Imagem de uma casa em construção, um arquiteto e a casa finalizada]" class="rounded-lg shadow-md w-full h-auto">
+                </div>
+            </div>
+            <div id="html-lang">
+                <h3 class="text-3xl font-bold mb-6 section-title">2. HTML: A Estrutura</h3>
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <img src="https://images.unsplash.com/photo-1556740758-90de374c12ad?q=80&w=2070&auto=format&fit=crop" alt="[Pessoa apontando para o esqueleto de um site, o wireframe]" class="rounded-lg shadow-md w-full h-auto order-last md:order-first">
+                    <div>
+                        <p class="text-lg mb-6 leading-relaxed">
+                            HTML (HyperText Markup Language) define a <strong class="text-white">estrutura de todo o conteúdo</strong> de uma página, usando "tags".
+                        </p>
+                        <div class="bg-gray-800 p-6 rounded-lg border border-gray-700 shadow-sm">
+                            <pre><code class="language-html">&lt;h1&gt;Título&lt;/h1&gt; &lt;p&gt;Parágrafo.&lt;/p&gt;</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="css-lang">
+                <h3 class="text-3xl font-bold mb-6 section-title">3. CSS: O Estilo</h3>
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <p class="text-lg mb-6 leading-relaxed">
+                            CSS (Cascading Style Sheets) é a linguagem que usamos para <strong class="text-white">estilizar e dar aparência</strong> ao nosso HTML (cores, fontes, layouts).
+                        </p>
+                        <div class="bg-gray-800 p-6 rounded-lg border border-gray-700 shadow-sm">
+                            <pre><code class="language-css">h1 { color: #e80170; }</code></pre>
+                        </div>
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1509343256512-d77a5cb3791b?q=80&w=2070&auto=format&fit=crop" alt="[Paleta de cores e ferramentas de design em uma mesa]" class="rounded-lg shadow-md w-full h-auto">
+                </div>
+            </div>
+            <div id="js-lang">
+                <h3 class="text-3xl font-bold mb-6 section-title">4. JavaScript: O Comportamento</h3>
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <img src="https://images.unsplash.com/photo-1593720213428-28a5b9e94613?q=80&w=2070&auto=format&fit=crop" alt="[Desenvolvedor trabalhando com código JavaScript em um laptop]" class="rounded-lg shadow-md w-full h-auto order-last md:order-first">
+                    <div>
+                        <p class="text-lg mb-6 leading-relaxed">
+                            JavaScript (JS) é uma linguagem de programação que <strong class="text-white">adiciona interatividade</strong> e dinamismo às páginas.
+                        </p>
+                        <div class="bg-gray-800 p-6 rounded-lg border border-gray-700 shadow-sm">
+                            <pre><code class="language-js">button.onclick = () => alert('Clicou!');</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr class="border-gray-700 my-20">
+
+    <!-- AULA 5 -->
+    <section id="aula-5" class="pt-16">
+        <h2 class="lesson-title">Aula 5: O Mercado de Trabalho Front-End</h2>
+        <div class="space-y-16">
+            <!-- Content from Aula 5 -->
+            <div id="papel-front">
+                <h3 class="text-3xl font-bold mb-6 section-title">1. O Papel do Desenvolvedor Front-End</h3>
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <p class="text-lg mb-6 leading-relaxed">
+                           O papel do desenvolvedor Front-End é traduzir o design e os requisitos de um produto em uma <strong style="color: #e80170;">interface interativa e funcional</strong>, garantindo a melhor experiência possível para o usuário final.
+                        </p>
+                        <p class="text-lg leading-relaxed">
+                            É a ponte entre o design visual e a tecnologia funcional.
+                        </p>
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop" alt="[Pessoa trabalhando com gráficos e interfaces de usuário em múltiplos monitores]" class="rounded-lg shadow-md w-full h-auto">
+                </div>
+            </div>
+             <div id="diaadia-front">
+                <h3 class="text-3xl font-bold mb-6 section-title">2. O Dia a Dia na Prática</h3>
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop" alt="[Equipa de trabalho a colaborar num quadro branco com post-its]" class="rounded-lg shadow-md w-full h-auto order-last md:order-first">
+                    <div>
+                        <p class="text-lg mb-4 leading-relaxed">
+                            As tarefas diárias são uma mistura de desenvolvimento, colaboração e resolução de problemas:
+                        </p>
+                        <ul class="list-disc list-inside space-y-3">
+                            <li><strong>Criação de Telas e Jornadas:</strong> Transformar protótipos em código funcional.</li>
+                            <li><strong>Refinamento de Produto:</strong> Participar de reuniões para discutir funcionalidades.</li>
+                            <li><strong>Sustentação e Correção de Bugs:</strong> Manter a aplicação funcionando e corrigir problemas.</li>
+                            <li><strong>Sugestão de Melhorias:</strong> Propor otimizações de performance e usabilidade.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div id="habilidades-front">
+                <h3 class="text-3xl font-bold mb-6 section-title">3. Habilidades Essenciais: Além do Código</h3>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-gray-800 p-6 rounded-lg border border-gray-700">
+                        <h4 class="text-2xl font-bold text-white mb-4">Hard Skills (Técnicas)</h4>
+                        <ul class="list-disc list-inside space-y-2">
+                            <li>HTML, CSS, JavaScript</li>
+                            <li>Frameworks (React, Angular, etc.)</li>
+                            <li>Controle de Versão (Git)</li>
+                            <li>Responsividade</li>
+                        </ul>
+                    </div>
+                    <div class="bg-gray-800 p-6 rounded-lg border border-gray-700">
+                        <h4 class="text-2xl font-bold text-white mb-4">Soft Skills (Comportamentais)</h4>
+                        <ul class="list-disc list-inside space-y-2">
+                            <li>Comunicação</li>
+                            <li>Resolução de Problemas</li>
+                            <li>Trabalho em Equipa</li>
+                            <li>Aprendizado Contínuo</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div id="conclusao-modulo">
+                <h3 class="text-3xl font-bold mb-6 section-title">4. Conclusão do Módulo 1</h3>
+                <div class="bg-gray-800 text-gray-200 p-6 rounded-lg" style="border-left: 4px solid #e80170;">
+                    <h4 class="text-xl font-semibold text-white mb-3">Parabéns por chegar até aqui!</h4>
+                    <p class="mb-4">Neste módulo, viajamos desde a origem da internet até o dia a dia de um profissional da área. Você agora entende os conceitos fundamentais que formam a base de toda a web.</p>
+                    <p class="font-bold mt-4">Nos vemos no Módulo 2!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+  </main>
+
+</body>
+
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aula 10: Git na Linha de Comando</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    .section-title {
+      border-bottom: 3px solid #e80170;
+      padding-bottom: 0.5rem;
+      display: inline-block;
+    }
+    
+    .lesson-title {
+        font-size: 2.5rem;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+
+    code.block {
+      display: block;
+      white-space: pre;
+      background-color: #1F2937; /* Gray-800 */
+      color: #F9FAFB; /* Gray-50 */
+      padding: 1rem;
+      border-radius: 8px;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.9em;
+      line-height: 1.5;
+    }
+    
+    code.inline {
+      background-color: #374151;
+      color: #F9FAFB;
+      padding: 0.2rem 0.5rem;
+      border-radius: 6px;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.9em;
+    }
+    
+    .logo {
+      border-radius: 20px;
+      width: 100px;
+      object-fit: contain;
+    }
+  </style>
+</head>
+
+<body class="bg-gray-900 text-gray-300">
+
+  <!-- Header -->
+  <header class="bg-gray-800 shadow-lg sticky top-0 z-20">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+      <div>
+        <h1 class="text-xl font-bold text-white">Módulo 3: Ferramentas do Desenvolvedor</h1>
+        <p class="text-md font-semibold" style="color: #e80170;">Aula 10: Git na Linha de Comando</p>
+      </div>
+      <img src="https://passaportefc.com/wp-content/uploads/2024/03/serasa-logo-2-1024x432.png" alt="Logo Serasa"
+        class="logo">
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="max-w-5xl mx-auto p-6 md:p-8">
+
+    <section id="aula-10">
+        <h2 class="lesson-title">Git na Linha de Comando (CLI)</h2>
+        <div class="space-y-16">
+
+            <div id="por-que-cli">
+                <h3 class="text-3xl font-bold mb-6 section-title">1. Por que usar a Linha de Comando?</h3>
+                <p class="text-lg mb-6 leading-relaxed">
+                   Interfaces gráficas são ótimas para começar, mas a linha de comando (CLI) é onde você ganha <strong style="color: #e80170;">velocidade, controle e poder</strong>. É a ferramenta principal de trabalho de desenvolvedores experientes e a que te dá a compreensão mais profunda sobre o Git.
+                </p>
+            </div>
+
+            <div id="configuracao-ssh">
+              <h3 class="text-3xl font-bold mb-6 section-title">2. Passo Zero: Configurando a Chave SSH</h3>
+              <p class="text-lg mb-6 leading-relaxed">
+                  Antes de interagir com o GitHub, você precisa de uma forma segura de se autenticar. A chave SSH funciona como uma "impressão digital" digital, permitindo que você se conecte sem precisar digitar seu usuário e senha toda vez. <strong class="text-white">Isso só precisa ser feito uma vez por computador.</strong>
+              </p>
+              
+              <h4 class="text-xl font-semibold mt-6 mb-2 text-white">Passo 1: Gerar a Chave</h4>
+              <p class="mb-4">Abra seu terminal e rode o comando abaixo, substituindo pelo seu e-mail do GitHub.</p>
+              <code class="block">ssh-keygen -t ed25519 -C "seu_email@exemplo.com"</code>
+
+              <h4 class="text-xl font-semibold mt-6 mb-2 text-white">Passo 2: Adicionar a Chave ao GitHub</h4>
+              <p class="mb-4">O comando anterior cria uma chave pública. Você precisa copiar o conteúdo dessa chave e colá-lo nas configurações da sua conta no GitHub.</p>
+              <ol class="list-decimal list-inside space-y-2">
+                <li>Copie sua chave pública (o conteúdo do arquivo <code class="inline">id_ed25519.pub</code>).</li>
+                <li>No GitHub, vá em <code class="inline">Settings</code> > <code class="inline">SSH and GPG keys</code>.</li>
+                <li>Clique em <code class="inline">New SSH key</code>, dê um título e cole sua chave.</li>
+              </ol>
+            </div>
+
+            <div id="comecando-com-clone">
+              <h3 class="text-3xl font-bold mb-6 section-title">3. O Ponto de Partida: Clonando o Repositório</h3>
+              <p class="text-lg mb-6 leading-relaxed">
+                  Com a autenticação configurada, o fluxo mais comum é entrar em um projeto que já existe no GitHub. O primeiro passo é <strong class="text-white">clonar</strong> (fazer uma cópia local) desse repositório.
+              </p>
+              <code class="block">git clone URL_SSH_DO_SEU_REPOSITORIO_NO_GITHUB</code>
+              <p class="text-lg mt-4 leading-relaxed">
+                 <strong class="text-white">Importante:</strong> Ao clonar, certifique-se de usar a URL SSH (que começa com <code class="inline">git@github.com:...</code>), não a HTTPS.
+              </p>
+            </div>
+
+            <div id="fluxo-de-trabalho">
+                <h3 class="text-3xl font-bold mb-6 section-title">4. O Fluxo de Trabalho no Dia a Dia</h3>
+                <p class="text-lg mb-6 leading-relaxed">
+                   Uma vez com o projeto na sua máquina, o ciclo de trabalho é constante. O objetivo é salvar suas alterações em pequenos "pacotes" com significado.
+                </p>
+
+                <h4 class="text-xl font-semibold mt-6 mb-2 text-white">Passo 1: Verificar o que mudou</h4>
+                <p class="mb-4">Antes de mais nada, veja o estado atual do seu projeto.</p>
+                <code class="block">git status</code>
+                
+                <h4 class="text-xl font-semibold mt-6 mb-2 text-white">Passo 2: Preparar as alterações</h4>
+                <p class="mb-4">Adicione os arquivos que você modificou para a "área de preparação" (staging area), sinalizando que eles estão prontos para o próximo commit.</p>
+                <code class="block">git add .</code>
+                
+                <h4 class="text-xl font-semibold mt-6 mb-2 text-white">Passo 3: Salvar as alterações (Commit)</h4>
+                <p class="mb-4">Crie um "save point" com uma mensagem clara e descritiva sobre o que foi feito.</p>
+                <code class="block">git commit -m "Adiciona a seção de contato ao rodapé"</code>
+            </div>
+
+            <div id="sincronizando-remoto">
+              <h3 class="text-3xl font-bold mb-6 section-title">5. Sincronizando com o GitHub (Pull & Push)</h3>
+              <p class="text-lg mb-6 leading-relaxed">
+                 Trabalhar em equipe significa manter seu código local sincronizado com o repositório remoto no GitHub.
+              </p>
+
+              <h4 class="text-xl font-semibold mt-6 mb-2 text-white">Pull: Trazendo atualizações</h4>
+              <p class="mb-4"><strong>Antes de começar a trabalhar (e antes de dar um push)</strong>, sempre puxe as últimas alterações do repositório remoto. Isso evita conflitos.</p>
+              <code class="block">git pull</code>
+
+              <h4 class="text-xl font-semibold mt-6 mb-2 text-white">Push: Enviando suas alterações</h4>
+              <p class="mb-4">Depois de fazer seus commits locais, envie-os para o GitHub para que o resto da equipe possa vê-los.</p>
+              <code class="block">git push</code>
+            </div>
+            
+            <div id="conclusao-cli">
+                <h3 class="text-3xl font-bold mb-6 section-title">6. Conclusão</h3>
+                <div class="bg-gray-800 text-gray-200 p-6 rounded-lg" style="border-left: 4px solid #e80170;">
+                    <h4 class="text-xl font-semibold text-white mb-3">Resumo do Fluxo Colaborativo</h4>
+                    <ol class="list-decimal list-inside space-y-2">
+                      <li><strong>Configuração (só na primeira vez por máquina):</strong> Gerar e adicionar a chave SSH.</li>
+                      <li><code class="inline">git clone</code>: Baixar o projeto (só na primeira vez).</li>
+                      <li><code class="inline">git pull</code>: Sincronizar com as novidades do remoto (sempre!).</li>
+                      <li>... fazer suas alterações no código ...</li>
+                      <li><code class="inline">git status</code> / <code class="inline">git add .</code> / <code class="inline">git commit -m "..."</code>: Salvar seu trabalho localmente.</li>
+                      <li><code class="inline">git push</code>: Enviar seu trabalho para o GitHub.</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </section>
+  </main>
+</body>
+</html>
+
