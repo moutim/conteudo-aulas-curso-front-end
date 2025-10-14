@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercícios de Lógica com Exemplos - Parte 2</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    .lesson-title {
+        font-size: 2.5rem;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+    .logo {
+      border-radius: 20px;
+      width: 100px;
+      object-fit: contain;
+    }
+    .exercise-card {
+        background-color: #1F2937; /* Gray-800 */
+        border: 1px solid #374151; /* Gray-700 */
+        border-left: 4px solid #e80170;
+        border-radius: 8px;
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+  </style>
+</head>
+<body class="bg-gray-900 text-gray-300">
+
+  <!-- Header -->
+  <header class="bg-gray-800 shadow-lg sticky top-0 z-20">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+      <div>
+        <h1 class="text-xl font-bold text-white">Módulo 4: A Base da Programação</h1>
+        <p class="text-md font-semibold" style="color: #e80170;">Exercícios de Lógica - Parte 2</p>
+      </div>
+      <img src="https://passaportefc.com/wp-content/uploads/2024/03/serasa-logo-2-1024x432.png" alt="Logo Serasa" class="logo">
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="max-w-5xl mx-auto p-6 md:p-8">
+    <section id="exercicios">
+        <h2 class="lesson-title">Exercícios (Parte 2)</h2>
+        <p class="text-lg text-center mb-12 leading-relaxed">
+            Use os exemplos de entrada e saída para validar a lógica dos seus algoritmos.
+        </p>
+
+        <div class="space-y-8">
+            <!-- Exercício 16 -->
+            <div class="exercise-card">
+                <h3 class="text-xl font-bold text-white">16. Calculadora de Desconto</h3>
+                <p class="mb-4">Peça o preço de um produto e a porcentagem de desconto. Calcule e mostre o valor do desconto e o preço final.</p>
+                <div class="mt-4 pt-4 border-t border-gray-700">
+                    <h4 class="font-semibold text-gray-400 mb-2">Exemplo de Entrada e Saída:</h4>
+                    <div class="bg-gray-900 p-4 rounded-md text-sm">
+                        <p><strong class="text-green-400">Entrada:</strong> Preço R$ 100, Desconto 20%</p>
+                        <p class="mt-2"><strong class="text-yellow-400">Saída Esperada:</strong></p>
+                        <p>Valor do desconto: R$ 20.0</p>
+                        <p>Preço final: R$ 80.0</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Exercício 17 -->
+            <div class="exercise-card">
+                <h3 class="text-xl font-bold text-white">17. Conversor de Temperatura</h3>
+                <p class="mb-4">Peça uma temperatura em Celsius e converta para Fahrenheit. A fórmula é: F = C * 1.8 + 32.</p>
+                <div class="mt-4 pt-4 border-t border-gray-700">
+                    <h4 class="font-semibold text-gray-400 mb-2">Exemplo de Entrada e Saída:</h4>
+                    <div class="bg-gray-900 p-4 rounded-md text-sm">
+                        <p><strong class="text-green-400">Entrada:</strong> 25°C</p>
+                        <p class="mt-2"><strong class="text-yellow-400">Saída Esperada:</strong> A temperatura em Fahrenheit é: 77°F</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Exercício 18 -->
+            <div class="exercise-card">
+                <h3 class="text-xl font-bold text-white">18. Aluguel de Carro</h3>
+                <p class="mb-4">Calcule o preço a pagar pelo aluguel de um carro. Peça a quantidade de dias e a quantidade de Km rodados. Preço: R$60/dia e R$0,15/Km.</p>
+                <div class="mt-4 pt-4 border-t border-gray-700">
+                    <h4 class="font-semibold text-gray-400 mb-2">Exemplo de Entrada e Saída:</h4>
+                    <div class="bg-gray-900 p-4 rounded-md text-sm">
+                        <p><strong class="text-green-400">Entrada:</strong> 10 dias, 500 Km</p>
+                        <p class="mt-2"><strong class="text-yellow-400">Saída Esperada:</strong> O preço total a pagar é: R$ 675.0</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Exercício 19 -->
+            <div class="exercise-card">
+                <h3 class="text-xl font-bold text-white">19. Situação de Votação</h3>
+                <p class="mb-4">Leia a idade de uma pessoa e informe se ela é "Não votante" (abaixo de 16), "Voto opcional" (entre 16 e 17 ou acima de 70) ou "Voto obrigatório" (entre 18 e 70).</p>
+                <div class="mt-4 pt-4 border-t border-gray-700">
+                    <h4 class="font-semibold text-gray-400 mb-2">Exemplo de Entrada e Saída:</h4>
+                    <div class="bg-gray-900 p-4 rounded-md text-sm">
+                        <p><strong class="text-green-400">Entrada:</strong> Idade 17</p>
+                        <p class="mt-2"><strong class="text-yellow-400">Saída Esperada:</strong> Situação: Voto opcional.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Exercício 20 -->
+            <div class="exercise-card">
+                <h3 class="text-xl font-bold text-white">20. IMC com Classificação</h3>
+                <p class="mb-4">Calcule o IMC e adicione a classificação: Abaixo de 18.5 (Abaixo do peso), entre 18.5 e 24.9 (Peso normal), entre 25 e 29.9 (Sobrepeso), 30 ou mais (Obesidade).</p>
+                 <div class="mt-4 pt-4 border-t border-gray-700">
+                    <h4 class="font-semibold text-gray-400 mb-2">Exemplo de Entrada e Saída:</h4>
+                    <div class="bg-gray-900 p-4 rounded-md text-sm">
+                        <p><strong class="text-green-400">Entrada:</strong> Peso 70kg, Altura 1.75m</p>
+                        <p class="mt-2"><strong class="text-yellow-400">Saída Esperada:</strong></p>
+                        <p>Seu IMC é: 22.85...</p>
+                        <p>Classificação: Peso normal.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Exercício 21 -->
+            <div class="exercise-card">
+                <h3 class="text-xl font-bold text-white">21. Formas de Pagamento</h3>
+                <p class="mb-4">Leia o preço de um produto e informe o valor final conforme a condição de pagamento: À vista (10% de desconto), 2x no cartão (preço normal), 3x ou mais (20% de juros).</p>
+                 <div class="mt-4 pt-4 border-t border-gray-700">
+                    <h4 class="font-semibold text-gray-400 mb-2">Exemplo de Entrada e Saída:</h4>
+                    <div class="bg-gray-900 p-4 rounded-md text-sm">
+                        <p><strong class="text-green-400">Entrada:</strong> Preço R$ 1000, Opção 3</p>
+                        <p class="mt-2"><strong class="text-yellow-400">Saída Esperada:</strong> Valor final: R$ 1200.0</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Exercício 22 -->
+            <div class="exercise-card">
+                <h3 class="text-xl font-bold text-white">22. É um Triângulo?</h3>
+                <p class="mb-4">Peça 3 comprimentos de retas e diga se elas podem ou não formar um triângulo. (Condição: a soma de dois lados deve ser sempre maior que o terceiro lado).</p>
+                <div class="mt-4 pt-4 border-t border-gray-700">
+                    <h4 class="font-semibold text-gray-400 mb-2">Exemplo de Entrada e Saída:</h4>
+                    <div class="bg-gray-900 p-4 rounded-md text-sm">
+                        <p><strong class="text-green-400">Entrada:</strong> Lados 7, 10, 5</p>
+                        <p class="mt-2"><strong class="text-yellow-400">Saída Esperada:</strong> As retas PODEM formar um triângulo.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Exercício 23 -->
+             <div class="exercise-card">
+                <h3 class="text-xl font-bold text-white">23. Maior de Três</h3>
+                <p class="mb-4">Leia três números e mostre qual é o maior deles.</p>
+                <div class="mt-4 pt-4 border-t border-gray-700">
+                    <h4 class="font-semibold text-gray-400 mb-2">Exemplo de Entrada e Saída:</h4>
+                    <div class="bg-gray-900 p-4 rounded-md text-sm">
+                        <p><strong class="text-green-400">Entrada:</strong> Números 25, 12, 30</p>
+                        <p class="mt-2"><strong class="text-yellow-400">Saída Esperada:</strong> O maior número é: 30</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Exercício 24 -->
+            <div class="exercise-card">
+                <h3 class="text-xl font-bold text-white">24. Ordem Crescente</h3>
+                <p class="mb-4">Leia dois números diferentes e os mostre em ordem crescente.</p>
+                 <div class="mt-4 pt-4 border-t border-gray-700">
+                    <h4 class="font-semibold text-gray-400 mb-2">Exemplo de Entrada e Saída:</h4>
+                    <div class="bg-gray-900 p-4 rounded-md text-sm">
+                        <p><strong class="text-green-400">Entrada:</strong> Números 50, 25</p>
+                        <p class="mt-2"><strong class="text-yellow-400">Saída Esperada:</strong> Ordem crescente: 25, 50</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Exercício 25 -->
+            <div class="exercise-card">
+                <h3 class="text-xl font-bold text-white">25. Ano Bissexto</h3>
+                <p class="mb-4">Peça um ano e determine se ele é bissexto ou não. (Divisível por 4, mas não por 100, a menos que também seja por 400).</p>
+                <div class="mt-4 pt-4 border-t border-gray-700">
+                    <h4 class="font-semibold text-gray-400 mb-2">Exemplo de Entrada e Saída:</h4>
+                    <div class="bg-gray-900 p-4 rounded-md text-sm">
+                        <p><strong class="text-green-400">Entrada:</strong> Ano 2024</p>
+                        <p class="mt-2"><strong class="text-yellow-400">Saída Esperada:</strong> O ano 2024 é bissexto.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Exercício 26 -->
+            <div class="exercise-card">
+                <h3 class="text-xl font-bold text-white">26. Alistamento Militar</h3>
+                <p class="mb-4">Peça o ano de nascimento de um jovem e informe sua situação de alistamento. Considere o ano atual como 2025.</p>
+                 <div class="mt-4 pt-4 border-t border-gray-700">
+                    <h4 class="font-semibold text-gray-400 mb-2">Exemplo de Entrada e Saída:</h4>
+                    <div class="bg-gray-900 p-4 rounded-md text-sm">
+                        <p><strong class="text-green-400">Entrada:</strong> Ano de nascimento 2010</p>
+                        <p class="mt-2"><strong class="text-yellow-400">Saída Esperada:</strong></p>
+                        <p>Você tem 15 anos em 2025.</p>
+                        <p>Ainda vai se alistar. Faltam 3 anos.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Exercício 27 -->
+            <div class="exercise-card">
+                <h3 class="text-xl font-bold text-white">27. Média com Status</h3>
+                <p class="mb-4">Peça duas notas, calcule a média e mostre o status: Reprovado (< 5.0), Recuperação (>= 5.0 e < 7.0) ou Aprovado (>= 7.0).</p>
+                <div class="mt-4 pt-4 border-t border-gray-700">
+                    <h4 class="font-semibold text-gray-400 mb-2">Exemplo de Entrada e Saída:</h4>
+                    <div class="bg-gray-900 p-4 rounded-md text-sm">
+                        <p><strong class="text-green-400">Entrada:</strong> Notas 6.0, 8.0</p>
+                        <p class="mt-2"><strong class="text-yellow-400">Saída Esperada:</strong></p>
+                        <p>Sua média é: 7.0</p>
+                        <p>Status: APROVADO</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Exercício 28 -->
+            <div class="exercise-card">
+                <h3 class="text-xl font-bold text-white">28. Pedra, Papel e Tesoura</h3>
+                <p class="mb-4">Peça a jogada de dois jogadores (1-Pedra, 2-Papel, 3-Tesoura) e determine o vencedor.</p>
+                 <div class="mt-4 pt-4 border-t border-gray-700">
+                    <h4 class="font-semibold text-gray-400 mb-2">Exemplo de Entrada e Saída:</h4>
+                    <div class="bg-gray-900 p-4 rounded-md text-sm">
+                        <p><strong class="text-green-400">Entrada:</strong> Jogador 1: 2, Jogador 2: 1</p>
+                        <p class="mt-2"><strong class="text-yellow-400">Saída Esperada:</strong> Jogador 1 VENCEU!</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Exercício 29 -->
+            <div class="exercise-card">
+                <h3 class="text-xl font-bold text-white">29. Preço da Passagem</h3>
+                <p class="mb-4">Calcule o preço da passagem de ônibus. Peça a distância em Km. Até 200Km, custa R$0,50/Km. Acima disso, R$0,45/Km.</p>
+                 <div class="mt-4 pt-4 border-t border-gray-700">
+                    <h4 class="font-semibold text-gray-400 mb-2">Exemplo de Entrada e Saída:</h4>
+                    <div class="bg-gray-900 p-4 rounded-md text-sm">
+                        <p><strong class="text-green-400">Entrada:</strong> Distância 300 Km</p>
+                        <p class="mt-2"><strong class="text-yellow-400">Saída Esperada:</strong> O preço da passagem é: R$ 135.0</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Exercício 30 -->
+            <div class="exercise-card">
+                <h3 class="text-xl font-bold text-white">30. Empréstimo Bancário</h3>
+                <p class="mb-4">Peça o valor da casa, o salário do comprador e em quantos anos ele vai pagar. A prestação mensal não pode exceder 30% do salário. Informe se o empréstimo foi aprovado ou negado.</p>
+                 <div class="mt-4 pt-4 border-t border-gray-700">
+                    <h4 class="font-semibold text-gray-400 mb-2">Exemplo de Entrada e Saída:</h4>
+                    <div class="bg-gray-900 p-4 rounded-md text-sm">
+                        <p><strong class="text-green-400">Entrada:</strong> Valor da casa R$ 180000, Salário R$ 2000, Anos 30</p>
+                        <p class="mt-2"><strong class="text-yellow-400">Saída Esperada:</strong></p>
+                        <p>A prestação mensal será de: R$ 500.0</p>
+                        <p>Empréstimo APROVADO!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+  </main>
+
+</body>
+</html>
