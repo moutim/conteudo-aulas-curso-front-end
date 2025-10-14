@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercícios de Lógica de Programação</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    .lesson-title {
+        font-size: 2.5rem;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+    .logo {
+      border-radius: 20px;
+      width: 100px;
+      object-fit: contain;
+    }
+    .exercise-card {
+        background-color: #1F2937; /* Gray-800 */
+        border: 1px solid #374151; /* Gray-700 */
+        border-left: 4px solid #e80170;
+        border-radius: 8px;
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+  </style>
+</head>
+<body class="bg-gray-900 text-gray-300">
+
+  <!-- Header -->
+  <header class="bg-gray-800 shadow-lg sticky top-0 z-20">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+      <div>
+        <h1 class="text-xl font-bold text-white">Módulo 4: A Base da Programação</h1>
+        <p class="text-md font-semibold" style="color: #e80170;">Exercícios de Lógica</p>
+      </div>
+      <img src="https://passaportefc.com/wp-content/uploads/2024/03/serasa-logo-2-1024x432.png" alt="Logo Serasa" class="logo">
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="max-w-5xl mx-auto p-6 md:p-8">
+    <section id="exercicios">
+        <h2 class="lesson-title">Exercícios: Praticando a Lógica</h2>
+        <p class="text-lg text-center mb-12 leading-relaxed">
+            Para cada problema, pense primeiro na solução em <strong>Portugol</strong> (a sequência de passos) e depois tente "traduzir" para <strong>JavaScript</strong>.
+        </p>
+
+        <div class="space-y-8">
+            <div class="exercise-card">
+                <h3 class="text-xl font-bold text-white">1. Olá, Mundo!</h3>
+                <p>Crie um algoritmo que simplesmente mostre a mensagem "Olá, Mundo!" na tela.</p>
+            </div>
+            <div class="exercise-card">
+                <h3 class="text-xl font-bold text-white">2. Nome e Sobrenome</h3>
+                <p>Crie um algoritmo que peça o nome e o sobrenome do usuário e, em seguida, mostre o nome completo.</p>
+            </div>
+            <div class="exercise-card">
+                <h3 class="text-xl font-bold text-white">3. Soma de Dois Números</h3>
+                <p>Crie um algoritmo que solicite dois números ao usuário e mostre a soma deles.</p>
+            </div>
+            <div class="exercise-card">
+                <h3 class="text-xl font-bold text-white">4. Calculadora de Média</h3>
+                <p>Crie um algoritmo que peça 3 notas de um aluno e calcule a média. Mostre a média no final.</p>
+            </div>
+            <div class="exercise-card">
+                <h3 class="text-xl font-bold text-white">5. Sucessor e Antecessor</h3>
+                <p>Crie um algoritmo que peça um número e mostre na tela o seu antecessor e o seu sucessor.</p>
+            </div>
+            <div class="exercise-card">
+                <h3 class="text-xl font-bold text-white">6. Aumento Salarial</h3>
+                <p>Crie um algoritmo que leia o salário de um funcionário e mostre seu novo salário com 15% de aumento.</p>
+            </div>
+            <div class="exercise-card">
+                <h3 class="text-xl font-bold text-white">7. Conversor de Moedas</h3>
+                <p>Crie um algoritmo que leia um valor em Reais e converta para Dólares. Considere a cotação do Dólar como R$ 5,00.</p>
+            </div>
+             <div class="exercise-card">
+                <h3 class="text-xl font-bold text-white">8. Par ou Ímpar?</h3>
+                <p>Crie um algoritmo que leia um número e diga se ele é par ou ímpar. (Dica: use o operador de resto de divisão %).</p>
+            </div>
+            <div class="exercise-card">
+                <h3 class="text-xl font-bold text-white">9. Maior de Idade</h3>
+                <p>Crie um algoritmo que leia a idade de uma pessoa e diga se ela é maior de idade (18 anos ou mais) ou não.</p>
+            </div>
+            <div class="exercise-card">
+                <h3 class="text-xl font-bold text-white">10. Qual é maior?</h3>
+                <p>Crie um algoritmo que leia dois números e informe qual deles é o maior.</p>
+            </div>
+            <div class="exercise-card">
+                <h3 class="text-xl font-bold text-white">11. Aprovado ou Reprovado?</h3>
+                <p>Crie um algoritmo que calcule a média de duas notas e informe se o aluno foi aprovado (média >= 7) ou reprovado.</p>
+            </div>
+            <div class="exercise-card">
+                <h3 class="text-xl font-bold text-white">12. Positivo, Negativo ou Zero?</h3>
+                <p>Crie um algoritmo que leia um número e informe se ele é positivo, negativo ou zero.</p>
+            </div>
+            <div class="exercise-card">
+                <h3 class="text-xl font-bold text-white">13. Categoria de Nadador</h3>
+                <p>Crie um algoritmo que leia a idade de um nadador e o classifique em uma das seguintes categorias: Infantil A (5-7 anos), Infantil B (8-11 anos), Juvenil A (12-13 anos), Juvenil B (14-17 anos) ou Adulto (maiores de 18 anos).</p>
+            </div>
+            <div class="exercise-card">
+                <h3 class="text-xl font-bold text-white">14. Login Simples</h3>
+                <p>Crie um algoritmo que peça um nome de usuário e uma senha. Se o usuário for "admin" e a senha for "1234", mostre "Login efetuado com sucesso". Caso contrário, mostre "Falha na autenticação".</p>
+            </div>
+            <div class="exercise-card">
+                <h3 class="text-xl font-bold text-white">15. Calculadora de IMC</h3>
+                <p>Crie um algoritmo para calcular o IMC (Índice de Massa Corporal) de uma pessoa. Peça o peso (em kg) e a altura (em metros). A fórmula é: IMC = peso / (altura * altura). Mostre o resultado.</p>
+            </div>
+        </div>
+    </section>
+  </main>
+</body>
+</html>

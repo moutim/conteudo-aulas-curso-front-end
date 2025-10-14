@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aula 11: Introdução à Lógica de Programação</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    .section-title {
+      border-bottom: 3px solid #e80170;
+      padding-bottom: 0.5rem;
+      display: inline-block;
+    }
+    
+    .lesson-title {
+        font-size: 2.5rem;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+
+    code.block {
+      display: block;
+      white-space: pre;
+      background-color: #1F2937; /* Gray-800 */
+      color: #F9FAFB; /* Gray-50 */
+      padding: 1rem;
+      border-radius: 8px;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.9em;
+      line-height: 1.5;
+    }
+    
+    code.inline {
+      background-color: #374151;
+      color: #F9FAFB;
+      padding: 0.2rem 0.5rem;
+      border-radius: 6px;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.9em;
+    }
+    
+    .logo {
+      border-radius: 20px;
+      width: 100px;
+      object-fit: contain;
+    }
+  </style>
+</head>
+
+<body class="bg-gray-900 text-gray-300">
+
+  <!-- Header -->
+  <header class="bg-gray-800 shadow-lg sticky top-0 z-20">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+      <div>
+        <h1 class="text-xl font-bold text-white">Módulo 4: A Base da Programação</h1>
+        <p class="text-md font-semibold" style="color: #e80170;">Aula 11: Introdução à Lógica de Programação</p>
+      </div>
+      <img src="https://passaportefc.com/wp-content/uploads/2024/03/serasa-logo-2-1024x432.png" alt="Logo Serasa"
+        class="logo">
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="max-w-5xl mx-auto p-6 md:p-8">
+
+    <section id="aula-11">
+        <h2 class="lesson-title">Lógica de Programação: Ensinando o Computador a Pensar</h2>
+        <div class="space-y-16">
+
+            <div id="o-que-e-logica">
+                <h3 class="text-3xl font-bold mb-6 section-title">1. O que é Lógica de Programação?</h3>
+                <p class="text-lg mb-6 leading-relaxed">
+                   Lógica de programação é a <strong style="color: #e80170;">habilidade de organizar um pensamento de forma sequencial e coerente</strong> para resolver um problema. É como criar uma receita de bolo para o computador: uma lista de passos claros e sem ambiguidade que ele deve seguir para chegar a um resultado.
+                </p>
+                <p class="text-lg leading-relaxed">
+                   Antes de escrever qualquer código, você precisa primeiro pensar na lógica por trás da solução.
+                </p>
+            </div>
+
+            <div id="algoritmos">
+              <h3 class="text-3xl font-bold mb-6 section-title">2. Algoritmos: A Receita do Bolo</h3>
+              <p class="text-lg mb-6 leading-relaxed">
+                  Um <strong class="text-white">algoritmo</strong> é exatamente essa sequência de passos. Trocar uma lâmpada, somar dois números, fazer café... tudo isso pode ser descrito como um algoritmo. O objetivo é pegar um problema complexo e quebrá-lo em passos pequenos e gerenciáveis.
+              </p>
+              <div class="bg-gray-800 p-6 rounded-lg">
+                  <h4 class="text-xl font-bold text-white mb-2">Exemplo: Algoritmo para somar dois números</h4>
+                  <ol class="list-decimal list-inside space-y-2">
+                      <li>Receba o primeiro número.</li>
+                      <li>Receba o segundo número.</li>
+                      <li>Some os dois números.</li>
+                      <li>Mostre o resultado.</li>
+                  </ol>
+              </div>
+            </div>
+
+            <div id="variaveis">
+                <h3 class="text-3xl font-bold mb-6 section-title">3. Variáveis: As "Caixas" para Guardar Informações</h3>
+                <p class="text-lg mb-6 leading-relaxed">
+                   Para que o computador execute os passos, ele precisa de um lugar para guardar as informações com as quais está trabalhando. <strong class="text-white">Variáveis</strong> são como caixas com etiquetas: elas têm um nome e guardam um valor dentro.
+                </p>
+                 <div class="grid md:grid-cols-3 gap-6">
+                    <div class="bg-gray-800 p-6 rounded-lg">
+                        <h4 class="text-xl font-bold text-white mb-2">Texto (String)</h4>
+                        <p>Para guardar palavras e frases. Ex: <code class="inline">nome = "Maria"</code></p>
+                    </div>
+                    <div class="bg-gray-800 p-6 rounded-lg">
+                        <h4 class="text-xl font-bold text-white mb-2">Número (Integer/Float)</h4>
+                        <p>Para guardar números inteiros ou com casas decimais. Ex: <code class="inline">idade = 30</code></p>
+                    </div>
+                    <div class="bg-gray-800 p-6 rounded-lg">
+                        <h4 class="text-xl font-bold text-white mb-2">Lógico (Boolean)</h4>
+                        <p>Para guardar apenas dois valores: <code class="inline">Verdadeiro</code> ou <code class="inline">Falso</code>.</p>
+                    </div>
+                </div>
+            </div>
+
+             <div id="operadores">
+                <h3 class="text-3xl font-bold mb-6 section-title">4. Operadores: As Ferramentas de Ação</h3>
+                <p class="text-lg mb-6 leading-relaxed">Operadores são os símbolos que usamos para realizar ações com nossas variáveis, como cálculos matemáticos ou comparações.</p>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-gray-800 p-6 rounded-lg">
+                        <h4 class="text-xl font-bold text-white mb-2">Aritméticos</h4>
+                        <p>Soma (`+`), Subtração (`-`), Multiplicação (`*`), Divisão (`/`).</p>
+                    </div>
+                    <div class="bg-gray-800 p-6 rounded-lg">
+                        <h4 class="text-xl font-bold text-white mb-2">Relacionais</h4>
+                        <p>Maior que (`>`), Menor que (`<`), Igual a (`==`), Diferente de (`!=`).</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="condicionais">
+                <h3 class="text-3xl font-bold mb-6 section-title">5. Condicionais: Tomando Decisões</h3>
+                <p class="text-lg mb-6 leading-relaxed">
+                   Nem sempre um algoritmo segue uma linha reta. Às vezes, o computador precisa tomar uma decisão com base em uma condição. Para isso, usamos o <strong class="text-white">SE / SENÃO</strong> (<code class="inline">if / else</code>).
+                </p>
+                <code class="block">
+SE (idade >= 18) ENTAO
+  escreva("Você é maior de idade.")
+SENAO
+  escreva("Você é menor de idade.")
+FIMSE
+                </code>
+            </div>
+            
+            <div id="portugol-js">
+                <h3 class="text-3xl font-bold mb-6 section-title">6. Portugol e JavaScript</h3>
+                <p class="text-lg mb-6 leading-relaxed">
+                   Para treinar nossa mente, vamos primeiro escrever nossos algoritmos em <strong style="color: #e80170;">Portugol</strong>, uma "linguagem" que se parece com o português e foca apenas na lógica. Depois que a lógica estiver correta, vamos "traduzir" para o <strong style="color: #e80170;">JavaScript</strong>, uma linguagem de programação real que os navegadores entendem.
+                </p>
+            </div>
+        </div>
+    </section>
+  </main>
+</body>
+</html>
