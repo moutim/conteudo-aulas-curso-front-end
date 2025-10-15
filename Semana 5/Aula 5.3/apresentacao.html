@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aula 12: Estruturas de Dados e Laços de Repetição</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    .section-title {
+      border-bottom: 3px solid #e80170;
+      padding-bottom: 0.5rem;
+      display: inline-block;
+    }
+    
+    .lesson-title {
+        font-size: 2.5rem;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+
+    code.block {
+      display: block;
+      white-space: pre;
+      background-color: #1F2937; /* Gray-800 */
+      color: #F9FAFB; /* Gray-50 */
+      padding: 1rem;
+      border-radius: 8px;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.9em;
+      line-height: 1.5;
+    }
+    
+    code.inline {
+      background-color: #374151;
+      color: #F9FAFB;
+      padding: 0.2rem 0.5rem;
+      border-radius: 6px;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.9em;
+    }
+    
+    .logo {
+      border-radius: 20px;
+      width: 100px;
+      object-fit: contain;
+    }
+  </style>
+</head>
+
+<body class="bg-gray-900 text-gray-300">
+
+  <!-- Header -->
+  <header class="bg-gray-800 shadow-lg sticky top-0 z-20">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+      <div>
+        <h1 class="text-xl font-bold text-white">Módulo 4: A Base da Programação</h1>
+        <p class="text-md font-semibold" style="color: #e80170;">Aula 12: Estruturas de Dados e Laços de Repetição</p>
+      </div>
+      <img src="https://passaportefc.com/wp-content/uploads/2024/03/serasa-logo-2-1024x432.png" alt="Logo Serasa"
+        class="logo">
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="max-w-5xl mx-auto p-6 md:p-8">
+
+    <section id="aula-12">
+        <h2 class="lesson-title">Estruturas de Dados e Laços de Repetição</h2>
+        <div class="space-y-16">
+
+            <div id="introducao">
+                <h3 class="text-3xl font-bold mb-6 section-title">1. Por que Precisamos de Mais que Variáveis Simples?</h3>
+                <p class="text-lg leading-relaxed">
+                   Estruturas de dados como <strong style="color: #e80170;">vetores</strong> e <strong style="color: #e80170;">registros</strong> nos permitem organizar e agrupar informações de forma lógica e eficiente, mas como manipulamos essas coleções de dados sem repetir código várias vezes?
+                </p>
+            </div>
+
+            <div id="vetores">
+              <h3 class="text-3xl font-bold mb-6 section-title">2. Vetores (Arrays): Coleções Ordenadas</h3>
+              <p class="text-lg mb-6 leading-relaxed">
+                  Um <strong class="text-white">vetor</strong> é como um armário com várias gavetas numeradas (índices), que nos permite armazenar uma coleção de valores do mesmo tipo.
+              </p>
+              <code class="block">
+// Declara um vetor de 5 posições para guardar números inteiros
+inteiro notas[5]
+notas[0] = 10
+// ...
+              </code>
+            </div>
+            
+            <div id="lacos">
+                <h3 class="text-3xl font-bold mb-6 section-title">3. Laços de Repetição: Automatizando Tarefas</h3>
+                <p class="text-lg mb-6 leading-relaxed">
+                  Para trabalhar com vetores e outras tarefas repetitivas, usamos os <strong class="text-white">laços de repetição</strong> (ou loops). Eles executam o mesmo bloco de código várias vezes.
+                </p>
+
+                <h4 class="text-xl font-semibold mt-6 mb-2 text-white">PARA (for): Quando você sabe o número de repetições</h4>
+                <p class="mb-4">O laço <code class="inline">para</code> é perfeito para percorrer vetores, pois sabemos exatamente o tamanho deles.</p>
+                <code class="block">
+// Mostra todas as 5 notas do vetor
+para (inteiro i = 0; i < 5; i++) {
+  escreva("Nota na posição ", i, ": ", notas[i])
+}
+                </code>
+
+                <h4 class="text-xl font-semibold mt-6 mb-2 text-white">ENQUANTO (while): Quando a condição de parada é variável</h4>
+                <p class="mb-4">O laço <code class="inline">enquanto</code> repete um bloco de código <strong class="text-white">enquanto</strong> uma condição for verdadeira.</p>
+                <code class="block">
+inteiro contador = 10
+enquanto (contador >= 0) {
+  escreva(contador, "...")
+  contador = contador - 1
+}
+// Saída: 10... 9... 8... etc.
+                </code>
+            </div>
+
+            <div id="registros">
+                <h3 class="text-3xl font-bold mb-6 section-title">4. Registros (Objetos): Agrupando Dados Diferentes</h3>
+                <p class="text-lg mb-6 leading-relaxed">
+                   Um <strong class="text-white">registro</strong> é como uma ficha de cadastro, agrupando valores de tipos diferentes sobre uma mesma entidade.
+                </p>
+                <code class="block">
+registro Produto {
+  cadeia nome
+  real preco
+}
+Produto meuProduto
+meuProduto.nome = "Teclado"
+              </code>
+            </div>
+
+             <div id="combinando">
+                <h3 class="text-3xl font-bold mb-6 section-title">5. O Poder da Combinação: Percorrendo Vetores de Registros</h3>
+                <p class="text-lg mb-6 leading-relaxed">Com os laços de repetição, agora podemos facilmente manipular um catálogo de produtos para, por exemplo, mostrar o nome de todos os itens.</p>
+                <code class="block">
+// Usando um vetor de Produtos
+Produto catalogo[3]
+// (preencha o catálogo com 3 produtos)
+
+para (inteiro i = 0; i < 3; i++) {
+  escreva("Produto: ", catalogo[i].nome, " - Preço: R$ ", catalogo[i].preco)
+}
+              </code>
+            </div>
+        </div>
+    </section>
+  </main>
+</body>
+</html>
