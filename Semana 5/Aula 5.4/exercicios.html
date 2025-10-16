@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercícios de Lógica com 'enquanto' (while)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    .lesson-title {
+        font-size: 2.5rem;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+    .logo {
+      border-radius: 20px;
+      width: 100px;
+      object-fit: contain;
+    }
+    .exercise-card {
+        background-color: #1F2937; /* Gray-800 */
+        border: 1px solid #374151; /* Gray-700 */
+        border-left: 4px solid #e80170;
+        border-radius: 8px;
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+    .example-box {
+        background-color: #111827; /* Gray-900 */
+        padding: 1rem;
+        border-radius: 0.5rem;
+        margin-top: 1rem;
+        font-family: 'Courier New', Courier, monospace;
+    }
+  </style>
+</head>
+<body class="bg-gray-900 text-gray-300">
+
+  <!-- Header -->
+  <header class="bg-gray-800 shadow-lg sticky top-0 z-20">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+      <div>
+        <h1 class="text-xl font-bold text-white">Módulo 4: A Base da Programação</h1>
+        <p class="text-md font-semibold" style="color: #e80170;">Exercícios com 'enquanto' (while)</p>
+      </div>
+      <img src="https://passaportefc.com/wp-content/uploads/2024/03/serasa-logo-2-1024x432.png" alt="Logo Serasa" class="logo">
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="max-w-5xl mx-auto p-6 md:p-8">
+    <section id="exercicios">
+        <h2 class="lesson-title">Exercícios: Praticando o Laço `enquanto`</h2>
+        <div class="space-y-8">
+            <div class="exercise-card">
+                <h3 class="text-xl font-bold text-white">1. Contagem Crescente</h3>
+                <p>Use um laço `enquanto` para mostrar os números de 1 a 10.</p>
+                <div class="example-box">
+                    <p><strong class="text-gray-400">Saída Esperada:</strong> 1 2 3 4 5 6 7 8 9 10</p>
+                </div>
+            </div>
+            <div class="exercise-card">
+                <h3 class="text-xl font-bold text-white">2. Peça um Número Positivo</h3>
+                <p>Peça ao usuário para digitar um número. Continue pedindo até que ele digite um número maior que 0.</p>
+                 <div class="example-box">
+                    <p><strong class="text-gray-400">Entrada:</strong> -5, -2, 0, 10</p>
+                    <p class="mt-2"><strong class="text-gray-400">Saída Esperada:</strong> (O programa só para quando 10 é digitado)</p>
+                </div>
+            </div>
+            <div class="exercise-card">
+                <h3 class="text-xl font-bold text-white">3. Adivinhe o Número</h3>
+                <p>Crie um "jogo" onde o número secreto é 42. Peça ao usuário para adivinhar o número. Continue pedindo até que ele acerte.</p>
+                <div class="example-box">
+                    <p><strong class="text-gray-400">Entrada:</strong> 10, 50, 42</p>
+                    <p class="mt-2"><strong class="text-gray-400">Saída Esperada:</strong> "Você acertou!"</p>
+                </div>
+            </div>
+            <div class="exercise-card">
+                <h3 class="text-xl font-bold text-white">4. Somador com 'flag'</h3>
+                <p>Peça para o usuário digitar números para serem somados. O programa deve parar quando o usuário digitar -1.</p>
+                <div class="example-box">
+                    <p><strong class="text-gray-400">Entrada:</strong> 5, 10, 2, -1</p>
+                    <p class="mt-2"><strong class="text-gray-400">Saída Esperada:</strong> A soma total é: 17</p>
+                </div>
+            </div>
+            <div class="exercise-card">
+                <h3 class="text-xl font-bold text-white">5. Validação de Resposta</h3>
+                <p>Faça uma pergunta ao usuário: "Você gosta de programação? (s/n)". Continue perguntando até que a resposta seja 's' ou 'n'.</p>
+                <div class="example-box">
+                    <p><strong class="text-gray-400">Entrada:</strong> talvez, sim, ok, s</p>
+                    <p class="mt-2"><strong class="text-gray-400">Saída Esperada:</strong> (O programa só para quando 's' é digitado)</p>
+                </div>
+            </div>
+            <div class="exercise-card">
+                <h3 class="text-xl font-bold text-white">6. Potência sem Usar Multiplicação Direta de Potência</h3>
+                <p>Peça uma base e um expoente. Calcule a potência (ex: 2 elevado a 3 = 8) usando um laço `enquanto` (multiplicando a base por ela mesma, o número de vezes do expoente).</p>
+                <div class="example-box">
+                    <p><strong class="text-gray-400">Entrada:</strong> Base: 3, Expoente: 4</p>
+                    <p class="mt-2"><strong class="text-gray-400">Saída Esperada:</strong> Resultado: 81</p>
+                </div>
+            </div>
+            <div class="exercise-card">
+                <h3 class="text-xl font-bold text-white">7. Contagem de Pares</h3>
+                <p>Mostre todos os números pares de 0 até 20.</p>
+                <div class="example-box">
+                    <p><strong class="text-gray-400">Saída Esperada:</strong> 0 2 4 6 8 10 12 14 16 18 20</p>
+                </div>
+            </div>
+            <div class="exercise-card">
+                <h3 class="text-xl font-bold text-white">8. Média da Turma (com 'flag')</h3>
+                <p>Peça as notas de vários alunos. O programa deve parar de pedir notas quando uma nota negativa for digitada. Ao final, calcule e mostre a média da turma.</p>
+                <div class="example-box">
+                    <p><strong class="text-gray-400">Entrada:</strong> 8.0, 7.0, 10.0, -1</p>
+                    <p class="mt-2"><strong class="text-gray-400">Saída Esperada:</strong> A média da turma é: 8.33</p>
+                </div>
+            </div>
+            <div class="exercise-card">
+                <h3 class="text-xl font-bold text-white">9. Fatorial de um Número</h3>
+                <p>Peça um número e calcule o seu fatorial. Ex: 5! = 5 * 4 * 3 * 2 * 1 = 120.</p>
+                <div class="example-box">
+                    <p><strong class="text-gray-400">Entrada:</strong> 5</p>
+                    <p class="mt-2"><strong class="text-gray-400">Saída Esperada:</strong> O fatorial de 5 é 120.</p>
+                </div>
+            </div>
+            <div class="exercise-card">
+                <h3 class="text-xl font-bold text-white">10. Sequência de Fibonacci</h3>
+                <p>Peça um número N e mostre os N primeiros termos da sequência de Fibonacci (0, 1, 1, 2, 3, 5, 8...).</p>
+                <div class="example-box">
+                    <p><strong class="text-gray-400">Entrada:</strong> 7</p>
+                    <p class="mt-2"><strong class="text-gray-400">Saída Esperada:</strong> 0 1 1 2 3 5 8</p>
+                </div>
+            </div>
+            <div class="exercise-card">
+                <h3 class="text-xl font-bold text-white">11. Divisão por Subtrações Sucessivas</h3>
+                <p>Peça dois números (dividendo e divisor) e calcule o resultado da divisão inteira usando apenas subtrações.</p>
+                <div class="example-box">
+                    <p><strong class="text-gray-400">Entrada:</strong> Dividendo: 10, Divisor: 3</p>
+                    <p class="mt-2"><strong class="text-gray-400">Saída Esperada:</strong> O resultado da divisão é 3.</p>
+                </div>
+            </div>
+            <div class="exercise-card">
+                <h3 class="text-xl font-bold text-white">12. Maior e Menor (com 'flag')</h3>
+                <p>Peça para o usuário digitar vários números. O programa para quando ele digitar 0. Ao final, mostre o maior e o menor número digitado.</p>
+                <div class="example-box">
+                    <p><strong class="text-gray-400">Entrada:</strong> 10, 5, 99, 2, 0</p>
+                    <p class="mt-2"><strong class="text-gray-400">Saída Esperada:</strong> Maior: 99, Menor: 2</p>
+                </div>
+            </div>
+            <div class="exercise-card">
+                <h3 class="text-xl font-bold text-white">13. Simulando um Saque</h3>
+                <p>Comece com um saldo de R$500. Peça ao usuário para digitar um valor de saque. Continue pedindo até que o valor digitado seja menor ou igual ao saldo.</p>
+                <div class="example-box">
+                    <p><strong class="text-gray-400">Entrada:</strong> 600, 550, 200</p>
+                    <p class="mt-2"><strong class="text-gray-400">Saída Esperada:</strong> Saque de R$200 efetuado. Saldo restante: R$300.</p>
+                </div>
+            </div>
+            <div class="exercise-card">
+                <h3 class="text-xl font-bold text-white">14. Preenchendo Vetor com 'while'</h3>
+                <p>Crie um vetor de 5 posições. Use um laço `enquanto` para pedir os 5 números ao usuário.</p>
+                <div class="example-box">
+                    <p><strong class="text-gray-400">Entrada:</strong> 1,2,3,4,5</p>
+                    <p class="mt-2"><strong class="text-gray-400">Saída Esperada:</strong> (Vetor preenchido com os 5 números)</p>
+                </div>
+            </div>
+            <div class="exercise-card">
+                <h3 class="text-xl font-bold text-white">15. Cadastro na Lista</h3>
+                <p>Crie um vetor de nomes. Permita que o usuário digite nomes para adicionar à lista. O programa para quando o usuário digitar "fim".</p>
+                <div class="example-box">
+                    <p><strong class="text-gray-400">Entrada:</strong> "Ana", "Carlos", "fim"</p>
+                    <p class="mt-2"><strong class="text-gray-400">Saída Esperada:</strong> (Vetor com "Ana" e "Carlos" armazenados)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+  </main>
+</body>
+</html>

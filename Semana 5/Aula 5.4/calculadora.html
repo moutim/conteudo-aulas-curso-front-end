@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Desafio Final: Menu Interativo</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    .lesson-title {
+        font-size: 2.5rem;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+    .logo {
+      border-radius: 20px;
+      width: 100px;
+      object-fit: contain;
+    }
+    .exercise-card {
+        background-color: #1F2937; /* Gray-800 */
+        border: 1px solid #374151; /* Gray-700 */
+        border-left: 4px solid #e80170;
+        border-radius: 8px;
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+    .example-box {
+        background-color: #111827; /* Gray-900 */
+        padding: 1rem;
+        border-radius: 0.5rem;
+        margin-top: 1rem;
+        font-family: 'Courier New', Courier, monospace;
+        white-space: pre;
+    }
+  </style>
+</head>
+<body class="bg-gray-900 text-gray-300">
+
+  <!-- Header -->
+  <header class="bg-gray-800 shadow-lg sticky top-0 z-20">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+      <div>
+        <h1 class="text-xl font-bold text-white">Módulo 4: A Base da Programação</h1>
+        <p class="text-md font-semibold" style="color: #e80170;">Desafio Final</p>
+      </div>
+      <img src="https://passaportefc.com/wp-content/uploads/2024/03/serasa-logo-2-1024x432.png" alt="Logo Serasa" class="logo">
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="max-w-5xl mx-auto p-6 md:p-8">
+    <section id="desafio">
+        <h2 class="lesson-title">Desafio: Mini Calculadora Interativa</h2>
+        
+        <div class="exercise-card">
+            <h3 class="text-xl font-bold text-white">Enunciado do Desafio</h3>
+            <p class="mt-4">
+                Crie um programa que funcione como uma mini calculadora. Ele deve mostrar um menu de opções para o usuário e continuar funcionando até que o usuário escolha a opção de sair.
+            </p>
+            <p class="mt-2">
+                Use um laço <strong class="text-white">`enquanto`</strong> para manter o menu ativo.
+            </p>
+            <p class="mt-4 font-bold text-white">O menu deve ter as seguintes opções:</p>
+            <ul class="list-disc list-inside mt-2 space-y-1">
+                <li>1 - Somar dois números</li>
+                <li>2 - Verificar se um número é Par ou Ímpar</li>
+                <li>3 - Mostrar a Tabuada de um número</li>
+                <li>4 - Mostrar uma mensagem 10 vezes</li>
+                <li>5 - Sair</li>
+            </ul>
+             <p class="mt-4">
+                Se o usuário digitar uma opção inválida, o programa deve mostrar "Opção inválida!" e exibir o menu novamente.
+            </p>
+        </div>
+
+        <div class="exercise-card">
+          <h3 class="text-xl font-bold text-white">Exemplo de Funcionamento</h3>
+          <div class="example-box">
+<strong class="text-gray-400">--- MENU ---
+1 - Somar
+2 - Par ou Ímpar
+3 - Tabuada
+4 - Mensagem 10x
+5 - Sair
+Escolha uma opção: </strong><span class="text-white">1</span>
+
+<strong class="text-gray-400">Digite o primeiro número: </strong><span class="text-white">10</span>
+<strong class="text-gray-400">Digite o segundo número: </strong><span class="text-white">5</span>
+<strong class="text-gray-400">A soma é: 15</strong>
+
+<strong class="text-gray-400">--- MENU ---
+1 - Somar
+2 - Par ou Ímpar
+3 - Tabuada
+4 - Mensagem 10x
+5 - Sair
+Escolha uma opção: </strong><span class="text-white">3</span>
+
+<strong class="text-gray-400">Digite um número para ver a tabuada: </strong><span class="text-white">7</span>
+<strong class="text-gray-400">7 x 1 = 7
+7 x 2 = 14
+... (até 10)</strong>
+
+<strong class="text-gray-400">--- MENU ---
+1 - Somar
+2 - Par ou Ímpar
+3 - Tabuada
+4 - Mensagem 10x
+5 - Sair
+Escolha uma opção: </strong><span class="text-white">5</span>
+
+<strong class="text-gray-400">Encerrando o programa...</strong>
+          </div>
+        </div>
+    </section>
+  </main>
+</body>
+</html>
