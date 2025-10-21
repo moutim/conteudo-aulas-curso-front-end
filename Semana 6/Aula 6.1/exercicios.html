@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercícios de Lógica com JavaScript</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    .lesson-title {
+        font-size: 2.5rem;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+    .logo {
+      border-radius: 20px;
+      width: 100px;
+      object-fit: contain;
+    }
+    .exercise-card {
+        background-color: #1F2937; /* Gray-800 */
+        border: 1px solid #374151; /* Gray-700 */
+        border-left: 4px solid #e80170;
+        border-radius: 8px;
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+    .example-box {
+        background-color: #111827; /* Gray-900 */
+        padding: 1rem;
+        border-radius: 0.5rem;
+        margin-top: 1rem;
+        font-family: 'Courier New', Courier, monospace;
+    }
+  </style>
+</head>
+<body class="bg-gray-900 text-gray-300">
+
+  <!-- Header -->
+  <header class="bg-gray-800 shadow-lg sticky top-0 z-20">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+      <div>
+        <h1 class="text-xl font-bold text-white">Módulo 5: Dando Vida às Páginas</h1>
+        <p class="text-md font-semibold" style="color: #e80170;">Exercícios de Lógica com JavaScript</p>
+      </div>
+      <img src="https://passaportefc.com/wp-content/uploads/2024/03/serasa-logo-2-1024x432.png" alt="Logo Serasa" class="logo">
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="max-w-5xl mx-auto p-6 md:p-8">
+    <section id="exercicios">
+        <h2 class="lesson-title">Exercícios: Praticando Lógica com JavaScript</h2>
+        <p class="text-lg text-center mb-12 leading-relaxed">
+            Crie um arquivo HTML e um arquivo JS separado para resolver cada exercício. Use `console.log()` para mostrar os resultados no console do navegador.
+        </p>
+
+        <div class="space-y-8">
+            <div class="exercise-card">
+                <h3 class="text-xl font-bold text-white">1. Olá, Mundo no Console</h3>
+                <p>Escreva um código que mostre a mensagem "Olá, Mundo!" no console.</p>
+            </div>
+            <div class="exercise-card">
+                <h3 class="text-xl font-bold text-white">2. Variáveis com Nome</h3>
+                <p>Crie uma variável `nome` e uma `sobrenome`. Atribua seus dados a elas e mostre a frase "Meu nome completo é: [nome] [sobrenome]".</p>
+            </div>
+            <div class="exercise-card">
+                <h3 class="text-xl font-bold text-white">3. Soma Simples</h3>
+                <p>Crie duas variáveis, `numero1` e `numero2`, com valores numéricos. Some-as e mostre o resultado.</p>
+            </div>
+            <div class="exercise-card">
+                <h3 class="text-xl font-bold text-white">4. Média de Notas (Array)</h3>
+                <p>Crie um array `notas` com 3 notas. Calcule a média e mostre o resultado.</p>
+            </div>
+            <div class="exercise-card">
+                <h3 class="text-xl font-bold text-white">5. Par ou Ímpar</h3>
+                <p>Crie uma variável com um número. Use um `if/else` para verificar se o número é par ou ímpar e mostre a mensagem correspondente.</p>
+            </div>
+            <div class="exercise-card">
+                <h3 class="text-xl font-bold text-white">6. Situação do Aluno</h3>
+                <p>Usando o exercício da média, verifique se o aluno foi "Aprovado" (média >= 7) ou "Reprovado".</p>
+            </div>
+            <div class="exercise-card">
+                <h3 class="text-xl font-bold text-white">7. Tabuada com `for`</h3>
+                <p>Crie uma variável `numeroTabuada`. Use um laço `for` para mostrar a tabuada de multiplicação desse número, de 1 a 10.</p>
+            </div>
+            <div class="exercise-card">
+                <h3 class="text-xl font-bold text-white">8. Percorrendo Nomes</h3>
+                <p>Crie um array com 5 nomes. Use um laço `for` para mostrar cada nome no console.</p>
+            </div>
+            <div class="exercise-card">
+                <h3 class="text-xl font-bold text-white">9. Contagem Regressiva com `while`</h3>
+                <p>Use um laço `while` para fazer uma contagem regressiva de 10 a 0.</p>
+            </div>
+            <div class="exercise-card">
+                <h3 class="text-xl font-bold text-white">10. Função de Saudação</h3>
+                <p>Crie uma função `saudar` que recebe um `nome` como parâmetro e retorna a string "Olá, [nome]!". Chame a função e mostre seu retorno no console.</p>
+            </div>
+            <div class="exercise-card">
+                <h3 class="text-xl font-bold text-white">11. Função de Soma</h3>
+                <p>Crie uma função `somar` que recebe dois números como parâmetros e retorna a soma deles.</p>
+            </div>
+            <div class="exercise-card">
+                <h3 class="text-xl font-bold text-white">12. Função para Calcular Média de um Array</h3>
+                <p>Crie uma função `calcularMediaArray` que recebe um array de notas e retorna a média. Use um laço dentro da função.</p>
+            </div>
+            <div class="exercise-card">
+                <h3 class="text-xl font-bold text-white">13. Encontrando o Maior Número em um Array</h3>
+                <p>Crie uma função `encontrarMaior` que recebe um array de números e retorna o maior valor.</p>
+            </div>
+            <div class="exercise-card">
+                <h3 class="text-xl font-bold text-white">14. Contando Vogais</h3>
+                <p>Crie uma função que recebe uma `palavra` (string) e retorna o número de vogais que ela contém.</p>
+            </div>
+            <div class="exercise-card">
+                <h3 class="text-xl font-bold text-white">15. Invertendo uma String</h3>
+                <p>Crie uma função que recebe uma `palavra` e a retorna invertida. Ex: "javascript" -> "tpircsavaj".</p>
+            </div>
+        </div>
+    </section>
+  </main>
+</body>
+</html>

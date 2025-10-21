@@ -1,17 +1,27 @@
 programa
 {
+	funcao mostrarMenu() {
+		escreva("\n--- MENU ---\n")
+		escreva("1 - Somar \n")
+		escreva("2 - Par ou Ímpar \n")
+		escreva("3 - Tabuada \n")
+		escreva("4 - Mensagem 10x \n")
+		escreva("5 - Sair \n")
+		escreva("Escolha uma opção: ")
+	}
+
+	funcao real somaDoisNumeros(real num1, real num2) {
+		real soma = num1 + num2
+
+		retorne soma
+	}
+	
 	funcao inicio()
 	{
 		inteiro opcaoEscolhida = 0
 
 		enquanto(opcaoEscolhida != 5) {
-			escreva("\n--- MENU ---\n")
-			escreva("1 - Somar \n")
-			escreva("2 - Par ou Ímpar \n")
-			escreva("3 - Tabuada \n")
-			escreva("4 - Mensagem 10x \n")
-			escreva("5 - Sair \n")
-			escreva("Escolha uma opção: ")
+			mostrarMenu()
 
 			leia(opcaoEscolhida)
 
@@ -28,7 +38,7 @@ programa
 					escreva("Digite o segundo número: ")
 					leia(num2)
 
-					real soma = num1 + num2
+					real soma = somaDoisNumeros(num1, num2)
 
 					escreva("O Resultado da soma é: ", soma,"\n")
 
@@ -90,7 +100,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 1736; 
+ * @POSICAO-CURSOR = 341; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
