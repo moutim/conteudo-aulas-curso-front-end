@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercícios de Manipulação do DOM</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    .lesson-title {
+        font-size: 2.5rem;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+    .logo {
+      border-radius: 20px;
+      width: 100px;
+      object-fit: contain;
+    }
+    .exercise-card {
+        background-color: #1F2937; /* Gray-800 */
+        border: 1px solid #374151; /* Gray-700 */
+        border-left: 4px solid #e80170;
+        border-radius: 8px;
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+    .html-snippet {
+        background-color: #111827; /* Gray-900 */
+        padding: 0.5rem 1rem;
+        border-radius: 0.5rem;
+        margin-top: 1rem;
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 0.85em;
+        white-space: pre;
+        color: #9CA3AF; /* Cor cinza para o snippet */
+    }
+    button.example-btn {
+        background-color: #4B5563; /* Gray-600 */
+        color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 0.5rem;
+        margin-top: 0.5rem;
+        transition: background-color 0.3s;
+    }
+    button.example-btn:hover {
+        background-color: #6B7280; /* Gray-500 */
+    }
+    /* Estilo para a classe destacado dos exercícios 14 e 15 */
+    .destacado { background-color: yellow; color: black; } 
+  </style>
+</head>
+<body class="bg-gray-900 text-gray-300">
+
+  <!-- Header -->
+  <header class="bg-gray-800 shadow-lg sticky top-0 z-20">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+      <div>
+        <h1 class="text-xl font-bold text-white">Módulo 5: Dando Vida às Páginas</h1>
+        <p class="text-md font-semibold" style="color: #e80170;">Exercícios de Manipulação do DOM</p>
+      </div>
+      <img src="https://passaportefc.com/wp-content/uploads/2024/03/serasa-logo-2-1024x432.png" alt="Logo Serasa" class="logo">
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="max-w-5xl mx-auto p-6 md:p-8">
+    <section id="exercicios">
+        <h2 class="lesson-title">Exercícios: Manipulando o DOM com JS</h2>
+        <p class="text-lg text-center mb-12 leading-relaxed">
+            Crie um arquivo HTML e um arquivo JS para cada exercício. Use o HTML fornecido como base.
+        </p>
+
+        <div class="space-y-8">
+            <div class="exercise-card">
+                <h3 class="text-xl font-bold text-white">1. Mudar Texto do Título</h3>
+                <p>Selecione o `<h1>` pelo seu ID e altere seu texto para "Título Modificado pelo JS".</p>
+                <div class="html-snippet">&lt;h1 id="titulo"&gt;Título Original&lt;/h1&gt;</div>
+            </div>
+            <div class="exercise-card">
+                <h3 class="text-xl font-bold text-white">2. Mudar Cor do Parágrafo</h3>
+                <p>Selecione o `<p>` usando `querySelector` e altere a cor do seu texto para a cor `#e80170`.</p>
+                <div class="html-snippet">&lt;p class="paragrafo"&gt;Este é um parágrafo.&lt;/p&gt;</div>
+            </div>
+            <div class="exercise-card">
+                <h3 class="text-xl font-bold text-white">3. Alerta no Clique</h3>
+                <p>Selecione o botão pelo ID. Adicione um `addEventListener` para o evento `click` que mostre um `console.log("Botão clicado!")`.</p>
+                <div class="html-snippet">&lt;button id="meuBotao" class="example-btn"&gt;Clique Aqui&lt;/button&gt;</div>
+            </div>
+            <div class="exercise-card">
+                <h3 class="text-xl font-bold text-white">4. Mudar Texto no Clique</h3>
+                <p>Selecione o botão e o parágrafo. Quando o botão for clicado, mude o texto do parágrafo para "Texto alterado!".</p>
+                <div class="html-snippet">&lt;button id="btnMudar" class="example-btn"&gt;Mudar Texto&lt;/button&gt;
+&lt;p id="textoParaMudar"&gt;Texto inicial.&lt;/p&gt;</div>
+            </div>
+            <div class="exercise-card">
+                <h3 class="text-xl font-bold text-white">5. Mostrar/Ocultar Elemento</h3>
+                <p>Selecione o botão e a `div`. Quando o botão for clicado, oculte a `div` definindo seu estilo `display` como `none`.</p>
+                <div class="html-snippet">&lt;button id="btnOcultar" class="example-btn"&gt;Ocultar&lt;/button&gt;
+&lt;div id="caixa" style="width:100px; height:100px; background-color: #e80170; margin-top: 10px;"&gt;&lt;/div&gt;</div>
+            </div>
+             <div class="exercise-card">
+                <h3 class="text-xl font-bold text-white">6. Mudar Estilo no MouseOver</h3>
+                <p>Selecione a `div`. Adicione um `addEventListener` para o evento `mouseover`. Quando o mouse passar sobre a `div`, mude sua cor de fundo para `blue`.</p>
+                <div class="html-snippet">&lt;div id="hoverDiv" style="width:100px; height:100px; background-color: #e80170;"&gt;Passe o mouse aqui&lt;/div&gt;</div>
+            </div>
+            <div class="exercise-card">
+                <h3 class="text-xl font-bold text-white">7. Voltar Estilo no MouseOut</h3>
+                <p>Complementando o exercício anterior, adicione um `addEventListener` para `mouseout`. Quando o mouse sair da `div`, volte a cor de fundo para `#e80170`.</p>
+                 <div class="html-snippet">(Use o mesmo HTML do exercício 6)</div>
+            </div>
+            <div class="exercise-card">
+                <h3 class="text-xl font-bold text-white">8. Contar Cliques</h3>
+                <p>Selecione o botão e o `span`. Crie uma variável `contador` inicializada com 0. A cada clique no botão, incremente o contador e atualize o texto do `span`.</p>
+                <div class="html-snippet">&lt;button id="btnContador" class="example-btn"&gt;Clique +1&lt;/button&gt;
+&lt;p&gt;Cliques: &lt;span id="numCliques"&gt;0&lt;/span&gt;&lt;/p&gt;</div>
+            </div>
+            <div class="exercise-card">
+                <h3 class="text-xl font-bold text-white">9. Alterar `innerHTML`</h3>
+                <p>Selecione a `div` pelo ID. Use `innerHTML` para colocar dentro dela o seguinte HTML: `&lt;strong&gt;Texto em negrito&lt;/strong&gt; e &lt;em&gt;itálico&lt;/em&gt;.`.</p>
+                <div class="html-snippet">&lt;div id="conteudoHtml"&gt;&lt;/div&gt;</div>
+            </div>
+            <div class="exercise-card">
+                <h3 class="text-xl font-bold text-white">10. Mudar Imagem no Clique</h3>
+                <p>Selecione o botão e a imagem. Quando o botão for clicado, altere o atributo `src` da imagem para `https://placehold.co/200x100/e80170/white?text=Imagem+2`.</p>
+                <div class="html-snippet">&lt;button id="btnTrocaImg" class="example-btn"&gt;Trocar Imagem&lt;/button&gt;
+&lt;img id="minhaImagem" src="https://placehold.co/200x100/cccccc/black?text=Imagem+1" alt="Placeholder" style="margin-top: 10px;"&gt;</div>
+            </div>
+             <div class="exercise-card">
+                <h3 class="text-xl font-bold text-white">11. Pegar Valor do Input</h3>
+                <p>Selecione o botão e o input. Quando o botão for clicado, pegue o valor digitado no input (propriedade `.value`) e mostre no console.</p>
+                <div class="html-snippet">&lt;input type="text" id="meuInput" placeholder="Digite algo" class="text-gray-900 p-2 rounded"&gt;
+&lt;button id="btnPegarValor" class="example-btn"&gt;Mostrar Valor&lt;/button&gt;</div>
+            </div>
+             <div class="exercise-card">
+                <h3 class="text-xl font-bold text-white">12. Copiar Texto do Input</h3>
+                <p>Selecione o input, o botão e o parágrafo. Quando o botão for clicado, copie o valor do input para o `textContent` do parágrafo.</p>
+                <div class="html-snippet">&lt;input type="text" id="inputCopiar" placeholder="Digite para copiar" class="text-gray-900 p-2 rounded"&gt;
+&lt;button id="btnCopiar" class="example-btn"&gt;Copiar&lt;/button&gt;
+&lt;p id="destinoCopia"&gt;O texto aparecerá aqui.&lt;/p&gt;</div>
+            </div>
+            <div class="exercise-card">
+                <h3 class="text-xl font-bold text-white">13. Alterar Todos os Itens da Lista</h3>
+                <p>Selecione todos os `li` usando `querySelectorAll`. Use um laço `for` para percorrer a lista e alterar o `textContent` de cada item para "Item modificado".</p>
+                <div class="html-snippet">&lt;ul&gt;
+  &lt;li&gt;Item 1&lt;/li&gt;
+  &lt;li&gt;Item 2&lt;/li&gt;
+  &lt;li&gt;Item 3&lt;/li&gt;
+&lt;/ul&gt;</div>
+            </div>
+             <div class="exercise-card">
+                <h3 class="text-xl font-bold text-white">14. Mudar Classe CSS no Clique</h3>
+                <p>Crie uma classe CSS `destacado` adicione-a ao bloco `style` principal. Selecione o botão e o parágrafo. Quando o botão for clicado, adicione a classe `destacado` ao parágrafo usando `classList.add()`.</p>
+                <div class="html-snippet">&lt;button id="btnClasse" class="example-btn"&gt;Destacar&lt;/button&gt;
+&lt;p id="textoClasse"&gt;Este texto pode ser destacado.&lt;/p&gt;</div>
+            </div>
+            <div class="exercise-card">
+                <h3 class="text-xl font-bold text-white">15. Alternar (Toggle) Classe CSS</h3>
+                <p>Similar ao anterior, mas use `classList.toggle('destacado')`. Agora, cada clique no botão vai adicionar ou remover a classe.</p>
+                 <div class="html-snippet">(Use o mesmo HTML do exercício 14)</div>
+            </div>
+        </div>
+    </section>
+  </main>
+</body>
+</html>
+

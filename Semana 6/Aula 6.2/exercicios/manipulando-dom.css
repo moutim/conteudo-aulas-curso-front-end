@@ -1,0 +1,13 @@
+.modo-claro {
+  background-color: bisque;
+  color: orangered;
+}
+
+.modo-escuro {
+  background-color: black;
+  color: red;
+}
+
+.botao-click {
+  cursor: pointer;
+}
