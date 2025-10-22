@@ -1,21 +1,42 @@
-const nome = "Vitor"
-const sobrenome = "Moutim"
-const moradorDoGrajau = true
+function mostrarMenuEescolherOpcao() {
+  const opcaoEscolhida = prompt(
+    "---- Menu ---- \n" +
+    "1 - Somar dois números \n" +
+    "2 - Par ou Ímpar \n" +
+    "3 - Tabuada \n" +
+    "4 - Mensagem 10x \n" +
+    "5 - Sair \n" +
+    "Escolha uma opção"
+  )
 
-console.log("Meu nome completo é", nome, " ", sobrenome)
-console.log(`Meu nome completo é ${nome} ${sobrenome}`)
-
-const numero1 = 10
-const numero2 = 20
-const soma = numero1 + numero2
-console.log(`O resultado é ${soma}`);
-console.log(typeof moradorDoGrajau);
-
-const notas = [5, 10, 5, 9]
-let somaDasNotas = 0
-for (let index = 0; index < notas.length; index++) {
-  somaDasNotas += notas[index]
+  return opcaoEscolhida
 }
-const media = somaDasNotas / notas.length;
-console.log(somaDasNotas);
-console.log(`A média das notas é ${media}`)
+
+function somaDoisNumeros() {
+  const numero1 = Number(prompt("Digite o primeiro número: "))
+  const numero2 = Number(prompt("Digite o segundo número: "))
+
+  const soma = numero1 + numero2
+
+  alert(`A soma dos dois números é ${soma}`)
+
+  return soma
+}
+
+function inicioCalculadora() {
+  let opcaoEscolhida = 0
+
+  while(opcaoEscolhida != 5) {
+    opcaoEscolhida = Number(mostrarMenuEescolherOpcao())
+
+    switch (opcaoEscolhida) {
+      case 1:
+        somaDoisNumeros()
+        break;
+      default:
+        break;
+    }
+  }
+}
+
+inicioCalculadora()
