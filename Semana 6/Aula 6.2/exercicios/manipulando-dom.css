@@ -8,6 +8,10 @@
   color: red;
 }
 
-.botao-click {
+.botao-click, .botao-texto {
   cursor: pointer;
+}
+
+.centralizar-texto {
+  text-align: center;
 }

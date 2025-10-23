@@ -8,7 +8,6 @@ const p = document.querySelectorAll('p')
 console.log(p);
 
 const botao = document.querySelector('.botao-click')
-console.log(botao);
 botao.addEventListener('click', function() {
   h1.innerText = "Semana 6 - Manipulando o DOM"
 
@@ -20,5 +19,11 @@ botao.addEventListener('click', function() {
   const body = document.querySelector('body')
   body.classList.remove('modo-claro')
   body.classList.add('modo-escuro')
+})
+
+const botaoCentralizarTexto = document.querySelector('.botao-texto')
+botaoCentralizarTexto.addEventListener('click', function() {
+  const body = document.querySelector('body')
+  body.classList.toggle('centralizar-texto')
 })
 
