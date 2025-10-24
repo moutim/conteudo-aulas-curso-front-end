@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aula 17: Usando localStorage</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    .section-title {
+      border-bottom: 3px solid #e80170;
+      padding-bottom: 0.5rem;
+      display: inline-block;
+    }
+    
+    .lesson-title {
+        font-size: 2.5rem;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+
+    code.block {
+      display: block;
+      white-space: pre;
+      background-color: #1F2937; /* Gray-800 */
+      color: #F9FAFB; /* Gray-50 */
+      padding: 1rem;
+      border-radius: 8px;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.9em;
+      line-height: 1.5;
+    }
+    
+    code.inline {
+      background-color: #374151;
+      color: #F9FAFB;
+      padding: 0.2rem 0.5rem;
+      border-radius: 6px;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.9em;
+    }
+    
+    .logo {
+      border-radius: 20px;
+      width: 100px;
+      object-fit: contain;
+    }
+  </style>
+</head>
+
+<body class="bg-gray-900 text-gray-300">
+
+  <!-- Header -->
+  <header class="bg-gray-800 shadow-lg sticky top-0 z-20">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+      <div>
+        <h1 class="text-xl font-bold text-white">Módulo 5: Dando Vida às Páginas</h1>
+        <p class="text-md font-semibold" style="color: #e80170;">Aula 17: Usando localStorage</p>
+      </div>
+      <img src="https://passaportefc.com/wp-content/uploads/2024/03/serasa-logo-2-1024x432.png" alt="Logo Serasa"
+        class="logo">
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="max-w-5xl mx-auto p-6 md:p-8">
+
+    <section id="aula-17">
+        <h2 class="lesson-title">localStorage: Guardando Dados no Navegador</h2>
+        <div class="space-y-16">
+
+            <div id="o-que-e-ls">
+                <h3 class="text-3xl font-bold mb-6 section-title">1. O que é localStorage?</h3>
+                <p class="text-lg mb-6 leading-relaxed">
+                   O <strong style="color: #e80170;">localStorage</strong> é um mecanismo que permite aos sites e aplicações web armazenarem dados (chave-valor) diretamente no navegador do usuário, de forma <strong class="text-white">persistente</strong>.
+                </p>
+                <p class="text-lg leading-relaxed">
+                   "Persistente" significa que os dados <strong class="text-white">não se apagam</strong> quando o navegador é fechado ou o computador reiniciado. Eles ficam lá até serem removidos explicitamente.
+                </p>
+                <p class="text-lg mt-4 leading-relaxed">
+                   É ótimo para guardar preferências do usuário (como tema escuro/claro), pequenos dados de sessão ou informações que não precisam ir para um banco de dados.
+                </p>
+            </div>
+
+            <div id="como-funciona">
+              <h3 class="text-3xl font-bold mb-6 section-title">2. Como Funciona? Chave-Valor</h3>
+              <p class="text-lg mb-6 leading-relaxed">
+                  O localStorage funciona como um dicionário simples: você guarda informações associadas a uma <strong class="text-white">chave</strong> (um nome único) e depois usa essa mesma chave para recuperar o <strong class="text-white">valor</strong>.
+              </p>
+              <div class="bg-gray-800 p-6 rounded-lg border border-gray-700 text-center">
+                  <p class="text-xl">Chave <code class="inline text-lg">"nomeUsuario"</code>  ➡️ Valor <code class="inline text-lg">"Maria Silva"</code></p>
+                  <p class="text-xl mt-2">Chave <code class="inline text-lg">"tema"</code>  ➡️ Valor <code class="inline text-lg">"dark"</code></p>
+              </div>
+              <p class="text-lg mt-6 leading-relaxed">
+                  <strong class="text-red-400">Importante:</strong> O localStorage só armazena dados como <strong class="text-white">strings (texto)</strong>. Se você precisar guardar números, arrays ou objetos, terá que convertê-los antes.
+              </p>
+            </div>
+            
+            <div id="manipulando-ls">
+                <h3 class="text-3xl font-bold mb-6 section-title">3. Manipulando o localStorage</h3>
+                <p class="text-lg mb-6 leading-relaxed">JavaScript nos dá métodos simples para interagir com o localStorage.</p>
+
+                <h4 class="text-xl font-semibold mt-6 mb-2 text-white">`setItem(chave, valor)`: Salvando Dados</h4>
+                <p class="mb-4">Guarda um valor associado a uma chave. Se a chave já existir, o valor antigo é substituído.</p>
+                <code class="block">
+localStorage.setItem('usuarioLogado', 'joao123');
+localStorage.setItem('preferenciaCor', 'azul'); 
+                </code>
+
+                <h4 class="text-xl font-semibold mt-6 mb-2 text-white">`getItem(chave)`: Lendo Dados</h4>
+                <p class="mb-4">Recupera o valor associado a uma chave. Se a chave não existir, retorna `null`.</p>
+                <code class="block">
+const usuario = localStorage.getItem('usuarioLogado'); // usuario terá o valor "joao123"
+const cor = localStorage.getItem('preferenciaCor');   // cor terá o valor "azul"
+const tema = localStorage.getItem('temaSite');       // tema terá o valor null (se não foi setado)
+
+console.log(usuario); 
+                </code>
+                 <h4 class="text-xl font-semibold mt-6 mb-2 text-white">`removeItem(chave)`: Removendo um Item</h4>
+                <p class="mb-4">Apaga um par chave-valor específico.</p>
+                <code class="block">
+localStorage.removeItem('preferenciaCor'); // Apaga apenas a preferência de cor
+                </code>
+                 <h4 class="text-xl font-semibold mt-6 mb-2 text-white">`clear()`: Removendo Tudo</h4>
+                <p class="mb-4">Apaga <strong class="text-white">todos</strong> os dados armazenados pelo seu site no localStorage.</p>
+                <code class="block">
+localStorage.clear(); // Limpa todo o localStorage para este domínio
+                </code>
+            </div>
+
+             <div id="json-ls">
+                <h3 class="text-3xl font-bold mb-6 section-title">4. Guardando Dados Complexos e JSON</h3>
+                <p class="text-lg mb-6 leading-relaxed">Como o localStorage só guarda strings, precisamos de um jeito de representar dados mais complexos (como arrays e objetos) em formato de texto. Para isso, usamos o <strong style="color: #e80170;">JSON (JavaScript Object Notation)</strong>.</p>
+                <p class="text-lg mb-6 leading-relaxed">JSON é um formato padrão leve para intercâmbio de dados, que é fácil para humanos lerem e para máquinas interpretarem. O JavaScript nos dá duas funções essenciais para trabalhar com JSON:</p>
+                
+                <ul class="list-disc list-inside space-y-4 mb-6">
+                    <li><code class="inline">JSON.stringify(objetoOuArray)</code>: Converte um objeto ou array JavaScript em uma <strong class="text-white">string no formato JSON</strong>.</li>
+                    <li><code class="inline">JSON.parse(stringJSON)</code>: Converte uma string no formato JSON de volta em um <strong class="text-white">objeto ou array JavaScript</strong>.</li>
+                </ul>
+
+                <code class="block">
+// Objeto JavaScript
+const preferencias = { tema: 'escuro', fonte: 16 };
+
+// 1. Converter para string JSON antes de salvar
+const preferenciasString = JSON.stringify(preferencias);
+localStorage.setItem('configUsuario', preferenciasString);
+console.log("Salvo no localStorage:", preferenciasString); // Ex: {"tema":"escuro","fonte":16}
+
+// 2. Ler a string do localStorage
+const configSalvaString = localStorage.getItem('configUsuario');
+
+// 3. Converter a string JSON de volta para objeto
+const configObjeto = JSON.parse(configSalvaString);
+
+console.log("Objeto recuperado:", configObjeto); // Ex: { tema: 'escuro', fonte: 16 }
+console.log("Tema recuperado:", configObjeto.tema); // Saída: escuro
+                </code>
+            </div>
+            
+            <div id="consideracoes">
+                <h3 class="text-3xl font-bold mb-6 section-title">5. Considerações Importantes</h3>
+                 <ul class="list-disc list-inside space-y-4">
+                    <li><strong class="text-white">Limite de Tamanho:</strong> Geralmente 5MB a 10MB por domínio. Não é feito para guardar grandes volumes de dados.</li>
+                    <li><strong class="text-white">Apenas Strings:</strong> Lembre-se sempre da necessidade de converter outros tipos de dados usando JSON.</li>
+                    <li><strong class="text-red-400">Segurança:</strong> Os dados no localStorage <strong class="text-red-400">não são seguros</strong>. Qualquer script na página pode acessá-los. Nunca guarde senhas, tokens ou informações sensíveis nele.</li>
+                    <li><strong class="text-white">Síncrono:</strong> As operações (`setItem`, `getItem`) bloqueiam a execução do código até terminarem. Usar excessivamente com dados grandes pode travar a página.</li>
+                    <li><strong class="text-white">Por Domínio:</strong> Os dados são isolados por origem (protocolo + domínio + porta). Um site `a.com` não pode ler o localStorage de `b.com`.</li>
+                 </ul>
+            </div>
+        </div>
+    </section>
+  </main>
+</body>
+</html>
+

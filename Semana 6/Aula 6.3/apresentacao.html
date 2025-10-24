@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aula 18: Construindo a Todo List - Parte 1</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    .section-title {
+      border-bottom: 3px solid #e80170;
+      padding-bottom: 0.5rem;
+      display: inline-block;
+    }
+    
+    .lesson-title {
+        font-size: 2.5rem;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+
+    code.block {
+      display: block;
+      white-space: pre;
+      background-color: #1F2937; /* Gray-800 */
+      color: #F9FAFB; /* Gray-50 */
+      padding: 1rem;
+      border-radius: 8px;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.9em;
+      line-height: 1.5;
+    }
+    
+    code.inline {
+      background-color: #374151;
+      color: #F9FAFB;
+      padding: 0.2rem 0.5rem;
+      border-radius: 6px;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.9em;
+    }
+    
+    .logo {
+      border-radius: 20px;
+      width: 100px;
+      object-fit: contain;
+    }
+  </style>
+</head>
+
+<body class="bg-gray-900 text-gray-300">
+
+  <!-- Header -->
+  <header class="bg-gray-800 shadow-lg sticky top-0 z-20">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+      <div>
+        <h1 class="text-xl font-bold text-white">Módulo 6: Projeto Prático</h1>
+        <p class="text-md font-semibold" style="color: #e80170;">Aula 18: Construindo a Todo List - Parte 1</p>
+      </div>
+      <img src="https://passaportefc.com/wp-content/uploads/2024/03/serasa-logo-2-1024x432.png" alt="Logo Serasa"
+        class="logo">
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="max-w-5xl mx-auto p-6 md:p-8">
+
+    <section id="aula-18">
+        <h2 class="lesson-title">Projeto: Todo List com JavaScript</h2>
+        <div class="space-y-16">
+
+            <div id="objetivo-projeto">
+                <h3 class="text-3xl font-bold mb-6 section-title">1. Objetivo do Projeto</h3>
+                <p class="text-lg mb-6 leading-relaxed">
+                   Nesta série de aulas, vamos construir uma aplicação de lista de tarefas (Todo List) funcional, aplicando tudo que aprendemos sobre HTML, CSS e JavaScript, incluindo a manipulação do DOM e o uso do `localStorage` para salvar as tarefas.
+                </p>
+                <p class="text-lg leading-relaxed">
+                   Nosso ponto de partida é o design definido no Figma: 
+                   <a href="https://figma.com/design/mUt1H6wsEFyCk1c47iyqjB/Todo-List---JavaScript--Community-?t=PISwnbS3FnJucj0N-0" target="_blank" class="text-blue-400 hover:text-blue-300 underline">Link do Protótipo</a>.
+                </p>
+            </div>
+
+            <div id="estrutura-html-inicial">
+              <h3 class="text-3xl font-bold mb-6 section-title">2. Estrutura HTML Inicial</h3>
+              <p class="text-lg mb-6 leading-relaxed">
+                  Começamos criando o esqueleto da nossa aplicação no arquivo `index.html`. Definimos as áreas principais: o título, o campo para adicionar novas tarefas e a lista onde as tarefas serão exibidas.
+              </p>
+              <code class="block">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="pt-BR"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Todo List&lt;/title&gt;
+    &lt;link rel="stylesheet" href="style.css"&gt; 
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class="container"&gt;
+        &lt;h1&gt;Minha Lista de Tarefas&lt;/h1&gt;
+        
+        &lt;div class="input-section"&gt;
+            &lt;input type="text" id="nova-tarefa" placeholder="Adicione uma nova tarefa..."&gt;
+            &lt;button id="btn-adicionar"&gt;Adicionar&lt;/button&gt;
+        &lt;/div&gt;
+
+        &lt;ul id="lista-tarefas"&gt;
+            &lt;!-- As tarefas serão adicionadas aqui via JS --&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+
+    &lt;script src="script.js"&gt;&lt;/script&gt; 
+&lt;/body&gt;
+&lt;/html&gt;
+              </code>
+               <p class="text-lg mt-4 leading-relaxed">
+                 Note que já linkamos um arquivo `style.css` e um `script.js`.
+              </p>
+            </div>
+            
+            <div id="estilo-css-base">
+                <h3 class="text-3xl font-bold mb-6 section-title">3. Estilização Básica (CSS)</h3>
+                <p class="text-lg mb-6 leading-relaxed">No arquivo `style.css`, adicionamos alguns estilos iniciais para dar uma aparência mais organizada, baseada no protótipo. (Exemplos simplificados)</p>
+                <code class="block">
+body {
+  /* Estilos gerais */
+}
+
+.container {
+  /* Centralização, largura máxima */
+}
+
+.input-section {
+  /* Display flex para alinhar input e botão */
+}
+
+#nova-tarefa {
+  /* Estilos do input */
+}
+
+#btn-adicionar {
+  /* Estilos do botão */
+}
+
+#lista-tarefas {
+  /* Estilos da lista */
+}
+
+/* (Estilos para os itens da lista serão adicionados depois) */
+                </code>
+            </div>
+
+             <div id="javascript-inicial">
+                <h3 class="text-3xl font-bold mb-6 section-title">4. JavaScript Inicial: Selecionando Elementos</h3>
+                <p class="text-lg mb-6 leading-relaxed">No arquivo `script.js`, o primeiro passo é selecionar os elementos HTML com os quais vamos interagir:</p>
+                <code class="block">
+// Seleciona o campo de input
+const inputNovaTarefa = document.getElementById('nova-tarefa');
+
+// Seleciona o botão de adicionar
+const btnAdicionar = document.getElementById('btn-adicionar');
+
+// Seleciona a lista UL onde as tarefas serão mostradas
+const listaTarefas = document.getElementById('lista-tarefas');
+
+console.log(inputNovaTarefa, btnAdicionar, listaTarefas); // Verifica se selecionou corretamente
+                </code>
+                <p class="text-lg mt-4 leading-relaxed">
+                    Com esses elementos selecionados, estamos prontos para adicionar a lógica de criar e exibir as tarefas na próxima aula.
+                </p>
+            </div>
+        </div>
+    </section>
+  </main>
+</body>
+</html>
