@@ -6,60 +6,69 @@
 
     // função para calcular o caminho relativo
     function getRelativePath() {
-      const path = window.location.pathname;
-      const parts = path.split('/');
-      const depth = parts.length - 1;
-      return depth > 1 ? '../'.repeat(depth - 1) : './';
+      const isGitHubPages = window.location.hostname.includes('github.io');
+      const repoName = 'conteudo-aulas-curso-front-end';
+      
+      if (isGitHubPages) {
+        // No GitHub Pages, sempre usar o caminho completo a partir da raiz do repositório
+        return `/${repoName}/`;
+      } else {
+        // Localmente, usar caminhos relativos
+        const path = window.location.pathname;
+        const parts = path.split('/');
+        const depth = parts.length - 1;
+        return depth > 1 ? '../'.repeat(depth - 1) : './';
+      }
     }
 
     // Dados das semanas e seus links (ajuste aqui se precisar adicionar/editar)
     const weeks = {
       'Semana 1': [
-        { l: 'Aula 1: Fundamentos da Web', h: '/Semana 1/Aula 1.1/apresentacao.html' },
-        { l: 'Aula 2: Front-End vs. Back-End', h: '/Semana 1/Aula 1.2/apresentacao.html' },
-        { l: 'Aula 3: Protocolos e Navegadores', h: '/Semana 1/Aula 1.3/apresentacao.html' },
-        { l: 'Aula 4: As Linguagens da Web', h: '/Semana 1/Aula 1.4/apresentacao.html' },
-        { l: 'Aula 5: O Mercado de Trabalho Front-End', h: '/Semana 1/Aula 1.5/apresentacao.html' },
-        { l: 'Módulo 1: Fundamentos do Desenvolvimento Web (Completo)', h: '/Semana 1/Resumo primeira semana/apresentacao.html' }
+        { l: 'Aula 1: Fundamentos da Web', h: 'Semana 1/Aula 1.1/apresentacao.html' },
+        { l: 'Aula 2: Front-End vs. Back-End', h: 'Semana 1/Aula 1.2/apresentacao.html' },
+        { l: 'Aula 3: Protocolos e Navegadores', h: 'Semana 1/Aula 1.3/apresentacao.html' },
+        { l: 'Aula 4: As Linguagens da Web', h: 'Semana 1/Aula 1.4/apresentacao.html' },
+        { l: 'Aula 5: O Mercado de Trabalho Front-End', h: 'Semana 1/Aula 1.5/apresentacao.html' },
+        { l: 'Módulo 1: Fundamentos do Desenvolvimento Web (Completo)', h: 'Semana 1/Resumo primeira semana/apresentacao.html' }
       ],
       'Semana 2': [
-        { l: 'Aula 6: Primeiros Passos com HTML', h: '/Semana 2/Aula 2.1/apresentacao.html' },
-        { l: 'Aula 7: Introdução ao CSS', h: '/Semana 2/Aula 2.1/apresentacao-css.html' },
-        { l: 'Exercícios de Estrutura com HTML', h: '/Semana 2/Aula 2.1/exercicios-estrutura.html' },
-        { l: 'Exercícios de Estilização com CSS', h: '/Semana 2/Aula 2.1/exercicios-css.html' }
+        { l: 'Aula 6: Primeiros Passos com HTML', h: 'Semana 2/Aula 2.1/apresentacao.html' },
+        { l: 'Aula 7: Introdução ao CSS', h: 'Semana 2/Aula 2.1/apresentacao-css.html' },
+        { l: 'Exercícios de Estrutura com HTML', h: 'Semana 2/Aula 2.1/exercicios-estrutura.html' },
+        { l: 'Exercícios de Estilização com CSS', h: 'Semana 2/Aula 2.1/exercicios-css.html' }
       ],
       'Semana 3': [
-        { l: 'Aula 9: Introdução ao Git e GitHub', h: '/Semana 3/Aula 3.1/apresentacao.html' },
-        { l: 'Aula 10: Git na Linha de Comando', h: '/Semana 3/Aula 3.2/apresentacao.html' }
+        { l: 'Aula 9: Introdução ao Git e GitHub', h: 'Semana 3/Aula 3.1/apresentacao.html' },
+        { l: 'Aula 10: Git na Linha de Comando', h: 'Semana 3/Aula 3.2/apresentacao.html' }
       ],
       'Semana 4': [
-        { l: 'Semana 4: Mão na Massa com Projetos', h: '/Semana 4/apresentacao.html' }
+        { l: 'Semana 4: Mão na Massa com Projetos', h: 'Semana 4/apresentacao.html' }
       ],
       'Semana 5': [
-        { l: 'Aula 11: Introdução à Lógica de Programação', h: '/Semana 5/Aula 5.1/apresentacao.html' },
-        { l: 'Exercícios de Lógica de Programação', h: '/Semana 5/Aula 5.1/exercicios.html' },
-        { l: 'Exercícios de Lógica com Exemplos - Parte 2', h: '/Semana 5/Aula 5.2/exercicios.html' },
-        { l: 'Aula 12: Estruturas de Dados e Laços de Repetição', h: '/Semana 5/Aula 5.3/apresentacao.html' },
-        { l: 'Exercícios: Vetores e Laços', h: '/Semana 5/Aula 5.3/exercicios.html' },
-        { l: "Aula 13: O Laço 'enquanto' (while)", h: '/Semana 5/Aula 5.4/apresentacao.html' },
-        { l: "Exercícios: Praticando o Laço 'enquanto'", h: '/Semana 5/Aula 5.4/exercicios.html' },
-        { l: 'Desafio Final: Menu Interativo', h: '/Semana 5/Aula 5.4/calculadora.html' },
-        { l: 'Aula 14: Funções e Parâmetros', h: '/Semana 5/Aula 5.5/apresentacao.html' },
-        { l: 'Exercícios: Praticando com Funções', h: '/Semana 5/Aula 5.5/exercicios.html' }
+        { l: 'Aula 11: Introdução à Lógica de Programação', h: 'Semana 5/Aula 5.1/apresentacao.html' },
+        { l: 'Exercícios de Lógica de Programação', h: 'Semana 5/Aula 5.1/exercicios.html' },
+        { l: 'Exercícios de Lógica com Exemplos - Parte 2', h: 'Semana 5/Aula 5.2/exercicios.html' },
+        { l: 'Aula 12: Estruturas de Dados e Laços de Repetição', h: 'Semana 5/Aula 5.3/apresentacao.html' },
+        { l: 'Exercícios: Vetores e Laços', h: 'Semana 5/Aula 5.3/exercicios.html' },
+        { l: "Aula 13: O Laço 'enquanto' (while)", h: 'Semana 5/Aula 5.4/apresentacao.html' },
+        { l: "Exercícios: Praticando o Laço 'enquanto'", h: 'Semana 5/Aula 5.4/exercicios.html' },
+        { l: 'Desafio Final: Menu Interativo', h: 'Semana 5/Aula 5.4/calculadora.html' },
+        { l: 'Aula 14: Funções e Parâmetros', h: 'Semana 5/Aula 5.5/apresentacao.html' },
+        { l: 'Exercícios: Praticando com Funções', h: 'Semana 5/Aula 5.5/exercicios.html' }
       ],
       'Semana 6': [
-        { l: 'Aula 15: Introdução ao JavaScript', h: '/Semana 6/Aula 6.1/apresentacao.html' },
-        { l: 'Exercícios de Lógica com JavaScript', h: '/Semana 6/Aula 6.1/exercicios.html' },
-        { l: 'Aula 16: Manipulando o DOM', h: '/Semana 6/Aula 6.2/apresentacao.html' },
-        { l: 'Exercícios para manipulação do DOM', h: '/Semana 6/Aula 6.2/exercicios.html' },
-        { l: 'Lista de exemplos', h: '/Semana 6/Aula 6.2/exercicios/lista-exs/index.html' },
-        { l: 'Aula 17: Criação do Todo List', h: '/Semana 6/Aula 6.3/apresentacao.html' },
-        { l: 'Aula 18: LocalStorage', h: '/Semana 6/Aula 6.4/apresentacao.html' },
-        { l: 'Exercícios: LocalStorage', h: '/Semana 6/Aula 6.4/exercicios/localstorage.html' }
+        { l: 'Aula 15: Introdução ao JavaScript', h: 'Semana 6/Aula 6.1/apresentacao.html' },
+        { l: 'Exercícios de Lógica com JavaScript', h: 'Semana 6/Aula 6.1/exercicios.html' },
+        { l: 'Aula 16: Manipulando o DOM', h: 'Semana 6/Aula 6.2/apresentacao.html' },
+        { l: 'Exercícios para manipulação do DOM', h: 'Semana 6/Aula 6.2/exercicios.html' },
+        { l: 'Lista de exemplos', h: 'Semana 6/Aula 6.2/exercicios/lista-exs/index.html' },
+        { l: 'Aula 17: Criação do Todo List', h: 'Semana 6/Aula 6.3/apresentacao.html' },
+        { l: 'Aula 18: LocalStorage', h: 'Semana 6/Aula 6.4/apresentacao.html' },
+        { l: 'Exercícios: LocalStorage', h: 'Semana 6/Aula 6.4/exercicios/localstorage.html' }
       ],
       'Semana 7': [
-        { l: 'Aula 19: Revisão Geral dos Fundamentos', h: '/Semana 7/apresentacao.html' },
-        { l: 'Desafio: Meu Orçamento Pessoal', h: '/Semana 7/desafio.html' }
+        { l: 'Aula 19: Revisão Geral dos Fundamentos', h: 'Semana 7/apresentacao.html' },
+        { l: 'Desafio: Meu Orçamento Pessoal', h: 'Semana 7/desafio.html' }
       ]
     };
 
