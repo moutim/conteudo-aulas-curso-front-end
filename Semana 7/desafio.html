@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Desafio: Meu Orçamento Pessoal</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    .section-title {
+      border-bottom: 3px solid #e80170;
+      padding-bottom: 0.5rem;
+      display: inline-block;
+    }
+    
+    .lesson-title {
+        font-size: 2.5rem;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+
+    .logo {
+      border-radius: 20px;
+      width: 100px;
+      object-fit: contain;
+    }
+
+    .challenge-card {
+        background-color: #1F2937; /* Gray-800 */
+        border: 1px solid #374151; /* Gray-700 */
+        border-left: 4px solid #e80170;
+        border-radius: 8px;
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .code-snippet {
+        background-color: #111827; /* Gray-900 */
+        padding: 1rem;
+        border-radius: 0.5rem;
+        margin-top: 1rem;
+        font-family: 'Courier New', Courier, monospace;
+        white-space: pre;
+    }
+  </style>
+  <script src="/nav.js" defer></script>
+</head>
+
+<body class="bg-gray-900 text-gray-300">
+
+  <!-- Header -->
+  <header class="bg-gray-800 shadow-lg sticky top-0 z-20">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+      <div>
+        <h1 class="text-xl font-bold text-white">Desafio Opcional</h1>
+        <p class="text-md font-semibold" style="color: #e80170;">Meu Orçamento Pessoal</p>
+      </div>
+      <img src="https://passaportefc.com/wp-content/uploads/2024/03/serasa-logo-2-1024x432.png" alt="Logo Serasa"
+        class="logo">
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="max-w-5xl mx-auto p-6 md:p-8">
+
+    <section id="desafio-orcamento">
+        <h2 class="lesson-title">Desafio: Meu Orçamento Pessoal</h2>
+        <p class="text-lg text-center mb-12 leading-relaxed">
+            Um projeto simples, mas funcional, para aplicar todos os conceitos de JavaScript, DOM e LocalStorage.
+        </p>
+
+        <div class="challenge-card">
+            <h3 class="text-2xl font-bold text-white">1. O Objetivo</h3>
+            <p class="mt-4">
+                Criar uma pequena aplicação onde o usuário possa registrar suas receitas (ganhos) e despesas (gastos). A aplicação deve calcular e mostrar o total de receitas, o total de despesas e o saldo final. Os dados devem persistir ao recarregar a página.
+            </p>
+        </div>
+
+        <div class="challenge-card">
+            <h3 class="text-2xl font-bold text-white">2. Conceitos Aplicados</h3>
+            <ul class="list-disc list-inside mt-4 space-y-2">
+                <li>Manipulação do DOM (`getElementById`, `querySelector`, `createElement`, `appendChild`)</li>
+                <li>Eventos (`addEventListener` no botão de adicionar)</li>
+                <li>JavaScript (`let`, `const`, `if/else`, Operadores)</li>
+                <li>Funções (para organizar o código)</li>
+                <li>Arrays e Laços (para guardar e percorrer a lista de transações)</li>
+                <li>LocalStorage (para salvar os dados usando `JSON.stringify` e `JSON.parse`)</li>
+            </ul>
+        </div>
+        
+        <div class="challenge-card">
+            <h3 class="text-2xl font-bold text-white">3. Estrutura HTML Sugerida</h3>
+            <p class="mt-4">
+                Comece com este HTML básico para estruturar sua página.
+            </p>
+            <div class="code-snippet">
+&lt;h1&gt;Meu Orçamento&lt;/h1&gt;
+
+&lt;div class="resumo"&gt;
+  &lt;div&gt;
+    &lt;h4&gt;Receitas&lt;/h4&gt;
+    &lt;p id="valor-receitas"&gt;R$ 0.00&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;h4&gt;Despesas&lt;/h4&gt;
+    &lt;p id="valor-despesas"&gt;R$ 0.00&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;h4&gt;Saldo&lt;/h4&gt;
+    &lt;p id="valor-saldo"&gt;R$ 0.00&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="nova-transacao"&gt;
+  &lt;h3&gt;Adicionar Transação&lt;/h3&gt;
+  &lt;input type="text" id="input-descricao" placeholder="Descrição"&gt;
+  &lt;input type="number" id="input-valor" placeholder="Valor (ex: 150 ou -50)"&gt;
+  &lt;button id="btn-adicionar"&gt;Adicionar&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;h3&gt;Histórico de Transações&lt;/h3&gt;
+&lt;ul id="lista-transacoes"&gt;
+  &lt;!-- Transações serão adicionadas aqui via JS --&gt;
+&lt;/ul&gt;
+            </div>
+        </div>
+        
+        <div class="challenge-card">
+            <h3 class="text-2xl font-bold text-white">4. Guia de Passos (Lógica JavaScript)</h3>
+            <ul class="list-decimal list-inside mt-4 space-y-3">
+                <li>Crie um array (ex: `transacoes`) para guardar as transações. Tente carregar o que já existe no `localStorage` ao iniciar.</li>
+                <li>Adicione um `addEventListener` de clique ao botão `btn-adicionar`.</li>
+                <li>Dentro do evento:
+                    <ul>
+                        <li>Pegue os valores dos inputs `descricao` e `valor`.</li>
+                        <li>Verifique se os campos não estão vazios.</li>
+                        <li>Crie um objeto (ex: `{ id: Date.now(), desc: 'Salário', valor: 500 }`).</li>
+                        <li>Adicione (`.push()`) esse objeto ao seu array `transacoes`.</li>
+                        <li>Chame uma função para salvar o array no `localStorage` (lembre-se do `JSON.stringify`).</li>
+                        <li>Chame uma função para atualizar a tela e limpar os inputs.</li>
+                    </ul>
+                </li>
+                <li>Crie uma função `atualizarTela()` que:
+                    <ul>
+                        <li>Limpe a lista `lista-transacoes` (`innerHTML = ''`).</li>
+                        <li>Inicie variáveis `receitas = 0`, `despesas = 0`.</li>
+                        <li>Use um laço (`forEach` ou `for`) para percorrer seu array `transacoes`.</li>
+                        <li>Dentro do laço: se o valor for positivo, some em `receitas`; se for negativo, some em `despesas`.</li>
+                        <li>Também dentro do laço, crie o elemento `<li>` no DOM (`createElement`) para mostrar a transação na lista.</li>
+                        <li>Após o laço, atualize o `textContent` dos elementos `valor-receitas`, `valor-despesas` e `valor-saldo`.</li>
+                    </ul>
+                </li>
+                <li>Chame a função `atualizarTela()` uma vez no início do script para carregar os dados do `localStorage`.</li>
+            </ul>
+        </div>
+        
+        <div class="challenge-card">
+            <h3 class="text-2xl font-bold text-white">5. Desafio Extra (Se sobrar tempo)</h3>
+             <ul class="list-disc list-inside mt-4 space-y-2">
+                <li>Adicione um botão "X" (excluir) em cada `<li>` da lista de transações.</li>
+                <li>Faça o botão "X" funcionar: ele deve remover a transação do DOM e também do array (usando `.filter()`).</li>
+                <li>Após remover do array, salve a nova lista no `localStorage` e atualize os totais.</li>
+            </ul>
+        </div>
+
+    </section>
+  </main>
+</body>
+</html>
