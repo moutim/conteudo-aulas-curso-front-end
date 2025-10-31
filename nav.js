@@ -4,21 +4,9 @@
     // evita duplicar
     if (document.getElementById('global-nav')) return;
 
-    // função para calcular o caminho relativo
+    // função para calcular o caminho base
     function getRelativePath() {
-      const isGitHubPages = window.location.hostname.includes('github.io');
-      const repoName = 'conteudo-aulas-curso-front-end';
-      
-      if (isGitHubPages) {
-        // No GitHub Pages, sempre usar o caminho completo a partir da raiz do repositório
-        return `/${repoName}/`;
-      } else {
-        // Localmente, usar caminhos relativos
-        const path = window.location.pathname;
-        const parts = path.split('/');
-        const depth = parts.length - 1;
-        return depth > 1 ? '../'.repeat(depth - 1) : './';
-      }
+      return '/conteudo-aulas-curso-front-end/';
     }
 
     // Dados das semanas e seus links (ajuste aqui se precisar adicionar/editar)
