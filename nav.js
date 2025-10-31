@@ -4,6 +4,14 @@
     // evita duplicar
     if (document.getElementById('global-nav')) return;
 
+    // função para calcular o caminho relativo
+    function getRelativePath() {
+      const path = window.location.pathname;
+      const parts = path.split('/');
+      const depth = parts.length - 1;
+      return depth > 1 ? '../'.repeat(depth - 1) : './';
+    }
+
     // Dados das semanas e seus links (ajuste aqui se precisar adicionar/editar)
     const weeks = {
       'Semana 1': [
