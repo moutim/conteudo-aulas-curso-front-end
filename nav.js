@@ -4,10 +4,21 @@
     // evita duplicar
     if (document.getElementById('global-nav')) return;
 
-    // função para calcular o caminho base
-    function getRelativePath() {
-      return '/conteudo-aulas-curso-front-end/';
+    // calcula dinamicamente o caminho base (onde está o nav.js) e garante uma barra no fim
+    function getBasePath() {
+      try {
+        // preferir document.currentScript quando disponível
+        var scriptEl = document.currentScript || Array.from(document.scripts).find(s => s.src && s.src.endsWith('nav.js'));
+        if (scriptEl && scriptEl.src) {
+          var u = new URL(scriptEl.src, location.href);
+          var p = u.pathname.replace(/\/nav\.js$/, '/');
+          return p;
+        }
+      } catch (e) {}
+      // fallback simples: assume root
+      return '/';
     }
+    const BASE_PATH = getBasePath();
 
     // Dados das semanas e seus links (ajuste aqui se precisar adicionar/editar)
     const weeks = {
@@ -69,7 +80,7 @@
 .week-item{position:relative}
 .week-link{color:#E5E7EB;padding:0.35rem 0.6rem;border-radius:6px;text-decoration:none;display:inline-block}
 .week-link:hover{background:rgba(232,1,112,0.08);color:#fff}
-.submenu{position:absolute;top:calc(100% + 6px);left:0;background:#0f1720;border:1px solid rgba(255,255,255,0.04);padding:0.5rem;border-radius:6px;display:none;min-width:200px;box-shadow:0 6px 18px rgba(2,6,23,0.6)}
+.submenu{position:absolute;top:100%;left:0;background:#0f1720;border:1px solid rgba(255,255,255,0.04);padding:0.5rem;border-radius:6px;display:none;min-width:200px;box-shadow:0 6px 18px rgba(2,6,23,0.6);margin-top:0}
 .submenu a{display:block;color:#E5E7EB;padding:0.35rem 0.5rem;border-radius:4px;text-decoration:none}
 .submenu a:hover{background:rgba(255,255,255,0.03)}
 .week-item:hover > .submenu{display:block}
@@ -92,13 +103,18 @@
     const makeSimpleLink = (text, href) => {
       const a = document.createElement('a');
       a.className = 'week-link';
-      a.href = href;
+      // se for URL absoluta ou começar com '/', não prefixa; caso contrário, prefixa com BASE_PATH
+      if (/^(https?:)?\/\//i.test(href) || href.startsWith('/')) {
+        a.href = href;
+      } else {
+        a.href = BASE_PATH + href;
+      }
       a.textContent = text;
       return a;
     };
 
-    items.appendChild(makeSimpleLink('Índice', '/index.html'));
-    items.appendChild(makeSimpleLink('Grupos', '/Grupos/grupos.html'));
+  items.appendChild(makeSimpleLink('Índice', 'index.html'));
+  items.appendChild(makeSimpleLink('Grupos', 'Grupos/grupos.html'));
 
     // cria item por semana com submenu
     Object.keys(weeks).forEach(weekName => {
@@ -107,7 +123,12 @@
 
       const weekLink = document.createElement('a');
       weekLink.className = 'week-link';
-      weekLink.href = weeks[weekName][0] ? weeks[weekName][0].h : '/index.html';
+      const firstHref = weeks[weekName][0] ? weeks[weekName][0].h : 'index.html';
+      if (/^(https?:)?\/\//i.test(firstHref) || firstHref.startsWith('/')) {
+        weekLink.href = firstHref;
+      } else {
+        weekLink.href = BASE_PATH + firstHref;
+      }
       weekLink.textContent = weekName;
       weekItem.appendChild(weekLink);
 
@@ -116,7 +137,12 @@
 
       weeks[weekName].forEach(entry => {
         const sa = document.createElement('a');
-        sa.href = entry.h;
+        const eh = entry.h || '';
+        if (/^(https?:)?\/\//i.test(eh) || eh.startsWith('/')) {
+          sa.href = eh;
+        } else {
+          sa.href = BASE_PATH + eh;
+        }
         sa.textContent = entry.l;
         submenu.appendChild(sa);
       });
