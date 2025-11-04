@@ -67,9 +67,35 @@
       ],
       'Semana 7': [
         { l: 'Aula 19: Revisão Geral dos Fundamentos', h: 'Semana 7/apresentacao.html' },
-        { l: 'Desafio: Meu Orçamento Pessoal', h: 'Semana 7/desafio.html' }
+        { l: 'Desafio: Meu Orçamento Pessoal', h: 'Semana 7/desafio.html' },
+        { l: 'Projeto: Todo List', h: 'Semana 7/todo/index.html' }
+      ]
+      ,
+      'Semana 8': [
+        { l: 'Aula 8.1: (Conteúdo Semana 8.1)', h: 'Semana 8/Aula 8.1/apresentacao.html' }
       ]
     };
+
+    // função utilitária para buscar o <title> de uma página (retorna string ou null)
+    function fetchPageTitle(url) {
+      try {
+        return fetch(url, { cache: 'no-store' }).then(resp => {
+          if (!resp.ok) return null;
+          return resp.text();
+        }).then(text => {
+          if (!text) return null;
+          try {
+            const doc = new DOMParser().parseFromString(text, 'text/html');
+            const t = doc.querySelector('title');
+            return t ? t.textContent.trim() : null;
+          } catch (e) {
+            return null;
+          }
+        }).catch(() => null);
+      } catch (e) {
+        return Promise.resolve(null);
+      }
+    }
 
     // cria estilos para menu e submenu
   const style = document.createElement('style');
@@ -143,8 +169,17 @@
         } else {
           sa.href = BASE_PATH + eh;
         }
-        sa.textContent = entry.l;
+        // texto inicial (fallback)
+        sa.textContent = entry.l || sa.href;
         submenu.appendChild(sa);
+
+        // tenta buscar o <title> da página e usar como label mais descritiva
+        // (não bloqueia a montagem do menu; é assíncrono)
+        fetchPageTitle(sa.href).then(title => {
+          if (title) {
+            sa.textContent = title;
+          }
+        });
       });
 
       weekItem.appendChild(submenu);

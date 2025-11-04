@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resumo do Projeto: Todo List</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    .section-title {
+      border-bottom: 3px solid #e80170;
+      padding-bottom: 0.5rem;
+      display: inline-block;
+    }
+    
+    .lesson-title {
+        font-size: 2.5rem;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+
+    code.block {
+      display: block;
+      white-space: pre;
+      background-color: #1F2937; /* Gray-800 */
+      color: #F9FAFB; /* Gray-50 */
+      padding: 1rem;
+      border-radius: 8px;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.9em;
+      line-height: 1.5;
+    }
+    
+    code.inline {
+      background-color: #374151;
+      color: #F9FAFB;
+      padding: 0.2rem 0.5rem;
+      border-radius: 6px;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.9em;
+    }
+    
+    .logo {
+      border-radius: 20px;
+      width: 100px;
+      object-fit: contain;
+    }
+  </style>
+</head>
+
+<body class="bg-gray-900 text-gray-300">
+
+  <!-- Header -->
+  <header class="bg-gray-800 shadow-lg sticky top-0 z-20">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+      <div>
+        <h1 class="text-xl font-bold text-white">Módulo 6: Projeto Prático</h1>
+        <p class="text-md font-semibold" style="color: #e80170;">Resumo do Projeto: Todo List</p>
+      </div>
+      <img src="https://passaportefc.com/wp-content/uploads/2024/03/serasa-logo-2-1024x432.png" alt="Logo Serasa"
+        class="logo">
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="max-w-5xl mx-auto p-6 md:p-8">
+
+    <section id="resumo-projeto">
+        <h2 class="lesson-title">Projeto Todo List: Visão Geral</h2>
+        <div class="space-y-16">
+
+            <div id="estrutura-colunas">
+                <h3 class="text-3xl font-bold mb-6 section-title">1. A Estrutura Kanban</h3>
+                <p class="text-lg mb-6 leading-relaxed">
+                   O projeto foi baseado em um layout Kanban, uma ferramenta visual de gerenciamento de fluxo. Dividimos a interface em três colunas principais para representar o ciclo de vida de uma tarefa:
+                </p>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="bg-gray-800 p-6 rounded-lg text-center">
+                        <h4 class="text-xl font-bold text-white mb-2">A Fazer</h4>
+                        <p>Coluna inicial onde todas as novas tarefas são criadas.</p>
+                    </div>
+                    <div class="bg-gray-800 p-6 rounded-lg text-center">
+                        <h4 class="text-xl font-bold text-white mb-2">Em Andamento</h4>
+                        <p>Tarefas que estão sendo executadas no momento.</p>
+                    </div>
+                    <div class="bg-gray-800 p-6 rounded-lg text-center">
+                        <h4 class="text-xl font-bold text-white mb-2">Feito</h4>
+                        <p>Tarefas que foram concluídas.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="dom-dinamico">
+              <h3 class="text-3xl font-bold mb-6 section-title">2. Manipulação Dinâmica do DOM</h3>
+              <p class="text-lg mb-6 leading-relaxed">
+                  A principal funcionalidade do projeto é a movimentação das tarefas entre as colunas. Isso foi feito <strong class="text-white">sem recarregar a página</strong>, usando JavaScript para manipular o DOM:
+              </p>
+               <ul class="list-disc list-inside space-y-3">
+                    <li><strong class="text-white">Criação de Tarefas:</strong> Usamos <code class="inline">document.createElement('div')</code> e <code class="inline">innerHTML</code> para criar um novo card de tarefa com o texto do input.</li>
+                    <li><strong class="text-white">Adição na Tela:</strong> A nova tarefa era adicionada na coluna "A Fazer" usando <code class="inline">containerTarefasAfazer.appendChild(novaTarefa)</code>.</li>
+                    <li><strong class="text-white">Movimentação entre Colunas:</strong> Ao clicar no botão de mover, o JavaScript:
+                        <ol class="list-decimal list-inside ml-6 mt-2">
+                            <li>Identificava o card da tarefa (ex: com <code class="inline">event.target.closest('.tarefa')</code>).</li>
+                            <li>Removia o elemento da coluna atual (com <code class="inline">elementoPai.remove()</code>).</li>
+                            <li>Recriava o card na nova coluna (chamando uma nova função, ex: `criarTarefaAndamento()`).</li>
+                        </ol>
+                    </li>
+                </ul>
+            </div>
+            
+            <div id="persistencia-ls">
+                <h3 class="text-3xl font-bold mb-6 section-title">3. Persistência de Dados com LocalStorage</h3>
+                <p class="text-lg mb-6 leading-relaxed">
+                   Para que as tarefas não sumissem ao fechar o navegador, usamos o <strong style="color: #e80170;">localStorage</strong>.
+                </p>
+                 <p class="text-lg mb-6 leading-relaxed">
+                   Como o localStorage só armazena texto, nós criamos um <strong class="text-white">array de objetos</strong> para cada coluna e usamos <code class="inline">JSON.stringify()</code> para convertê-lo em string antes de salvar.
+                </p>
+                <code class="block">
+// Exemplo de como salvamos a lista "A Fazer"
+const tarefasAFazer = [
+  { nome: 'Estudar JS', coluna: 'fazer' },
+  { nome: 'Fazer café', coluna: 'fazer' }
+];
+
+const listaString = JSON.stringify(tarefasAFazer);
+localStorage.setItem('tarefasFazer', listaString);
+                </code>
+                 <p class="text-lg mt-6 leading-relaxed">
+                   Ao carregar a página, o script faz o processo inverso: usa <code class="inline">localStorage.getItem()</code> para ler a string e <code class="inline">JSON.parse()</code> para convertê-la de volta em um array. Em seguida, um laço `for` percorre o array e chama a função `criarTarefaAfazer()` para cada item, populando a tela.
+                </p>
+            </div>
+
+             <div id="conclusao-projeto">
+                <h3 class="text-3xl font-bold mb-6 section-title">4. O que Aprendemos</h3>
+                <div class="bg-gray-800 text-gray-200 p-6 rounded-lg" style="border-left: 4px solid #e80170;">
+                    <p class="mb-4">Este projeto conectou todos os pontos essenciais do front-end moderno:</p>
+                    <ul class="list-disc list-inside space-y-2">
+                      <li>Como estruturar um HTML semântico.</li>
+                      <li>Como selecionar e manipular elementos do DOM em resposta a eventos.</li>
+                      <li>Como criar e remover elementos dinamicamente.</li>
+                      <li>Como organizar o código em funções reutilizáveis.</li>
+                      <li>Como persistir dados no navegador usando `localStorage` e `JSON`.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+  </main>
+</body>
+</html>

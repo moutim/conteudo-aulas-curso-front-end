@@ -155,10 +155,43 @@
         <p class="font-semibold mb-4" style="color: #e80170;">Revisão e Desafio</p>
         <a href="Semana 7/apresentacao.html" class="resource-link">Aula 19: Revisão Geral dos Fundamentos</a>
         <a href="Semana 7/desafio.html" class="resource-link">Desafio: Meu Orçamento Pessoal</a>
+        <a href="Semana 7/todo/index.html" class="resource-link">Projeto: Todo List</a>
+      </div>
+
+      <!-- Semana 8 -->
+      <div class="module-card">
+        <h2 class="text-2xl font-bold text-white mb-1">Semana 8</h2>
+        <p class="font-semibold mb-4" style="color: #e80170;">Novos Conteúdos</p>
+        <a href="Semana 8/Aula 8.1/apresentacao.html" class="resource-link">Aula 8.1: Conteúdo da Semana 8.1</a>
       </div>
 
     </div>
   </main>
+
+  <script>
+    // atualiza os textos dos links no index usando o <title> das páginas alvo quando disponível
+    (async function(){
+      const anchors = document.querySelectorAll('main a.resource-link');
+      for (const a of anchors) {
+        try {
+          const href = a.getAttribute('href');
+          if (!href) continue;
+          if (/^(https?:)?\/\//i.test(href) || href.startsWith('#')) continue;
+          const url = new URL(href, location.href);
+          const resp = await fetch(url.href, { cache: 'no-store' });
+          if (!resp.ok) continue;
+          const text = await resp.text();
+          const doc = new DOMParser().parseFromString(text, 'text/html');
+          const t = doc.querySelector('title');
+          if (t && t.textContent.trim()) {
+            a.textContent = t.textContent.trim();
+          }
+        } catch (e) {
+          // falhas silenciosas — mantemos o texto atual como fallback
+        }
+      }
+    })();
+  </script>
 
 </body>
 

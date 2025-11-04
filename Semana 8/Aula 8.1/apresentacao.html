@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aula 20: JavaScript Assíncrono e APIs</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    .section-title {
+      border-bottom: 3px solid #e80170;
+      padding-bottom: 0.5rem;
+      display: inline-block;
+    }
+    
+    .lesson-title {
+        font-size: 2.5rem;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+
+    code.block {
+      display: block;
+      white-space: pre;
+      background-color: #1F2937; /* Gray-800 */
+      color: #F9FAFB; /* Gray-50 */
+      padding: 1rem;
+      border-radius: 8px;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.9em;
+      line-height: 1.5;
+    }
+    
+    code.inline {
+      background-color: #374151;
+      color: #F9FAFB;
+      padding: 0.2rem 0.5rem;
+      border-radius: 6px;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.9em;
+    }
+    
+    .logo {
+      border-radius: 20px;
+      width: 100px;
+      object-fit: contain;
+    }
+  </style>
+</head>
+
+<body class="bg-gray-900 text-gray-300">
+
+  <!-- Header -->
+  <header class="bg-gray-800 shadow-lg sticky top-0 z-20">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+      <div>
+        <h1 class="text-xl font-bold text-white">Módulo 7: Conectando ao Mundo Real</h1>
+        <p class="text-md font-semibold" style="color: #e80170;">Aula 20: JavaScript Assíncrono e APIs</p>
+      </div>
+      <img src="https://passaportefc.com/wp-content/uploads/2024/03/serasa-logo-2-1024x432.png" alt="Logo Serasa"
+        class="logo">
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="max-w-5xl mx-auto p-6 md:p-8">
+
+    <section id="aula-20">
+        <h2 class="lesson-title">Consumindo APIs: Buscando Dados Externos</h2>
+        <div class="space-y-16">
+
+            <div id="o-que-e-api">
+                <h3 class="text-3xl font-bold mb-6 section-title">1. O que é uma API? (A Analogia do Garçom)</h3>
+                <p class="text-lg mb-6 leading-relaxed">
+                   Imagine que você está em um restaurante.
+                </p>
+                <ul class="list-disc list-inside space-y-3">
+                    <li>O <strong class="text-white">Cliente (Você)</strong> é o Front-end (seu código JS no navegador).</li>
+                    <li>A <strong class="text-white">Cozinha</strong> é o Back-end (o servidor onde os dados estão).</li>
+                    <li>O <strong style="color: #e80170;">Garçom</strong> é a <strong style="color: #e80170;">API</strong> (Interface de Programação de Aplicações).</li>
+                </ul>
+                <p class="text-lg mt-6 leading-relaxed">
+                   Você não vai até a cozinha pegar sua comida. Você chama o garçom (API), faz um pedido (requisição) e ele te traz uma resposta (o prato pronto). A API é o contrato que define como o front-end deve pedir dados ao back-end.
+                </p>
+            </div>
+
+            <div id="sync-vs-async">
+              <h3 class="text-3xl font-bold mb-6 section-title">2. Síncrono vs. Assíncrono</h3>
+              <p class="text-lg mb-6 leading-relaxed">
+                  Por padrão, o JavaScript é <strong class="text-white">síncrono</strong>, ou seja, executa uma linha de cada vez. Se ele precisa esperar 5 segundos por uma resposta de API, ele <strong class="text-red-400">trava a página inteira</strong>. Ninguém consegue clicar em nada.
+              </p>
+               <p class="text-lg mb-6 leading-relaxed">
+                  O código <strong style="color: #e80170;">Assíncrono</strong> resolve isso. Ele permite que o JS faça uma requisição e "siga em frente" com outras tarefas. Quando a resposta da API chegar, ele executa a função de retorno.
+              </p>
+
+              <h4 class="text-xl font-semibold mt-6 mb-2 text-white">Exemplo com `setTimeout`</h4>
+              <p class="mb-4">`setTimeout` é uma função assíncrona simples. Ela agenda a execução de uma função para depois de X milissegundos, mas não para o resto do código.</p>
+              <code class="block">
+console.log("1 - Primeiro");
+
+setTimeout(function() {
+  console.log("2 - Segundo (veio depois de 2s)");
+}, 2000); // 2000 milissegundos = 2 segundos
+
+console.log("3 - Terceiro");
+
+// Ordem no console: 1, 3, 2
+              </code>
+            </div>
+            
+            <div id="fetch-await">
+                <h3 class="text-3xl font-bold mb-6 section-title">3. `fetch` com `async/await` (A Forma Moderna)</h3>
+                <p class="text-lg mb-6 leading-relaxed">
+                   `fetch` é a ferramenta moderna do JS para fazer requisições a APIs. `async/await` é a sintaxe que nos permite escrever código assíncrono de uma forma que parece síncrona (mais fácil de ler).
+                </p>
+                <ul class="list-disc list-inside space-y-2 mb-6">
+                    <li><code class="inline">async</code>: Declara que uma função conterá código que "espera".</li>
+                    <li><code class="inline">await</code>: Pausa a execução da função (e não do navegador) até que a promessa (`fetch`) seja resolvida.</li>
+                </ul>
+                <code class="block">
+// 1. Declara a função como 'async'
+async function buscarDadosDaAPI() {
+  
+  // 2. Faz a chamada com 'await'
+  const response = await fetch('https://api.exemplo.com/dados');
+  
+  // 3. Espera a conversão dos dados (também é assíncrono!)
+  const dados = await response.json(); 
+  
+  console.log(dados);
+}
+
+buscarDadosDaAPI(); // Chama a função
+                </code>
+            </div>
+
+             <div id="try-catch">
+                <h3 class="text-3xl font-bold mb-6 section-title">4. Tratando Erros com `try...catch`</h3>
+                <p class="text-lg mb-6 leading-relaxed">
+                   E se a internet cair? Ou a API estiver fora do ar? O `await` vai falhar e quebrar nosso código. Para evitar isso, "tentamos" (`try`) executar o código e "capturamos" (`catch`) o erro se ele acontecer.
+                </p>
+                <code class="block">
+async function buscarDadosComSeguranca() {
+  try {
+    // Tenta fazer isso
+    const response = await fetch('https://api.exemplo.com/dados');
+    
+    // Se a resposta não for OK (ex: erro 404, 500), nós mesmos geramos um erro
+    if (!response.ok) {
+      throw new Error('Erro na rede: ' + response.statusText);
+    }
+    
+    const dados = await response.json();
+    console.log("Dados recebidos:", dados);
+  
+  } catch (error) {
+    // Se qualquer coisa no 'try' falhar, o 'catch' é executado
+    console.error("Houve um problema na requisição:", error.message);
+    alert("Não foi possível carregar os dados. Tente novamente.");
+  }
+}
+                </code>
+            </div>
+            
+            <div id="conclusao-api">
+                <h3 class="text-3xl font-bold mb-6 section-title">5. Conclusão</h3>
+                <div class="bg-gray-800 text-gray-200 p-6 rounded-lg" style="border-left: 4px solid #e80170;">
+                    <p class="mb-4">Hoje aprendemos o fluxo essencial para consumir dados externos:</p>
+                    <ol class="list-decimal list-inside space-y-2">
+                      <li>Usamos <code class="inline">async/await</code> para lidar com o tempo de espera.</li>
+                      <li>Usamos <code class="inline">fetch</code> para fazer o "pedido" à API.</li>
+                      <li>Usamos <code class="inline">.json()</code> para "desempacotar" a resposta.</li>
+                      <li>Usamos <code class="inline">try...catch</code> para garantir que nosso código não quebre se o pedido falhar.</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </section>
+  </main>
+</body>
+</html>
