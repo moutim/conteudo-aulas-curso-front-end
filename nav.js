@@ -72,7 +72,8 @@
       ]
       ,
       'Semana 8': [
-        { l: 'Aula 8.1: (Conteúdo Semana 8.1)', h: 'Semana 8/Aula 8.1/apresentacao.html' }
+        { l: 'Aula 20: JavaScript Assíncrono e APIs', h: 'Semana 8/Aula 8.1/apresentacao.html' },
+        { l: 'Aula 21: Colaborando com Git e GitHub', h: 'Semana 8/Semana 8.2/apresentacao.html' }
       ]
     };
 
