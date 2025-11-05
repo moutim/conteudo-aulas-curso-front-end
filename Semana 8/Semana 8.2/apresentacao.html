@@ -115,7 +115,7 @@
                         </p>
                     </div>
                     <!-- Imagem ilustrativa de branches. Adicionei um fundo branco para melhor visualização -->
-                    <img src="https://i.imgur.com/g8VbJbU.png" alt="Diagrama ilustrando a branch main e uma feature branch saindo e voltando" class="rounded-lg shadow-md w-full h-auto bg-white p-4">
+                    <img src="https://hermes.dio.me/assets/articles/b498d93b-ff2c-4710-a5b6-2305ef40a8e7.png" alt="Diagrama ilustrando a branch main e uma feature branch saindo e voltando" class="rounded-lg shadow-md w-full h-auto bg-white p-4">
                 </div>
             </div>
             
@@ -182,8 +182,171 @@ git commit -m "Adiciona o formulário de login"</code>
                     </p>
                 </div>
             </div>
+
+            <div id="comandos-git">
+                <h3 class="text-3xl font-bold mb-6 section-title">7. Comandos Git Essenciais para Branches</h3>
+                <p class="text-lg mb-6 leading-relaxed">
+                    Aqui estão os comandos mais importantes para trabalhar com branches no dia a dia:
+                </p>
+                <div class="space-y-6">
+                    <div class="bg-gray-800 p-6 rounded-lg border border-gray-700">
+                        <h4 class="text-xl font-bold text-white mb-3">Criar uma nova branch</h4>
+                        <code class="block">git checkout -b nome-da-branch</code>
+                        <p class="mt-2">Cria uma nova branch e já muda para ela automaticamente.</p>
+                    </div>
+
+                    <div class="bg-gray-800 p-6 rounded-lg border border-gray-700">
+                        <h4 class="text-xl font-bold text-white mb-3">Listar todas as branches</h4>
+                        <code class="block">git branch</code>
+                        <p class="mt-2">Mostra todas as branches locais. A branch atual aparece com um asterisco (*).</p>
+                        <code class="block mt-2">git branch -a</code>
+                        <p class="mt-2">Mostra todas as branches (locais e remotas).</p>
+                    </div>
+
+                    <div class="bg-gray-800 p-6 rounded-lg border border-gray-700">
+                        <h4 class="text-xl font-bold text-white mb-3">Mudar de branch</h4>
+                        <code class="block">git checkout nome-da-branch</code>
+                        <p class="mt-2">Alterna para uma branch existente.</p>
+                        <code class="block mt-2">git switch nome-da-branch</code>
+                        <p class="mt-2">Comando mais moderno para mudar de branch (Git 2.23+).</p>
+                    </div>
+
+                    <div class="bg-gray-800 p-6 rounded-lg border border-gray-700">
+                        <h4 class="text-xl font-bold text-white mb-3">Atualizar sua branch com mudanças remotas</h4>
+                        <code class="block">git pull origin nome-da-branch</code>
+                        <p class="mt-2">Puxa (baixa) as últimas mudanças da branch remota para sua branch local.</p>
+                        <code class="block mt-2">git pull</code>
+                        <p class="mt-2">Se você já está na branch, pode usar apenas <code class="inline">git pull</code>.</p>
+                    </div>
+
+                    <div class="bg-gray-800 p-6 rounded-lg border border-gray-700">
+                        <h4 class="text-xl font-bold text-white mb-3">Enviar sua branch para o GitHub</h4>
+                        <code class="block">git push origin nome-da-branch</code>
+                        <p class="mt-2">Envia sua branch local para o repositório remoto (GitHub).</p>
+                        <code class="block mt-2">git push -u origin nome-da-branch</code>
+                        <p class="mt-2">O <code class="inline">-u</code> configura o rastreamento, então depois você pode usar apenas <code class="inline">git push</code>.</p>
+                    </div>
+
+                    <div class="bg-gray-800 p-6 rounded-lg border border-gray-700">
+                        <h4 class="text-xl font-bold text-white mb-3">Atualizar a branch main local</h4>
+                        <code class="block">git checkout main
+git pull origin main</code>
+                        <p class="mt-2">Sempre atualize sua branch <code class="inline">main</code> local antes de criar uma nova branch.</p>
+                    </div>
+
+                    <div class="bg-gray-800 p-6 rounded-lg border border-gray-700">
+                        <h4 class="text-xl font-bold text-white mb-3">Deletar uma branch (após o merge)</h4>
+                        <code class="block">git branch -d nome-da-branch</code>
+                        <p class="mt-2">Deleta uma branch local que já foi mergeada.</p>
+                        <code class="block mt-2">git push origin --delete nome-da-branch</code>
+                        <p class="mt-2">Deleta a branch no repositório remoto (GitHub).</p>
+                    </div>
+
+                    <div class="bg-gray-800 p-6 rounded-lg border border-gray-700">
+                        <h4 class="text-xl font-bold text-white mb-3">Ver o status da sua branch</h4>
+                        <code class="block">git status</code>
+                        <p class="mt-2">Mostra em qual branch você está e quais arquivos foram modificados.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="github-desktop">
+                <h3 class="text-3xl font-bold mb-6 section-title">8. Passo a Passo com GitHub Desktop</h3>
+                <p class="text-lg mb-6 leading-relaxed">
+                    Se você prefere uma interface gráfica, o GitHub Desktop facilita muito o trabalho com branches. Veja como fazer:
+                </p>
+                <div class="space-y-8">
+                    <div class="bg-gray-800 p-6 rounded-lg border border-gray-700">
+                        <h4 class="text-2xl font-bold text-white mb-4">📋 Passo 1: Atualizar a Branch Main</h4>
+                        <ol class="list-decimal list-inside space-y-2 ml-4">
+                            <li>Certifique-se de que está na branch <code class="inline">main</code> (você vê o nome no topo da janela)</li>
+                            <li>Clique no botão <strong class="text-white">"Fetch origin"</strong> para verificar se há atualizações</li>
+                            <li>Se aparecer <strong class="text-white">"Pull origin"</strong>, clique para baixar as mudanças mais recentes</li>
+                        </ol>
+                    </div>
+
+                    <div class="bg-gray-800 p-6 rounded-lg border border-gray-700">
+                        <h4 class="text-2xl font-bold text-white mb-4">🌿 Passo 2: Criar uma Nova Branch</h4>
+                        <ol class="list-decimal list-inside space-y-2 ml-4">
+                            <li>Clique no botão <strong class="text-white">"Current Branch"</strong> no topo</li>
+                            <li>Clique em <strong class="text-white">"New Branch"</strong></li>
+                            <li>Digite um nome descritivo para sua branch (ex: <code class="inline">feature/login-facebook</code>)</li>
+                            <li>Certifique-se de que está criando a partir de <code class="inline">main</code></li>
+                            <li>Clique em <strong class="text-white">"Create Branch"</strong></li>
+                        </ol>
+                        <p class="mt-4 p-3 bg-gray-900 rounded text-sm">
+                            💡 <strong>Dica:</strong> Use nomes descritivos como <code class="inline">feature/nova-funcionalidade</code>, <code class="inline">bugfix/corrige-erro</code>, ou <code class="inline">hotfix/problema-critico</code>
+                        </p>
+                    </div>
+
+                    <div class="bg-gray-800 p-6 rounded-lg border border-gray-700">
+                        <h4 class="text-2xl font-bold text-white mb-4">💻 Passo 3: Fazer Suas Alterações</h4>
+                        <ol class="list-decimal list-inside space-y-2 ml-4">
+                            <li>Trabalhe normalmente no seu código</li>
+                            <li>O GitHub Desktop detectará automaticamente os arquivos modificados</li>
+                            <li>Você verá a lista de mudanças no painel esquerdo</li>
+                        </ol>
+                    </div>
+
+                    <div class="bg-gray-800 p-6 rounded-lg border border-gray-700">
+                        <h4 class="text-2xl font-bold text-white mb-4">💾 Passo 4: Fazer Commit das Mudanças</h4>
+                        <ol class="list-decimal list-inside space-y-2 ml-4">
+                            <li>Revise as mudanças no painel central</li>
+                            <li>Marque os arquivos que deseja incluir no commit (geralmente todos)</li>
+                            <li>No campo inferior, escreva uma mensagem de commit clara e descritiva</li>
+                            <li>Clique no botão azul <strong class="text-white">"Commit to nome-da-branch"</strong></li>
+                        </ol>
+                        <p class="mt-4 p-3 bg-gray-900 rounded text-sm">
+                            💡 <strong>Dica:</strong> Faça commits pequenos e frequentes com mensagens claras como "Adiciona formulário de login" ou "Corrige bug no botão de envio"
+                        </p>
+                    </div>
+
+                    <div class="bg-gray-800 p-6 rounded-lg border border-gray-700">
+                        <h4 class="text-2xl font-bold text-white mb-4">☁️ Passo 5: Publicar/Enviar a Branch (Push)</h4>
+                        <ol class="list-decimal list-inside space-y-2 ml-4">
+                            <li>Após fazer o commit, você verá um botão <strong class="text-white">"Publish branch"</strong> (primeira vez)</li>
+                            <li>Clique nele para enviar sua branch para o GitHub</li>
+                            <li>Nos próximos commits, o botão mudará para <strong class="text-white">"Push origin"</strong></li>
+                            <li>Sempre clique em <strong class="text-white">"Push origin"</strong> após fazer commits para enviar ao GitHub</li>
+                        </ol>
+                    </div>
+
+                    <div class="bg-gray-800 p-6 rounded-lg border border-gray-700">
+                        <h4 class="text-2xl font-bold text-white mb-4">🔀 Passo 6: Criar um Pull Request</h4>
+                        <ol class="list-decimal list-inside space-y-2 ml-4">
+                            <li>Após fazer push, aparecerá um botão <strong class="text-white">"Create Pull Request"</strong></li>
+                            <li>Clique nele para abrir o navegador no GitHub</li>
+                            <li>Ou vá manualmente ao GitHub e clique em <strong class="text-white">"Compare & pull request"</strong></li>
+                            <li>Adicione uma descrição detalhada do que foi feito</li>
+                            <li>Selecione os revisores (membros da equipe)</li>
+                            <li>Clique em <strong class="text-white">"Create Pull Request"</strong></li>
+                        </ol>
+                    </div>
+
+                    <div class="bg-gray-800 p-6 rounded-lg border border-gray-700">
+                        <h4 class="text-2xl font-bold text-white mb-4">✅ Passo 7: Após Aprovação e Merge</h4>
+                        <ol class="list-decimal list-inside space-y-2 ml-4">
+                            <li>Aguarde a revisão e aprovação do time</li>
+                            <li>Após o merge no GitHub, volte ao GitHub Desktop</li>
+                            <li>Mude para a branch <code class="inline">main</code></li>
+                            <li>Clique em <strong class="text-white">"Fetch origin"</strong> e depois <strong class="text-white">"Pull origin"</strong></li>
+                            <li>Sua branch <code class="inline">main</code> local agora está atualizada!</li>
+                            <li>(Opcional) Delete a branch antiga clicando em <strong class="text-white">"Branch"</strong> > <strong class="text-white">"Delete"</strong></li>
+                        </ol>
+                    </div>
+
+                    <div class="bg-blue-900 bg-opacity-30 p-6 rounded-lg border border-blue-700">
+                        <h4 class="text-xl font-bold text-blue-300 mb-3">📌 Resumo Visual do Fluxo no GitHub Desktop</h4>
+                        <div class="text-center text-lg font-semibold">
+                            <p>Main atualizada → Nova Branch → Alterações → Commit → Push → Pull Request → Merge → Voltar para Main</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
   </main>
+
+  <script src="../../nav.js" defer></script>
 </body>
 </html>
