@@ -225,6 +225,8 @@ git commit -m "Adiciona o formulário de login"</code>
                         <p class="mt-2">Envia sua branch local para o repositório remoto (GitHub).</p>
                         <code class="block mt-2">git push -u origin nome-da-branch</code>
                         <p class="mt-2">O <code class="inline">-u</code> configura o rastreamento, então depois você pode usar apenas <code class="inline">git push</code>.</p>
+                        <code class="block mt-2">git push --set-upstream origin nome-da-branch</code>
+                        <p class="mt-2">Forma mais explícita do comando anterior. O <code class="inline">--set-upstream</code> é o mesmo que <code class="inline">-u</code>, configurando a branch remota como "upstream" (referência) da sua branch local. Após usar este comando uma vez, você pode simplesmente usar <code class="inline">git push</code> ou <code class="inline">git pull</code> sem especificar origem e branch.</p>
                     </div>
 
                     <div class="bg-gray-800 p-6 rounded-lg border border-gray-700">
