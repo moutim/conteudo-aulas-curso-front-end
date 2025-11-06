@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aula 22: Ferramentas do Mundo Real</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Link do Animate.css via CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    .section-title {
+      border-bottom: 3px solid #e80170;
+      padding-bottom: 0.5rem;
+      display: inline-block;
+    }
+    
+    .lesson-title {
+        font-size: 2.5rem;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+
+    code.block {
+      display: block;
+      white-space: pre;
+      background-color: #1F2937; /* Gray-800 */
+      color: #F9FAFB; /* Gray-50 */
+      padding: 1rem;
+      border-radius: 8px;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.9em;
+      line-height: 1.5;
+    }
+    
+    code.inline {
+      background-color: #374151;
+      color: #F9FAFB;
+      padding: 0.2rem 0.5rem;
+      border-radius: 6px;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.9em;
+    }
+    
+    .logo {
+      border-radius: 20px;
+      width: 100px;
+      object-fit: contain;
+    }
+  </style>
+</head>
+
+<body class="bg-gray-900 text-gray-300">
+
+  <!-- Header -->
+  <header class="bg-gray-800 shadow-lg sticky top-0 z-20">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+      <div>
+        <h1 class="text-xl font-bold text-white">Módulo 7: Conectando ao Mundo Real</h1>
+        <p class="text-md font-semibold" style="color: #e80170;">Aula 22: Ferramentas do Mundo Real</p>
+      </div>
+      <img src="https://passaportefc.com/wp-content/uploads/2024/03/serasa-logo-2-1024x432.png" alt="Logo Serasa"
+        class="logo">
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="max-w-5xl mx-auto p-6 md:p-8">
+
+    <section id="aula-22">
+        <h2 class="lesson-title">APIs, Animações e Clipboard</h2>
+        <div class="space-y-16">
+
+            <div id="public-apis">
+                <h3 class="text-3xl font-bold mb-6 section-title">1. Onde Encontrar APIs para Praticar?</h3>
+                <p class="text-lg mb-6 leading-relaxed">
+                   Na última aula, vimos como buscar dados com `fetch`. Mas onde encontrar dados reais para nossos projetos?
+                </p>
+                <div class="bg-gray-800 p-6 rounded-lg border border-gray-700">
+                    <h4 class="text-2xl font-bold text-white mb-4">Recurso: `publicapi.dev`</h4>
+                    <p class="text-lg mb-4">Este site é um repositório gigantesco de APIs públicas e gratuitas que você pode usar para praticar.</p>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li>Quer dados sobre Pokémon? Use a PokeAPI.</li>
+                        <li>Quer dados sobre filmes? Use a OMDb API.</li>
+                        <li>Quer dados sobre o clima? Existem várias APIs para isso.</li>
+                    </ul>
+                    <a href="https://publicapi.dev/" target="_blank" class="mt-4 inline-block text-lg font-bold py-3 px-6 rounded-lg text-white" style="background-color: #e80170;">Visitar o publicapi.dev</a>
+                </div>
+            </div>
+
+            <div id="cdn-animate">
+              <h3 class="text-3xl font-bold mb-6 section-title">2. CSS Externo (CDN) e `Animate.css`</h3>
+              <p class="text-lg mb-6 leading-relaxed">
+                  Não precisamos escrever todas as nossas animações ou estilos do zero. Podemos usar bibliotecas de CSS prontas, como a <strong class="text-white">Animate.css</strong>.
+              </p>
+              
+              <h4 class="text-xl font-semibold mt-6 mb-2 text-white">O que é um CDN?</h4>
+              <p class="mb-4">
+                  CDN (Content Delivery Network) é um serviço que hospeda arquivos (como bibliotecas CSS ou JS) em servidores ao redor do mundo. Em vez de baixar o arquivo, nós apenas o linkamos no nosso `<head>`.
+              </p>
+              
+              <h4 class="text-xl font-semibold mt-6 mb-2 text-white">Usando Animate.css</h4>
+              <p class="mb-4">
+                  É uma biblioteca com dezenas de animações prontas que podemos usar apenas adicionando classes ao nosso HTML.
+              </p>
+              <code class="block">
+&lt;!-- 1. Adicione o link do CDN no &lt;head&gt; --&gt;
+&lt;head&gt;
+  &lt;link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  /&gt;
+&lt;/head&gt;
+
+&lt;!-- 2. Use as classes no HTML para animar --&gt;
+&lt;h1 class="animate__animated animate__bounce"&gt;Isso aqui pula!&lt;/h1&gt;
+
+&lt;!-- 3. Use com JS para animar em um evento --&gt;
+&lt;button id="meu-botao"&gt;Clique para animar&lt;/button&gt;
+&lt;p id="texto-animado"&gt;Eu vou aparecer com fade!&lt;/p&gt;
+
+&lt;script&gt;
+  const botao = document.getElementById('meu-botao');
+  const texto = document.getElementById('texto-animado');
+
+  botao.addEventListener('click', () => {
+    texto.classList.add('animate__animated', 'animate__fadeInUp');
+  });
+&lt;/script&gt;
+              </code>
+            </div>
+            
+            <div id="clipboard">
+                <h3 class="text-3xl font-bold mb-6 section-title">3. Copiando Texto (Clipboard)</h3>
+                <p class="text-lg mb-6 leading-relaxed">
+                   Muitas vezes queremos dar ao usuário um botão para "Copiar" um código, um link de convite ou um cupom.
+                </p>
+
+                <h4 class="text-xl font-semibold mt-6 mb-2 text-white">Método `navigator.clipboard` (Moderno)</h4>
+                <p class="mb-4">A forma mais nova e limpa de fazer isso. Funciona com `async/await` e é baseada em "Promessas". <strong class="text-yellow-400">Nota:</strong> Pode não funcionar em todos os ambientes (ex: alguns iframes ou sites não-HTTPS).</p>
+                 <code class="block">
+async function copiarTextoModerno(texto) {
+  try {
+    await navigator.clipboard.writeText(texto);
+    alert('Texto copiado com sucesso!');
+  } catch (err) {
+    console.error('Falha ao copiar: ', err);
+  }
+}
+
+// Para usar:
+// copiarTextoModerno('Seu cupom: VITOR10');
+                </code>
+
+                 <h4 class="text-xl font-semibold mt-6 mb-2 text-white">Método `document.execCommand` (Compatível)</h4>
+                <p class="mb-4">É a forma mais antiga, mas <strong class="text-white">funciona em praticamente todos os lugares</strong>, incluindo ambientes de teste. Ela é um pouco mais "manual":</p>
+                <code class="block">
+function copiarTextoCompativel(texto) {
+  // 1. Cria um textarea temporário fora da tela
+  const textarea = document.createElement('textarea');
+  textarea.value = texto;
+  document.body.appendChild(textarea);
+
+  // 2. Seleciona o texto dentro do textarea
+  textarea.select();
+  
+  // 3. Executa o comando "copiar"
+  try {
+    document.execCommand('copy');
+    alert('Texto copiado!');
+  } catch (err) {
+    console.error('Falha ao copiar', err);
+  }
+
+  // 4. Remove o textarea temporário
+  document.body.removeChild(textarea);
+}
+
+// Para usar:
+// copiarTextoCompativel('Seu cupom: VITOR10');
+                </code>
+            </div>
+        </div>
+    </section>
+  </main>
+
+  <script src="../../nav.js" defer></script>
+</body>
+</html>
