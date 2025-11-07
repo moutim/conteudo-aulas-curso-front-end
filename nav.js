@@ -74,7 +74,8 @@
       'Semana 8': [
         { l: 'Aula 20: JavaScript Assíncrono e APIs', h: 'Semana 8/Aula 8.1/apresentacao.html' },
         { l: 'Aula 21: Colaborando com Git e GitHub', h: 'Semana 8/Aula 8.2/apresentacao.html' },
-        { l: 'Aula 22: Ferramentas do Mundo Real', h: 'Semana 8/Aula 8.3/apresentacao.html' }
+        { l: 'Aula 22: Ferramentas do Mundo Real', h: 'Semana 8/Aula 8.3/apresentacao.html' },
+        { l: 'Aula 24: O que é um iframe?', h: 'Semana 8/Aula 8.4/apresentacao.html' }
       ]
     };
 
