@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aula 25: Variáveis CSS, Bulma e Métodos de Array</title>
+  
+  <!-- Script do Tailwind para o layout da aula -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Link CDN do Bulma (apenas para os exemplos) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
+  
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* Estilos da apresentação (Padrão das Aulas) */
+    body {
+      font-family: 'Inter', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    .section-title {
+      border-bottom: 3px solid #e80170;
+      padding-bottom: 0.5rem;
+      display: inline-block;
+    }
+    
+    .lesson-title {
+        font-size: 2.5rem;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+
+    code.block {
+      display: block;
+      white-space: pre;
+      background-color: #1F2937; /* Gray-800 */
+      color: #F9FAFB; /* Gray-50 */
+      padding: 1rem;
+      border-radius: 8px;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.9em;
+      line-height: 1.5;
+    }
+    
+    code.inline {
+      background-color: #374151;
+      color: #F9FAFB;
+      padding: 0.2rem 0.5rem;
+      border-radius: 6px;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.9em;
+    }
+    
+    .logo {
+      border-radius: 20px;
+      width: 100px;
+      object-fit: contain;
+    }
+
+    /* Ajuste para os componentes de exemplo do Bulma */
+    .bulma-example {
+        background-color: white;
+        padding: 1.5rem;
+        border-radius: 8px;
+        margin-top: 1rem;
+        /* Reseta a cor do texto para o padrão light do bulma */
+        color: #4a4a4a; 
+    }
+  </style>
+</head>
+
+<body class="bg-gray-900 text-gray-300">
+
+  <!-- Header (Padrão das Aulas, com Tailwind) -->
+  <header class="bg-gray-800 shadow-lg sticky top-0 z-20">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+      <div>
+        <h1 class="text-xl font-bold text-white">Módulo 7: Ferramentas Modernas</h1>
+        <p class="text-md font-semibold" style="color: #e80170;">Aula 25: Variáveis CSS, Bulma e Métodos de Array</p>
+      </div>
+      <img src="https://passaportefc.com/wp-content/uploads/2024/03/serasa-logo-2-1024x432.png" alt="Logo Serasa"
+        class="logo">
+    </div>
+  </header>
+
+  <!-- Main Content (Padrão das Aulas, com Tailwind) -->
+  <main class="max-w-5xl mx-auto p-6 md:p-8">
+
+    <section id="aula-25">
+        <h2 class="lesson-title">Variáveis CSS, Bulma e Métodos de Array</h2>
+        <div class="space-y-16">
+
+            <div id="variaveis-css">
+                <h3 class="text-3xl font-bold mb-6 section-title">1. Variáveis CSS (Propriedades Customizadas)</h3>
+                <p class="text-lg mb-6 leading-relaxed">
+                   Variáveis CSS são uma forma de definir valores (como cores, fontes, tamanhos) em um lugar e reutilizá-los em todo o seu arquivo CSS. Isso é <strong class="text-white">excelente para manutenção</strong>, especialmente para criar temas (como Dark/Light Mode).
+                </p>
+                <p class="text-lg mb-6 leading-relaxed">
+                   Declaramos uma variável usando <code class="inline">--nome-da-variavel</code> dentro do seletor <code class="inline">:root</code> (que representa a raiz do documento HTML).
+                </p>
+                <code class="block">
+/* 1. Definindo as variáveis no :root */
+:root {
+  --cor-principal: #e80170;
+  --cor-fundo: #111827;
+  --tamanho-fonte-padrao: 16px;
+}
+
+/* 2. Usando as variáveis com a função var() */
+body {
+  background-color: var(--cor-fundo);
+  font-size: var(--tamanho-fonte-padrao);
+}
+
+.botao-destaque {
+  background-color: var(--cor-principal);
+  color: white;
+}
+                </code>
+            </div>
+
+            <div id="o-que-e-framework">
+              <h3 class="text-3xl font-bold mb-6 section-title">2. O que é um Framework CSS?</h3>
+              <p class="text-lg mb-6 leading-relaxed">
+                  Um Framework CSS é um conjunto de código CSS pré-escrito que fornece uma base de estilos e componentes para acelerar o desenvolvimento. Ele resolve problemas comuns de layout, responsividade e design.
+              </p>
+              
+              <div>
+                    <div class="bg-gray-800 p-6 rounded-lg border border-gray-700">
+                      <h4 class="text-2xl font-bold text-white mb-4">Baseado em Componentes (Ex: Bulma, Bootstrap)</h4>
+                      <p>Fornece "componentes prontos". Você usa classes que representam o componente (ex: <code class="inline">button</code>, <code class="inline">card</code>). É ótimo para construir rápido sem ter que inventar o design do zero.</p>
+                      <code class="block mt-2">&lt;button class="button is-primary"&gt;&lt;/button&gt;</code>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="intro-bulma">
+                <h3 class="text-3xl font-bold mb-6 section-title">3. Introdução ao Bulma CSS</h3>
+                <p class="text-lg mb-6 leading-relaxed">
+                   O <strong style="color: #e80170;">Bulma</strong> é um framework CSS moderno, leve e baseado em componentes. Ele <strong class="text-white">não usa JavaScript</strong>, sendo focado apenas em CSS. É famoso por sua sintaxe limpa e seu poderoso sistema de layout baseado em Flexbox.
+                </p>
+                
+                <h4 class="text-xl font-semibold mt-6 mb-2 text-white">Como Usar (Via CDN)</h4>
+                <p class="mb-4">
+                   Assim como o Animate.css, podemos apenas linkar o arquivo CDN no nosso <code class="inline">&lt;head&gt;</code>:
+                </p>
+                 <code class="block">
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css"&gt;
+&lt;/head&gt;
+                </code>
+            </div>
+
+             <div id="exemplos-bulma">
+                <h3 class="text-3xl font-bold mb-6 section-title">4. Exemplos de Componentes Bulma</h3>
+                <p class="text-lg mb-6 leading-relaxed">
+                   A estilização no Bulma é feita adicionando classes com nomes fáceis de entender:
+                </p>
+
+                <h4 class="text-xl font-semibold mt-6 mb-2 text-white">Botões (Button)</h4>
+                <code class="block">
+&lt;button class="button is-primary"&gt;Botão Primário&lt;/button&gt;
+&lt;button class="button is-link is-light"&gt;Botão Link Claro&lt;/button&gt;
+&lt;button class="button is-danger is-large"&gt;Botão Perigo Grande&lt;/button&gt;
+&lt;button class="button is-loading"&gt;Carregando...&lt;/button&gt;
+                </code>
+                <!-- Exemplo renderizado -->
+                <div class="bulma-example">
+                  <button class="button is-primary">Botão Primário</button>
+                  <button class="button is-link is-light">Botão Link Claro</button>
+                  <button class="button is-danger is-large">Botão Perigo Grande</button>
+                  <button class="button is-loading">Carregando...</button>
+                </div>
+
+
+                <h4 class="text-xl font-semibold mt-6 mb-2 text-white">Notificações (Notification)</h4>
+                <code class="block">
+&lt;div class="notification is-success"&gt;
+  Formulário enviado com sucesso!
+&lt;/div&gt;
+                </code>
+                <!-- Exemplo renderizado -->
+                <div class="bulma-example">
+                    <div class="notification is-success">
+                      Formulário enviado com sucesso!
+                    </div>
+                </div>
+
+                <h4 class="text-xl font-semibold mt-6 mb-2 text-white">Cartão (Card)</h4>
+                <code class="block">
+&lt;div class="card" style="width: 300px;"&gt;
+  &lt;div class="card-image"&gt;
+    &lt;figure class="image is-4by3"&gt;
+      &lt;img src="https://placehold.co/300x225" alt="Placeholder image"&gt;
+    &lt;/figure&gt;
+  &lt;/div&gt;
+  &lt;div class="card-content"&gt;
+    &lt;p class="title is-4"&gt;Título do Card&lt;/p&gt;
+    &lt;p class="subtitle is-6"&gt;@bulmacss&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+                </code>
+                <!-- Exemplo renderizado -->
+                <div class="bulma-example">
+                    <div class="card" style="width: 300px;">
+                      <div class="card-image">
+                        <figure class="image is-4by3">
+                          <img src="https://placehold.co/300x225/e80170/white?text=Bulma" alt="Placeholder image">
+                        </figure>
+                      </div>
+                      <div class="card-content">
+                        <p class="title is-4">Título do Card</p>
+                        <p class="subtitle is-6">@bulmacss</p>
+                      </div>
+                    </div>
+                </div>
+
+                <h4 class="text-xl font-semibold mt-6 mb-2 text-white">Herói (Hero)</h4>
+                <code class="block">
+&lt;section class="hero is-primary"&gt;
+  &lt;div class="hero-body"&gt;
+    &lt;p class="title"&gt;
+      Seção Hero Primária
+    &lt;/p&gt;
+    &lt;p class="subtitle"&gt;
+      Um subtítulo simples
+    &lt;/p&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+                </code>
+                <!-- Exemplo renderizado -->
+                <div class="bulma-example">
+                     <section class="hero is-primary">
+                      <div class="hero-body">
+                        <p class="title">
+                          Seção Hero Primária
+                        </p>
+                        <p class="subtitle">
+                          Um subtítulo simples
+                        </p>
+                      </div>
+                    </section>
+                </div>
+                
+                <h4 class="text-xl font-semibold mt-6 mb-2 text-white">Formulário (Form)</h4>
+                <code class="block">
+&lt;div class="field"&gt;
+  &lt;label class="label"&gt;Nome&lt;/label&gt;
+  &lt;div class="control"&gt;
+    &lt;input class="input" type="text" placeholder="Seu nome"&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="field"&gt;
+  &lt;label class="label"&gt;Email&lt;/label&gt;
+  &lt;div class="control"&gt;
+    &lt;input class="input is-danger" type="email" placeholder="email@exemplo.com"&gt;
+  &lt;/div&gt;
+  &lt;p class="help is-danger"&gt;Este email é inválido&lt;/p&gt;
+&lt;/div&gt;
+                </code>
+                <!-- Exemplo renderizado -->
+                <div class="bulma-example">
+                    <div class="field">
+                      <label class="label">Nome</label>
+                      <div class="control">
+                        <input class="input" type="text" placeholder="Seu nome">
+                      </div>
+                    </div>
+
+                    <div class="field">
+                      <label class="label">Email</label>
+                      <div class="control">
+                        <input class="input is-danger" type="email" placeholder="email@exemplo.com">
+                      </div>
+                      <p class="help is-danger">Este email é inválido</p>
+                    </div>
+                </div>
+            </div> <!-- Fim #exemplos-bulma -->
+
+            <!-- INÍCIO DA NOVA SEÇÃO -->
+            <div id="hof">
+                <h3 class="text-3xl font-bold mb-6 section-title">5. Métodos de Array (Funções de Ordem Superior)</h3>
+                <p class="text-lg mb-6 leading-relaxed">
+                   O JavaScript moderno nos dá ferramentas muito poderosas para manipular arrays sem precisar escrever laços <code class="inline">for</code> manualmente. Essas ferramentas são chamadas de <strong style="color: #e80170;">Funções de Ordem Superior (Higher-Order Functions)</strong>.
+                </p>
+                <p class="text-lg mb-6 leading-relaxed">
+                   Elas são chamadas assim porque são funções (métodos) que <strong class="text-white">recebem outra função</strong> (chamada de "callback") como argumento, aplicando essa função "callback" a cada item do array.
+                </p>
+                <p class="text-lg mb-6 leading-relaxed">
+                   Os métodos `.forEach()`, `.map()` e `.filter()` são os exemplos mais comuns que usamos no dia a dia.
+                </p>
+
+                <h4 class="text-xl font-semibold mt-6 mb-2 text-white">`.forEach()` - O "para cada"</h4>
+                <p class="mb-4">É uma alternativa moderna ao laço `for`. Ele executa uma função para cada item de um array.</p>
+                <code class="block">
+const nomes = ['Ana', 'Bia', 'Carlos'];
+
+// Para cada 'nome' dentro do array 'nomes', execute a função
+nomes.forEach(function(nome) {
+  console.log(`Olá, ${nome}`);
+});
+// Saída: Olá, Ana
+//         Olá, Bia
+//         Olá, Carlos
+                </code>
+                
+                <h4 class="text-xl font-semibold mt-6 mb-2 text-white">`.map()` - O "transformador"</h4>
+                <p class="mb-4">Executa uma função para cada item e <strong class="text-white">retorna um novo array</strong> com os resultados da transformação. Não modifica o array original.</p>
+                <code class="block">
+const numeros = [1, 2, 3, 4];
+
+// Para cada 'numero', retorne ele multiplicado por 2
+const numerosDobrados = numeros.map(function(numero) {
+  return numero * 2;
+});
+
+console.log(numerosDobrados); // Saída: [2, 4, 6, 8]
+console.log(numeros);         // Saída: [1, 2, 3, 4] (o original não mudou)
+                </code>
+                
+                <h4 class="text-xl font-semibold mt-6 mb-2 text-white">`.filter()` - O "filtro"</h4>
+                <p class="mb-4">Executa uma função de teste para cada item e <strong class="text-white">retorna um novo array</strong> apenas com os itens que passaram no teste (onde a função retornou `true`).</p>
+                <code class="block">
+const idades = [15, 20, 32, 12, 18];
+
+// Para cada 'idade', retorne 'true' APENAS SE a idade for >= 18
+const maioresDeIdade = idades.filter(function(idade) {
+  return idade >= 18;
+});
+
+console.log(maioresDeIdade); // Saída: [20, 32, 18]
+                </code>
+                
+                <h4 class="text-xl font-semibold mt-6 mb-2 text-white">`.find()` - O "localizador"</h4>
+                <p class="mb-4">Parecido com o `.filter()`, mas ele para e <strong class="text-white">retorna o primeiro item (o valor)</strong> que satisfaz a condição. Retorna `undefined` se não encontrar.</p>
+                <code class="block">
+const produtos = [
+  { id: 1, nome: 'Mouse', preco: 150 },
+  { id: 2, nome: 'Teclado', preco: 300 },
+  { id: 3, nome: 'Monitor', preco: 800 }
+];
+
+const produtoEncontrado = produtos.find(function(produto) {
+  return produto.preco > 200;
+});
+
+console.log(produtoEncontrado); // Saída: { id: 2, nome: 'Teclado', preco: 300 }
+                </code>
+                
+                <h4 class="text-xl font-semibold mt-6 mb-2 text-white">`.reduce()` - O "acumulador"</h4>
+                <p class="mb-4">O mais poderoso. Ele "reduz" o array a um <strong class="text-white">valor único</strong> (como um número, uma string, etc.). Ele executa uma função para cada item, passando o resultado da iteração anterior (o "acumulador") para a próxima.</p>
+                <code class="block">
+const numeros = [10, 20, 30, 40];
+
+// O 'reduce' recebe a função (acumulador, valorAtual) e um valor inicial (0)
+const somaTotal = numeros.reduce(function(acumulador, numero) {
+  return acumulador + numero;
+}, 0); // O '0' é o valor inicial do acumulador
+
+console.log(somaTotal); // Saída: 100
+                </code>
+            </div>
+            <!-- FIM DA NOVA SEÇÃO -->
+
+        </div> <!-- Fim .space-y-16 -->
+    </section>
+
+  </main>
+</body>
+</html>

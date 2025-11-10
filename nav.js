@@ -77,6 +77,10 @@
         { l: 'Aula 22: Ferramentas do Mundo Real', h: 'Semana 8/Aula 8.3/apresentacao.html' },
         { l: 'Aula 24: O que é um iframe?', h: 'Semana 8/Aula 8.4/apresentacao.html' }
       ]
+      ,
+      'Semana 9': [
+        { l: 'Aula 25: Variáveis CSS, Bulma e Métodos de Array', h: 'Semana 9/Aula 9.1/apresentacao.html' }
+      ]
     };
 
     // função utilitária para buscar o <title> de uma página (retorna string ou null)
