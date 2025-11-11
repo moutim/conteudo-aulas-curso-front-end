@@ -79,7 +79,8 @@
       ]
       ,
       'Semana 9': [
-        { l: 'Aula 25: Variáveis CSS, Bulma e Métodos de Array', h: 'Semana 9/Aula 9.1/apresentacao.html' }
+        { l: 'Aula 25: Variáveis CSS, Bulma e Métodos de Array', h: 'Semana 9/Aula 9.1/apresentacao.html' },
+        { l: 'Aula 26: Organizando seu Código com Módulos JS', h: 'Semana 9/Aula 9.2/apresentacao.html' }
       ]
     };
 
@@ -108,12 +109,12 @@
   const style = document.createElement('style');
   style.textContent = `
 #global-nav{z-index:60}
-.nav-wrapper{display:flex;justify-content:center;align-items:center;gap:1rem;width:100%;}
-.nav-items{display:flex;gap:0.5rem;align-items:center;justify-content:center}
+.nav-wrapper{display:flex;justify-content:center;align-items:center;gap:1rem;width:100%;padding:0.5rem 1rem;}
+.nav-items{display:flex;gap:0.5rem;align-items:center;justify-content:center;flex-wrap:wrap;}
 .week-item{position:relative}
-.week-link{color:#E5E7EB;padding:0.35rem 0.6rem;border-radius:6px;text-decoration:none;display:inline-block}
+.week-link{color:#E5E7EB;padding:0.35rem 0.6rem;border-radius:6px;text-decoration:none;display:inline-block;white-space:nowrap;}
 .week-link:hover{background:rgba(232,1,112,0.08);color:#fff}
-.submenu{position:absolute;top:100%;left:0;background:#0f1720;border:1px solid rgba(255,255,255,0.04);padding:0.5rem;border-radius:6px;display:none;min-width:200px;box-shadow:0 6px 18px rgba(2,6,23,0.6);margin-top:0}
+.submenu{position:absolute;top:100%;left:0;background:#0f1720;border:1px solid rgba(255,255,255,0.04);padding:0.5rem;border-radius:6px;display:none;min-width:200px;box-shadow:0 6px 18px rgba(2,6,23,0.6);margin-top:0;z-index:100;}
 .submenu a{display:block;color:#E5E7EB;padding:0.35rem 0.5rem;border-radius:4px;text-decoration:none}
 .submenu a:hover{background:rgba(255,255,255,0.03)}
 .week-item:hover > .submenu{display:block}

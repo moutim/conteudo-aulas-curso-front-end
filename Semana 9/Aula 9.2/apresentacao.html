@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aula 26: Organizando seu Código com Módulos JS</title>
+  
+  <!-- Script do Tailwind para o layout da aula -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* Estilos da apresentação (Padrão das Aulas) */
+    body {
+      font-family: 'Inter', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    .section-title {
+      border-bottom: 3px solid #e80170;
+      padding-bottom: 0.5rem;
+      display: inline-block;
+    }
+    
+    .lesson-title {
+        font-size: 2.5rem;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+
+    code.block {
+      display: block;
+      white-space: pre;
+      background-color: #1F2937; /* Gray-800 */
+      color: #F9FAFB; /* Gray-50 */
+      padding: 1rem;
+      border-radius: 8px;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.9em;
+      line-height: 1.5;
+    }
+    
+    code.inline {
+      background-color: #374151;
+      color: #F9FAFB;
+      padding: 0.2rem 0.5rem;
+      border-radius: 6px;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.9em;
+    }
+    
+    .logo {
+      border-radius: 20px;
+      width: 100px;
+      object-fit: contain;
+    }
+  </style>
+</head>
+
+<body class="bg-gray-900 text-gray-300">
+
+  <!-- Header (Padrão das Aulas, com Tailwind) -->
+  <header class="bg-gray-800 shadow-lg sticky top-0 z-20">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+      <div>
+        <h1 class="text-xl font-bold text-white">Módulo 8: JavaScript Avançado</h1>
+        <p class="text-md font-semibold" style="color: #e80170;">Aula 26: Organizando seu Código com Módulos JS</p>
+      </div>
+      <img src="https://passaportefc.com/wp-content/uploads/2024/03/serasa-logo-2-1024x432.png" alt="Logo Serasa"
+        class="logo">
+    </div>
+  </header>
+
+  <!-- Main Content (Padrão das Aulas, com Tailwind) -->
+  <main class="max-w-5xl mx-auto p-6 md:p-8">
+
+    <section id="aula-26">
+        <h2 class="lesson-title">Organizando seu Código JavaScript</h2>
+        <div class="space-y-16">
+
+            <div id="o-problema">
+                <h3 class="text-3xl font-bold mb-6 section-title">1. O Problema do "Arquivo Único"</h3>
+                <p class="text-lg mb-6 leading-relaxed">
+                   Até agora, colocamos todo o nosso código JavaScript em um único arquivo (ex: <code class="inline">script.js</code>). Para projetos pequenos, isso funciona.
+                </p>
+                <p class="text-lg mb-6 leading-relaxed">
+                   Mas o que acontece quando seu projeto cresce? Seu <code class="inline">script.js</code> pode chegar a 500, 1000, 5000 linhas. Isso causa vários problemas:
+                </p>
+                <ul class="list-disc list-inside text-lg space-y-2 pl-4">
+                  <li><strong class="text-white">Dificuldade de Leitura:</strong> Encontrar uma função específica vira um pesadelo.</li>
+                  <li><strong class="text-white">Manutenção Difícil:</strong> Alterar uma parte do código pode quebrar outra sem querer.</li>
+                  <li><strong class="text-white">Reutilização Zero:</strong> Você não consegue reaproveitar funções facilmente em outros projetos.</li>
+                  <li><strong class="text-white">Conflitos no Git:</strong> Duas pessoas trabalhando no mesmo arquivo gigante ao mesmo tempo é receita para conflitos.</li>
+                </ul>
+            </div>
+
+            <div id="a-solucao">
+              <h3 class="text-3xl font-bold mb-6 section-title">2. A Solução: Separação de Responsabilidades</h3>
+              <p class="text-lg mb-6 leading-relaxed">
+                  A solução é dividir nosso código em múltiplos arquivos, onde cada arquivo tem uma <strong style="color: #e80170;">responsabilidade única</strong>.
+              </p>
+              <p class="text-lg mb-6 leading-relaxed">
+                  Usando o seu exemplo, podemos pensar em uma "cozinha profissional":
+              </p>
+                <ul class="list-disc list-inside text-lg space-y-3 pl-4">
+                  <li><strong class="text-white">Arquivo 1: `elements.js` (O Almoxarife)</strong><br>
+                    Responsabilidade: Apenas selecionar e "entregar" os elementos do DOM. Ele não faz mais nada.</li>
+                  <li><strong class="text-white">Arquivo 2: `api.js` (O Entregador)</strong><br>
+                    Responsabilidade: Apenas buscar dados externos (API). Ele não sabe o que vai acontecer com esses dados.</li>
+                  <li><strong class="text-white">Arquivo 3: `main.js` (O Chef)</strong><br>
+                    Responsabilidade: Orquestrar tudo. Ele pede os elementos ao "Almoxarife", pede os dados ao "Entregador" e aplica a lógica (Event Listeners).</li>
+                </ul>
+            </div>
+            
+            <div id="diagrama-fluxo">
+              <h3 class="text-3xl font-bold mb-6 section-title">3. Diagrama Visual do Fluxo (Módulos)</h3>
+              <p class="text-lg mb-6 leading-relaxed">
+                  Podemos visualizar essa organização da seguinte forma. O HTML é o ponto de entrada que carrega apenas o "Chef" (<code class="inline">main.js</code>), e o "Chef" se encarrega de importar as ferramentas dos outros arquivos.
+              </p>
+              
+              <code class="block">
+  index.html
+      │
+      └── &lt;script type="module" src="main.js"&gt;&lt;/script&gt;
+                   │
+                   ├── import { ... } from './elements.js'
+                   │     (Busca os elementos do DOM)
+                   │
+                   └── import { ... } from './api.js'
+                         (Busca as funções da API)
+              </code>
+            </div>
+
+            <div id="como-fazer">
+                <h3 class="text-3xl font-bold mb-6 section-title">4. A Solução Moderna: Módulos JS (import/export)</h3>
+                <p class="text-lg mb-6 leading-relaxed">
+                   Para fazer os arquivos "conversarem" de forma segura, usamos as palavras-chave <code class="inline">export</code> (para expor uma função/variável) e <code class="inline">import</code> (para buscar).
+                </p>
+                
+                <h4 class="text-xl font-semibold mt-6 mb-2 text-white">`export`: Disponibilizando o código</h4>
+                <p class="mb-4">No arquivo que queremos disponibilizar (ex: <code class="inline">elements.js</code>), nós usamos <code class="inline">export</code> na frente do que queremos "enviar para fora".</p>
+                 <code class="block">
+// Em: elements.js
+export const botaoAdicionar = document.getElementById('botao-adicionar-tarefa');
+export const containerTarefas = document.querySelector('.container-tarefas-a-fazer');
+
+// Em: api.js
+export async function buscarDadosDaAPI() {
+  const response = await fetch('https://api.exemplo.com/dados');
+  const data = await response.json();
+  return data;
+}
+                </code>
+
+                <h4 class="text-xl font-semibold mt-6 mb-2 text-white">`import`: Buscando o código</h4>
+                <p class="mb-4">No nosso arquivo principal (ex: <code class="inline">main.js</code>), nós usamos <code class="inline">import</code> para "puxar" as funções e variáveis que precisamos.</p>
+                 <code class="block">
+// Em: main.js (O "Chef")
+
+// 1. Importamos o que precisamos dos outros arquivos
+import { botaoAdicionar, containerTarefas } from './elements.js';
+import { buscarDadosDaAPI } from './api.js';
+
+// 2. Agora podemos usá-los!
+botaoAdicionar.addEventListener('click', () => {
+  // ... lógica do clique ...
+  containerTarefas.innerHTML = "Novo item!";
+});
+                </code>
+            </div>
+
+             <div id="html-modules">
+                <h3 class="text-3xl font-bold mb-6 section-title">5. A Mágica no HTML: `type="module"`</h3>
+                <p class="text-lg mb-6 leading-relaxed">
+                   Nada disso funciona se não avisarmos o HTML que estamos usando Módulos. Para fazer isso, adicionamos <code class="inline">type="module"</code> na tag <code class="inline">&lt;script&gt;</code>.
+                </p>
+                <code class="block">
+&lt;body&gt;
+  &lt;!-- ... seu HTML ... --&gt;
+  
+  &lt;!-- 
+    Carregamos APENAS o 'main.js' como um módulo.
+    O navegador entenderá que ele precisa buscar
+    os arquivos que ele 'importa'.
+  --&gt;
+  &lt;script type="module" src="main.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+                </code>
+            </div>
+
+            <!-- NOVA SEÇÃO ADICIONADA -->
+            <div id="metodo-classico">
+                <h3 class="text-3xl font-bold mb-6 section-title">6. O Método "Clássico" (Alternativa Antiga)</h3>
+                <p class="text-lg mb-6 leading-relaxed">
+                   Antes da introdução dos Módulos JS, a forma de dividir o código era simplesmente importar múltiplos arquivos <code class="inline">&lt;script&gt;</code> (sem <code class="inline">type="module"</code>).
+                </p>
+                 <code class="block">
+&lt;body&gt;
+  &lt;!-- ... seu HTML ... --&gt;
+  
+  &lt;!-- 
+    Método Clássico: A ORDEM DE CARREGAMENTO IMPORTA!
+    'elements.js' e 'api.js' precisam vir ANTES de 'main.js'.
+  --&gt;
+  &lt;script src="elements.js"&gt;&lt;/script&gt;
+  &lt;script src="api.js"&gt;&lt;/script&gt;
+  &lt;script src="main.js"&gt;&lt;/script&gt; 
+&lt;/body&gt;
+                </code>
+                
+                <h4 class="text-xl font-semibold mt-6 mb-2 text-white">Como isso funciona? (Escopo Global)</h4>
+                <p class="mb-4">
+                  Neste método, não usamos `import` ou `export`. Todas as funções e variáveis declaradas "soltas" nesses arquivos são "jogadas" no <strong class="text-white">escopo global</strong> (o objeto `window`).
+                </p>
+                <p class="mb-4">
+                  O <code class="inline">main.js</code> funciona simplesmente porque ele consegue "enxergar" as funções e variáveis declaradas nos arquivos anteriores.
+                </p>
+                <p class="text-lg mb-6 leading-relaxed">
+                  <strong class="text-red-400">Problemas:</strong> Isso é perigoso. Causa "poluição do escopo global", onde dois arquivos podem acidentalmente criar variáveis com o mesmo nome, causando bugs. A ordem de carregamento também é uma fonte de erros.
+                </p>
+            </div>
+            
+            <!-- NOVA SEÇÃO DE CONCLUSÃO -->
+            <div id="conclusao-modulos">
+                <h3 class="text-3xl font-bold mb-6 section-title">7. Conclusão: Módulos vs. Escopo Global</h3>
+                <div class="bg-gray-800 text-gray-200 p-6 rounded-lg" style="border-left: 4px solid #e80170;">
+                    <ul class="list-disc list-inside space-y-3">
+                      <li><strong class="text-white">Método Moderno (Módulos):</strong> Use <code class="inline">type="module"</code>, <code class="inline">import</code> e <code class="inline">export</code>. Os arquivos são isolados, seguros e organizados. <strong style="color: #e80170;">Este é o padrão da indústria.</strong></li>
+                      <li><strong class="text-white">Método Clássico (Global):</strong> Apenas liste os scripts. É mais simples para coisas pequenas, mas perigoso para projetos, pois causa colisão de nomes e depende da ordem.</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div> <!-- Fim .space-y-16 -->
+    </section>
+
+  </main>
+
+  <script src="../../nav.js" defer></script>
+</body>
+</html>
