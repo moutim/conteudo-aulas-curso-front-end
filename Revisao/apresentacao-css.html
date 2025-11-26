@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 28: O Manual Completo do CSS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="../nav.js" defer></script>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    .section-title {
+      border-bottom: 3px solid #e80170;
+      padding-bottom: 0.5rem;
+      display: inline-block;
+    }
+    
+    .lesson-title {
+        font-size: 2.5rem;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+
+    code.block {
+      display: block;
+      white-space: pre;
+      background-color: #1F2937; /* Gray-800 */
+      color: #F9FAFB; /* Gray-50 */
+      padding: 1rem;
+      border-radius: 8px;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.9em;
+      line-height: 1.5;
+    }
+    
+    code.inline {
+      background-color: #374151;
+      color: #F9FAFB;
+      padding: 0.2rem 0.5rem;
+      border-radius: 6px;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.9em;
+    }
+    
+    .logo {
+      border-radius: 20px;
+      width: 100px;
+      object-fit: contain;
+    }
+
+    /* Estilo para as tabelas de propriedades */
+    .prop-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 1.5rem;
+    }
+    .prop-table th, .prop-table td {
+        padding: 0.75rem;
+        border-bottom: 1px solid #374151;
+        text-align: left;
+    }
+    .prop-table th {
+        color: #e80170;
+        font-weight: 600;
+        width: 30%;
+    }
+    .prop-table td {
+        color: #D1D5DB;
+    }
+    .prop-table tr:last-child td {
+        border-bottom: none;
+    }
+  </style>
+</head>
+
+<body class="bg-gray-900 text-gray-300">
+
+  <!-- Header -->
+  <header class="bg-gray-800 shadow-lg sticky top-0 z-20">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+      <div>
+        <h1 class="text-xl font-bold text-white">Módulo de Revisão</h1>
+        <p class="text-md font-semibold" style="color: #e80170;">Aula 28: O Manual Completo do CSS</p>
+      </div>
+      <img src="https://passaportefc.com/wp-content/uploads/2024/03/serasa-logo-2-1024x432.png" alt="Logo Serasa"
+        class="logo">
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="max-w-5xl mx-auto p-6 md:p-8">
+
+    <section id="aula-28">
+        <h2 class="lesson-title">CSS: Estilo, Layout e Responsividade</h2>
+        <p class="text-center mb-12 text-lg">Revisando Aulas 07, 23 e 25: Seletores, Propriedades, Flexbox e Frameworks.</p>
+        
+        <div class="space-y-16">
+
+            <!-- TÓPICO 1: FUNDAMENTOS -->
+            <div id="fundamentos">
+                <h3 class="text-3xl font-bold mb-6 section-title">1. Fundamentos: Seletores e Cascata</h3>
+                <p class="text-lg mb-6 leading-relaxed">
+                   O CSS funciona aplicando regras de estilo aos elementos HTML. A ordem (cascata) e o tipo de seletor (especificidade) determinam qual regra ganha.
+                </p>
+                <div class="bg-gray-800 p-6 rounded-lg border border-gray-700">
+                    <h4 class="text-xl font-bold text-white mb-4">Hierarquia de Seletores (Poder)</h4>
+                    <ol class="list-decimal list-inside space-y-2 text-lg">
+                        <li><span class="text-red-400">Inline (style="")</span>: Vence quase tudo.</li>
+                        <li><span class="text-yellow-400">ID (#header)</span>: Muito específico.</li>
+                        <li><span class="text-blue-400">Classe (.btn)</span>: O mais usado, equilíbrio ideal.</li>
+                        <li><span class="text-gray-400">Tag (p, div)</span>: O mais fraco, afeta todos os elementos.</li>
+                    </ol>
+                </div>
+            </div>
+
+            <!-- TÓPICO 2: BOX MODEL -->
+            <div id="box-model-deep">
+              <h3 class="text-3xl font-bold mb-6 section-title">2. Box Model e Reset</h3>
+              <p class="text-lg mb-6 leading-relaxed">
+                  Todo elemento HTML é essencialmente uma caixa. Entender como as camadas dessa caixa funcionam é vital.
+              </p>
+              
+              <!-- VISUAL DO BOX MODEL -->
+              <div class="bg-gray-800 p-8 rounded-lg border border-gray-700 mb-6 flex justify-center">
+                  <div class="bg-orange-400 p-8 rounded-lg text-black font-bold relative shadow-lg text-center">
+                      MARGIN
+                      <div class="text-xs font-normal mb-1">(Espaço externo)</div>
+                      
+                      <div class="bg-yellow-400 p-8 rounded-lg text-black font-bold shadow-inner mt-2">
+                          BORDER
+                          <div class="text-xs font-normal mb-1">(Borda visível)</div>
+                          
+                          <div class="bg-green-400 p-8 rounded-lg text-black font-bold shadow-inner mt-2">
+                              PADDING
+                              <div class="text-xs font-normal mb-1">(Respiro interno)</div>
+                              
+                              <div class="bg-blue-400 p-8 rounded-lg text-white font-bold shadow-md mt-2 w-48 h-24 flex items-center justify-center">
+                                  CONTENT
+                                  <br><span class="text-xs font-normal">(Texto/Img)</span>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              
+              <p class="text-lg mt-4 leading-relaxed">
+                  Para evitar problemas de cálculo de tamanho, usamos sempre o Reset Universal no início do CSS:
+              </p>
+              <code class="block">
+* {
+  box-sizing: border-box; /* O padding não aumenta a largura do elemento */
+  margin: 0;
+  padding: 0;
+}
+              </code>
+            </div>
+
+            <!-- TÓPICO 3: GLOSSÁRIO DE PROPRIEDADES (NOVA SEÇÃO) -->
+            <div id="glossario-css">
+                <h3 class="text-3xl font-bold mb-6 section-title">3. Glossário de Propriedades Essenciais</h3>
+                <p class="text-lg mb-6 leading-relaxed">
+                   O CSS tem centenas de propriedades, mas você usará essas aqui em 90% do tempo.
+                </p>
+
+                <div class="grid md:grid-cols-2 gap-8">
+                    
+                    <!-- Tabela Texto -->
+                    <div class="bg-gray-800 p-6 rounded-lg border border-gray-700">
+                        <h4 class="text-xl font-bold text-white mb-4">Texto e Tipografia</h4>
+                        <table class="prop-table">
+                            <tr>
+                                <th>color</th>
+                                <td>Cor do texto (ex: <code class="inline">#fff</code>, <code class="inline">red</code>).</td>
+                            </tr>
+                            <tr>
+                                <th>font-size</th>
+                                <td>Tamanho da fonte (ex: <code class="inline">16px</code>, <code class="inline">1.5rem</code>).</td>
+                            </tr>
+                            <tr>
+                                <th>font-weight</th>
+                                <td>Peso da fonte (ex: <code class="inline">bold</code>, <code class="inline">700</code>).</td>
+                            </tr>
+                            <tr>
+                                <th>text-align</th>
+                                <td>Alinhamento do texto (ex: <code class="inline">center</code>, <code class="inline">right</code>).</td>
+                            </tr>
+                            <tr>
+                                <th>line-height</th>
+                                <td>Altura da linha. Importante para leitura.</td>
+                            </tr>
+                            <tr>
+                                <th>text-decoration</th>
+                                <td>Decoração (ex: <code class="inline">none</code> remove sublinhado de links).</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <!-- Tabela Fundo e Borda -->
+                    <div class="bg-gray-800 p-6 rounded-lg border border-gray-700">
+                        <h4 class="text-xl font-bold text-white mb-4">Fundo e Visual</h4>
+                        <table class="prop-table">
+                            <tr>
+                                <th>background-color</th>
+                                <td>Cor de fundo do elemento.</td>
+                            </tr>
+                            <tr>
+                                <th>background-image</th>
+                                <td>Imagem de fundo (ex: <code class="inline">url('foto.jpg')</code>).</td>
+                            </tr>
+                            <tr>
+                                <th>border</th>
+                                <td>Borda (ex: <code class="inline">1px solid black</code>).</td>
+                            </tr>
+                            <tr>
+                                <th>border-radius</th>
+                                <td>Arredondamento das pontas (ex: <code class="inline">10px</code>, <code class="inline">50%</code>).</td>
+                            </tr>
+                            <tr>
+                                <th>box-shadow</th>
+                                <td>Sombra da caixa.</td>
+                            </tr>
+                            <tr>
+                                <th>opacity</th>
+                                <td>Transparência (0 a 1).</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <!-- Tabela Layout -->
+                    <div class="bg-gray-800 p-6 rounded-lg border border-gray-700 md:col-span-2">
+                        <h4 class="text-xl font-bold text-white mb-4">Layout e Tamanho</h4>
+                        <table class="prop-table">
+                            <tr>
+                                <th>width / height</th>
+                                <td>Largura e Altura. Use <code class="inline">%</code> para responsividade.</td>
+                            </tr>
+                            <tr>
+                                <th>margin</th>
+                                <td>Espaço externo (afasta os vizinhos). <code class="inline">margin: 0 auto</code> centraliza.</td>
+                            </tr>
+                            <tr>
+                                <th>padding</th>
+                                <td>Espaço interno (entre a borda e o conteúdo).</td>
+                            </tr>
+                            <tr>
+                                <th>display</th>
+                                <td>Comportamento do elemento (<code class="inline">block</code>, <code class="inline">inline</code>, <code class="inline">flex</code>, <code class="inline">none</code>).</td>
+                            </tr>
+                            <tr>
+                                <th>position</th>
+                                <td>Posicionamento avançado (<code class="inline">relative</code>, <code class="inline">absolute</code>, <code class="inline">fixed</code>).</td>
+                            </tr>
+                            <tr>
+                                <th>z-index</th>
+                                <td>Ordem de empilhamento (quem fica em cima de quem).</td>
+                            </tr>
+                            <tr>
+                                <th>cursor</th>
+                                <td>Muda o ponteiro do mouse (ex: <code class="inline">pointer</code> para mãozinha).</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- TÓPICO 4: FLEXBOX -->
+            <div id="flexbox">
+                <h3 class="text-3xl font-bold mb-6 section-title">4. Flexbox: O Rei do Layout</h3>
+                <p class="text-lg mb-6 leading-relaxed">
+                   A ferramenta principal para alinhar elementos (lado a lado ou empilhados).
+                </p>
+                <code class="block">
+.container {
+  display: flex; /* Ativa o flexbox */
+  justify-content: center; /* Alinha horizontalmente (eixo principal) */
+  align-items: center; /* Alinha verticalmente (eixo cruzado) */
+  gap: 20px; /* Espaço entre os filhos */
+  flex-wrap: wrap; /* Permite quebrar linha se faltar espaço */
+}
+                </code>
+            </div>
+
+             <!-- TÓPICO 5: RESPONSIVIDADE -->
+             <div id="responsividade">
+                <h3 class="text-3xl font-bold mb-6 section-title">5. Responsividade (Media Queries)</h3>
+                <p class="text-lg mb-6 leading-relaxed">
+                   Fazer o site se adaptar a celulares e tablets usando regras condicionais.
+                </p>
+                <code class="block">
+/* Regra padrão (Mobile First ou Desktop) */
+.menu { display: flex; }
+
+/* Regra para telas menores que 768px (Celulares) */
+@media (max-width: 768px) {
+  .menu {
+    flex-direction: column; /* Muda para coluna no celular */
+    background-color: #333;
+  }
+}
+                </code>
+            </div>
+
+            <!-- TÓPICO 6: FERRAMENTAS MODERNAS -->
+            <div id="moderno">
+                <h3 class="text-3xl font-bold mb-6 section-title">6. CSS Moderno e Frameworks</h3>
+                <p class="text-lg mb-6 leading-relaxed">
+                   Nas últimas aulas, vimos como profissionalizar o CSS.
+                </p>
+                
+                <h4 class="text-xl font-semibold mt-4 mb-2 text-white">Variáveis CSS</h4>
+                <p class="mb-2">Guardam valores reutilizáveis para facilitar manutenção.</p>
+                <code class="block">:root { --cor-principal: #e80170; }</code>
+
+                <h4 class="text-xl font-semibold mt-4 mb-2 text-white">Frameworks</h4>
+                <ul class="list-disc list-inside space-y-2">
+                    <li><strong class="text-white">Tailwind (Utility-First):</strong> Estiliza via classes utilitárias no HTML (`bg-blue-500`, `p-4`).</li>
+                    <li><strong class="text-white">Bulma (Component-Based):</strong> Oferece componentes prontos (`.button`, `.card`).</li>
+                </ul>
+            </div>
+
+        </div>
+    </section>
+  </main>
+</body>
+</html>

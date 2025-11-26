@@ -22,7 +22,7 @@
 
     // Dados das semanas e seus links (ajuste aqui se precisar adicionar/editar)
     const weeks = {
-      'Semana 1': [
+  'Semana 1': [
         { l: 'Aula 1: Fundamentos da Web', h: 'Semana 1/Aula 1.1/apresentacao.html' },
         { l: 'Aula 2: Front-End vs. Back-End', h: 'Semana 1/Aula 1.2/apresentacao.html' },
         { l: 'Aula 3: Protocolos e Navegadores', h: 'Semana 1/Aula 1.3/apresentacao.html' },
@@ -81,6 +81,12 @@
       'Semana 9': [
         { l: 'Aula 25: Variáveis CSS, Bulma e Métodos de Array', h: 'Semana 9/Aula 9.1/apresentacao.html' },
         { l: 'Aula 26: Organizando seu Código com Módulos JS', h: 'Semana 9/Aula 9.2/apresentacao.html' }
+      ],
+      'Revisão': [
+        { l: 'Aula 27: O Manual Completo do HTML', h: 'Revisao/apresentacao-html.html' },
+        { l: 'Aula 28: O Manual Completo do CSS', h: 'Revisao/apresentacao-css.html' },
+        { l: 'Aula 29: O Manual Completo de Lógica e JS', h: 'Revisao/apresentacao-js.html' },
+        { l: 'Café Dev - Codifique com Energia', h: 'Revisao/landing-page.html' }
       ]
     };
 

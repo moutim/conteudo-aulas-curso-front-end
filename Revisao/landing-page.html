@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Café Dev - Codifique com Energia</title>
+    <style>
+        /* 1. VARIÁVEIS CSS 
+           Definimos cores e fontes aqui para facilitar mudanças futuras.
+        */
+        :root {
+            --cor-primaria: #e80170;
+            --cor-secundaria: #2d3748;
+            --cor-fundo: #f7fafc;
+            --cor-texto: #1a202c;
+            --cor-branca: #ffffff;
+            --fonte-padrao: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* 2. RESET BÁSICO 
+           Garante que o box-model funcione como esperado e remove margens padrão.
+        */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--fonte-padrao);
+            background-color: var(--cor-fundo);
+            color: var(--cor-texto);
+            line-height: 1.6;
+        }
+
+        /* 3. CABEÇALHO (Flexbox para alinhar logo e menu)
+        */
+        header {
+            background-color: var(--cor-branca);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky; /* Fixa o menu no topo */
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto; /* Centraliza o container */
+            padding: 1rem 2rem;
+            display: flex; /* Ativa o Flexbox */
+            justify-content: space-between; /* Espaço entre logo e links */
+            align-items: center; /* Alinha verticalmente */
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--cor-primaria);
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 2rem; /* Espaço entre os itens do menu */
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--cor-secundaria);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--cor-primaria);
+        }
+
+        /* 4. HERO SECTION (Destaque principal)
+        */
+        .hero {
+            background-color: var(--cor-secundaria);
+            color: var(--cor-branca);
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--cor-primaria);
+            color: var(--cor-branca);
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: transform 0.2s;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05); /* Pequeno zoom ao passar o mouse */
+        }
+
+        /* 5. GRID DE PRODUTOS (Flexbox com wrap)
+        */
+        .produtos {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+
+        .produtos h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--cor-secundaria);
+        }
+
+        .grid-container {
+            display: flex;
+            flex-wrap: wrap; /* Permite que os itens quebrem linha */
+            gap: 2rem;
+            justify-content: center;
+        }
+
+        .card {
+            background: var(--cor-branca);
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            flex: 1 1 300px; /* Cresce, encolhe, base de 300px */
+            max-width: 350px;
+            text-align: center;
+            transition: box-shadow 0.3s;
+        }
+
+        .card:hover {
+            box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+        }
+
+        .card h3 {
+            margin-bottom: 0.5rem;
+            color: var(--cor-primaria);
+        }
+
+        .preco {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 1rem 0;
+            color: var(--cor-secundaria);
+        }
+
+        /* 6. FORMULÁRIO DE NEWSLETTER
+        */
+        .newsletter {
+            background-color: #e2e8f0;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .newsletter form {
+            margin-top: 1.5rem;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .newsletter input {
+            padding: 0.8rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 300px;
+            max-width: 100%;
+        }
+
+        .newsletter button {
+            background-color: var(--cor-secundaria);
+            color: var(--cor-branca);
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        /* 7. RODAPÉ
+        */
+        footer {
+            background-color: var(--cor-secundaria);
+            color: var(--cor-branca);
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: auto;
+        }
+
+        /* 8. RESPONSIVIDADE (Media Queries)
+           Ajustes para telas menores que 768px (Tablets e Celulares)
+        */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                text-align: center;
+                gap: 0.5rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .newsletter form {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Cabeçalho Semântico -->
+    <header>
+        <nav>
+            <div class="logo">☕ Café Dev</div>
+            <ul class="nav-links">
+                <li><a href="#home">Início</a></li>
+                <li><a href="#produtos">Produtos</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Seção Hero -->
+        <section id="home" class="hero">
+            <h1>Codifique com mais energia</h1>
+            <p>O café especial selecionado para programadores que buscam o foco perfeito.</p>
+            <a href="#produtos" class="cta-button">Ver Nossos Cafés</a>
+        </section>
+
+        <!-- Seção de Produtos -->
+        <section id="produtos" class="produtos">
+            <h2>Nossos Blends</h2>
+            <div class="grid-container">
+                
+                <article class="card">
+                    <h3>Java Espresso</h3>
+                    <p>Forte e intenso, ideal para aquelas noites de deploy.</p>
+                    <div class="preco">R$ 35,00</div>
+                    <a href="#" class="cta-button" style="font-size: 0.9rem;">Comprar</a>
+                </article>
+
+                <article class="card">
+                    <h3>Python Suave</h3>
+                    <p>Equilibrado e fácil de beber, perfeito para o dia a dia.</p>
+                    <div class="preco">R$ 32,00</div>
+                    <a href="#" class="cta-button" style="font-size: 0.9rem;">Comprar</a>
+                </article>
+
+                <article class="card">
+                    <h3>Full Stack Blend</h3>
+                    <p>Uma mistura complexa de sabores para quem faz de tudo.</p>
+                    <div class="preco">R$ 40,00</div>
+                    <a href="#" class="cta-button" style="font-size: 0.9rem;">Comprar</a>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- Seção de Newsletter -->
+        <section id="contato" class="newsletter">
+            <h2>Fique por dentro das novidades</h2>
+            <p>Receba descontos exclusivos e dicas de produtividade.</p>
+            <form>
+                <input type="email" placeholder="Seu melhor e-mail" required>
+                <button type="submit">Inscrever-se</button>
+            </form>
+        </section>
+    </main>
+
+    <!-- Rodapé -->
+    <footer>
+        <p>&copy; 2025 Café Dev. Feito com HTML Semântico e CSS Puro.</p>
+    </footer>
+
+</body>
+</html>

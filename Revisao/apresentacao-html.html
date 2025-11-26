@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aula 27: O Manual Completo do HTML</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="../nav.js" defer></script>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    .section-title {
+      border-bottom: 3px solid #e80170;
+      padding-bottom: 0.5rem;
+      display: inline-block;
+    }
+    
+    .lesson-title {
+        font-size: 2.5rem;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+
+    code.block {
+      display: block;
+      white-space: pre;
+      background-color: #1F2937; /* Gray-800 */
+      color: #F9FAFB; /* Gray-50 */
+      padding: 1rem;
+      border-radius: 8px;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.9em;
+      line-height: 1.5;
+    }
+    
+    code.inline {
+      background-color: #374151;
+      color: #F9FAFB;
+      padding: 0.2rem 0.5rem;
+      border-radius: 6px;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.9em;
+    }
+    
+    .logo {
+      border-radius: 20px;
+      width: 100px;
+      object-fit: contain;
+    }
+  </style>
+</head>
+
+<body class="bg-gray-900 text-gray-300">
+
+  <!-- Header -->
+  <header class="bg-gray-800 shadow-lg sticky top-0 z-20">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+      <div>
+        <h1 class="text-xl font-bold text-white">Revisão Geral</h1>
+        <p class="text-md font-semibold" style="color: #e80170;">Aula 27: O Manual Completo do HTML</p>
+      </div>
+      <img src="https://passaportefc.com/wp-content/uploads/2024/03/serasa-logo-2-1024x432.png" alt="Logo Serasa"
+        class="logo">
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="max-w-5xl mx-auto p-6 md:p-8">
+
+    <section id="aula-27">
+        <h2 class="lesson-title">HTML: Resumão</h2>
+        <p class="text-center mb-12 text-lg">Uma retrospectiva completa dos módulos de HTML (Aulas 06, 08 e 24).</p>
+        
+        <div class="space-y-16">
+
+            <!-- TÓPICO 1: ESTRUTURA BÁSICA (Aula 06) -->
+            <div id="basico">
+                <h3 class="text-3xl font-bold mb-6 section-title">1. A Fundação (Tags Básicas)</h3>
+                
+                <div class="bg-blue-900/30 p-6 rounded-lg border border-blue-700 mb-8">
+                    <h4 class="text-xl font-bold text-white mb-2">⚡ Dica de Produtividade (VS Code)</h4>
+                    <p class="text-gray-300 mb-3">
+                        Não precisa decorar a estrutura inicial! No VS Code, digite <strong class="text-white">!</strong> (ponto de exclamação) e aperte <strong class="text-white">Enter</strong>.
+                    </p>
+                    <code class="block">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    
+&lt;/body&gt;
+&lt;/html&gt;
+                    </code>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h4 class="text-xl font-bold text-white mb-2">Tags de Texto e Estrutura</h4>
+                        <ul class="list-disc list-inside space-y-2 text-gray-300">
+                            <li><code class="inline">h1</code> a <code class="inline">h6</code>: Títulos (Importante para SEO).</li>
+                            <li><code class="inline">p</code>: Parágrafos.</li>
+                            <li><code class="inline">span</code>: Texto genérico inline (para estilizar pedaços).</li>
+                            <li><code class="inline">strong</code>: Texto em <strong>negrito</strong> (importância).</li>
+                            <li><code class="inline">em</code>: Texto em <em>itálico</em> (ênfase).</li>
+                            <li><code class="inline">br</code>: Quebra de linha (Break Row).</li>
+                            <li><code class="inline">hr</code>: Linha horizontal (Horizontal Rule).</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-bold text-white mb-2">Listas e Links</h4>
+                        <ul class="list-disc list-inside space-y-2 text-gray-300">
+                            <li><code class="inline">ul</code>: Lista não ordenada (bolinhas).</li>
+                            <li><code class="inline">ol</code>: Lista ordenada (1, 2, 3).</li>
+                            <li><code class="inline">li</code>: Item da lista (List Item).</li>
+                            <li><code class="inline">a</code>: Links (Âncora). O atributo <code class="inline">href</code> define o destino.</li>
+                            <li><code class="inline">img</code>: Imagens. <code class="inline">src</code> é o caminho, <code class="inline">alt</code> é a descrição.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TÓPICO 2: SEMÂNTICA (Aula 08) -->
+            <div id="semantica">
+                <h3 class="text-3xl font-bold mb-6 section-title">2. HTML Semântico (Significado)</h3>
+                <p class="text-lg mb-6 leading-relaxed">
+                   Não usamos apenas <code class="inline">div</code>. Usamos tags que explicam <strong>o que</strong> é o conteúdo para o navegador e leitores de tela (SEO e Acessibilidade).
+                </p>
+                
+                <div class="bg-gray-800 p-6 rounded-lg border border-gray-700">
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <ul class="space-y-3">
+                            <li><strong class="text-e80170 text-pink-500">&lt;header&gt;</strong>: Cabeçalho da página ou seção.</li>
+                            <li><strong class="text-e80170 text-pink-500">&lt;nav&gt;</strong>: Links de navegação principais.</li>
+                            <li><strong class="text-e80170 text-pink-500">&lt;main&gt;</strong>: O conteúdo principal e único da página.</li>
+                            <li><strong class="text-e80170 text-pink-500">&lt;section&gt;</strong>: Uma seção temática do conteúdo.</li>
+                        </ul>
+                        <ul class="space-y-3">
+                            <li><strong class="text-e80170 text-pink-500">&lt;article&gt;</strong>: Conteúdo independente (ex: post de blog, card de produto).</li>
+                            <li><strong class="text-e80170 text-pink-500">&lt;aside&gt;</strong>: Conteúdo lateral (barra lateral, banners).</li>
+                            <li><strong class="text-e80170 text-pink-500">&lt;footer&gt;</strong>: Rodapé (copyright, contatos).</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TÓPICO 3: FORMULÁRIOS E TABELAS -->
+            <div id="forms-tables">
+              <h3 class="text-3xl font-bold mb-6 section-title">3. Interação e Dados (Forms e Tabelas)</h3>
+              <p class="text-lg mb-6 leading-relaxed">
+                  Vimos como coletar dados do usuário e exibir dados estruturados.
+              </p>
+              
+              <h4 class="text-xl font-semibold mt-6 mb-2 text-white">Formulários Modernos</h4>
+              <p class="mb-4">O uso correto de <code class="inline">type</code> e validações nativas.</p>
+              <code class="block">
+&lt;form&gt;
+  &lt;label for="email"&gt;E-mail:&lt;/label&gt;
+  &lt;input type="email" id="email" required placeholder="seu@email.com"&gt;
+  
+  &lt;label for="senha"&gt;Senha:&lt;/label&gt;
+  &lt;input type="password" id="senha" required minlength="6"&gt;
+  
+  &lt;button type="submit"&gt;Entrar&lt;/button&gt;
+&lt;/form&gt;
+              </code>
+
+              <h4 class="text-xl font-semibold mt-6 mb-2 text-white">Tabelas (Apenas para Dados)</h4>
+              <code class="block">
+&lt;table&gt;
+  &lt;thead&gt; &lt;tr&gt; &lt;th&gt;Nome&lt;/th&gt; &lt;th&gt;Idade&lt;/th&gt; &lt;/tr&gt; &lt;/thead&gt;
+  &lt;tbody&gt; &lt;tr&gt; &lt;td&gt;Ana&lt;/td&gt; &lt;td&gt;25&lt;/td&gt; &lt;/tr&gt; &lt;/tbody&gt;
+&lt;/table&gt;
+              </code>
+            </div>
+            
+            <!-- TÓPICO 4: IFRAMES (Aula 24) -->
+            <div id="iframes">
+                <h3 class="text-3xl font-bold mb-6 section-title">4. Conteúdo Externo (iFrames)</h3>
+                <p class="text-lg mb-6 leading-relaxed">
+                   Aprendemos a abrir "janelas" para outros sites dentro do nosso, útil para vídeos e mapas.
+                </p>
+                <code class="block">
+&lt;!-- Exemplo de Youtube Embed --&gt;
+&lt;iframe 
+  width="560" height="315" 
+  src="https://www.youtube.com/embed/VIDEO_ID" 
+  frameborder="0" allowfullscreen&gt;
+&lt;/iframe&gt;
+                </code>
+                <p class="mt-2 text-sm text-gray-400">Lembrando das restrições de segurança (X-Frame-Options) que impedem alguns sites de serem embutidos.</p>
+            </div>
+
+        </div>
+    </section>
+  </main>
+</body>
+</html>

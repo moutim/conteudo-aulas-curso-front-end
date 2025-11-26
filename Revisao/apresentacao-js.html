@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 29: O Manual Completo de Lógica e JS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="../nav.js" defer></script>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    .section-title {
+      border-bottom: 3px solid #e80170;
+      padding-bottom: 0.5rem;
+      display: inline-block;
+    }
+    
+    .lesson-title {
+        font-size: 2.5rem;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+
+    code.block {
+      display: block;
+      white-space: pre;
+      background-color: #1F2937; /* Gray-800 */
+      color: #F9FAFB; /* Gray-50 */
+      padding: 1rem;
+      border-radius: 8px;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.9em;
+      line-height: 1.5;
+    }
+    
+    code.inline {
+      background-color: #374151;
+      color: #F9FAFB;
+      padding: 0.2rem 0.5rem;
+      border-radius: 6px;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.9em;
+    }
+    
+    .logo {
+      border-radius: 20px;
+      width: 100px;
+      object-fit: contain;
+    }
+
+    /* Estilo para as tabelas de glossário */
+    .glossary-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 1.5rem;
+    }
+    .glossary-table th, .glossary-table td {
+        padding: 0.75rem;
+        border-bottom: 1px solid #374151;
+        text-align: left;
+    }
+    .glossary-table th {
+        color: #e80170;
+        font-weight: 600;
+        width: 40%;
+    }
+    .glossary-table td {
+        color: #D1D5DB;
+    }
+    .glossary-table tr:last-child td {
+        border-bottom: none;
+    }
+  </style>
+</head>
+
+<body class="bg-gray-900 text-gray-300">
+
+  <!-- Header -->
+  <header class="bg-gray-800 shadow-lg sticky top-0 z-20">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+      <div>
+        <h1 class="text-xl font-bold text-white">Módulo de Revisão</h1>
+        <p class="text-md font-semibold" style="color: #e80170;">Aula 29: O Manual Completo de Lógica e JS</p>
+      </div>
+      <img src="https://passaportefc.com/wp-content/uploads/2024/03/serasa-logo-2-1024x432.png" alt="Logo Serasa"
+        class="logo">
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="max-w-5xl mx-auto p-6 md:p-8">
+
+    <section id="aula-29">
+        <h2 class="lesson-title">Lógica e JavaScript: O Cérebro da Web</h2>
+        <p class="text-center mb-12 text-lg">Revisando Aulas 11 a 26: Algoritmos, Sintaxe, DOM e Assincronismo.</p>
+        
+        <div class="space-y-16">
+
+            <!-- TÓPICO 1: FUNDAMENTOS -->
+            <div id="fundamentos">
+                <h3 class="text-3xl font-bold mb-6 section-title">1. Fundamentos: Variáveis e Tipos</h3>
+                <p class="text-lg mb-6 leading-relaxed">
+                   Antes de correr, precisamos andar. Tudo começa com onde guardamos dados e que tipos de dados existem.
+                </p>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-gray-800 p-6 rounded-lg border border-gray-700">
+                        <h4 class="text-xl font-bold text-white mb-4">Variáveis (Caixas)</h4>
+                        <ul class="list-disc list-inside space-y-3 text-gray-300">
+                            <li><code class="inline">const</code>: Para valores que <strong>não mudam</strong> (90% dos casos). Ex: Seleção de elementos HTML.</li>
+                            <li><code class="inline">let</code>: Para valores que <strong>vão mudar</strong>. Ex: Contadores, resultados de soma.</li>
+                            <li><strong class="text-red-400">var</strong>: Antigo e perigoso. Evite usar.</li>
+                        </ul>
+                    </div>
+                    <div class="bg-gray-800 p-6 rounded-lg border border-gray-700">
+                        <h4 class="text-xl font-bold text-white mb-4">Tipos de Dados</h4>
+                        <ul class="list-disc list-inside space-y-3 text-gray-300">
+                            <li><strong class="text-yellow-400">String:</strong> Texto ("Olá").</li>
+                            <li><strong class="text-blue-400">Number:</strong> Números (10, 5.5).</li>
+                            <li><strong class="text-purple-400">Boolean:</strong> Verdadeiro/Falso (true, false).</li>
+                            <li><strong class="text-gray-400">Array:</strong> Lista ([1, 2, 3]).</li>
+                            <li><strong class="text-green-400">Object:</strong> Estrutura complexa ({ nome: "Ana" }).</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TÓPICO 2: CONTROLE DE FLUXO -->
+            <div id="controle-fluxo">
+              <h3 class="text-3xl font-bold mb-6 section-title">2. Controle de Fluxo (Decisões e Loops)</h3>
+              <p class="text-lg mb-6 leading-relaxed">
+                  Como o programa toma decisões e repete tarefas?
+              </p>
+              
+              <div class="grid md:grid-cols-2 gap-8">
+                  <div>
+                      <h4 class="font-bold text-white mb-2">Condicionais (Se / Senão)</h4>
+                      <code class="block">
+if (idade >= 18) {
+  console.log("Pode entrar");
+} else if (idade >= 16) {
+  console.log("Acompanhado");
+} else {
+  console.log("Barrado");
+}
+                      </code>
+                  </div>
+                  <div>
+                      <h4 class="font-bold text-white mb-2">Laços (Repetição)</h4>
+                      <code class="block">
+// Para quando sabemos o fim (ex: array)
+for (let i = 0; i < lista.length; i++) {
+  console.log(lista[i]);
+}
+
+// Para quando a condição é dinâmica
+while (usuarioNaoClicou) {
+  esperar();
+}
+                      </code>
+                  </div>
+              </div>
+            </div>
+
+            <!-- TÓPICO 3: FUNÇÕES -->
+            <div id="funcoes">
+                <h3 class="text-3xl font-bold mb-6 section-title">3. Funções: O Poder do Reuso</h3>
+                <p class="text-lg mb-6 leading-relaxed">
+                   Funções são "mini-programas" dentro do seu código. Elas recebem dados (parâmetros) e devolvem um resultado (retorno).
+                </p>
+                <code class="block">
+// Sintaxe Clássica
+function somar(a, b) {
+  return a + b;
+}
+
+// Sintaxe Moderna (Arrow Function)
+const multiplicar = (a, b) => {
+  return a * b;
+};
+
+const resultado = somar(10, 5); // 15
+                </code>
+            </div>
+
+            <!-- TÓPICO 4: DOM E EVENTOS -->
+            <div id="dom">
+                <h3 class="text-3xl font-bold mb-6 section-title">4. Manipulando o DOM (HTML)</h3>
+                <p class="text-lg mb-6 leading-relaxed">
+                   É assim que o JS "conversa" com o HTML. O processo é sempre: Selecionar -> Ouvir -> Modificar.
+                </p>
+                <div class="bg-gray-800 p-6 rounded-lg border border-gray-700">
+                    <h4 class="text-xl font-bold text-white mb-4">Receita de Bolo do DOM</h4>
+                    <ol class="list-decimal list-inside space-y-4 text-lg">
+                        <li>
+                            <strong class="text-white">Selecionar:</strong> Busque o elemento.
+                            <br><code class="inline text-sm">const btn = document.querySelector("#meu-botao");</code>
+                        </li>
+                        <li>
+                            <strong class="text-white">Ouvir:</strong> Adicione um "fofoqueiro" (Listener).
+                            <br><code class="inline text-sm">btn.addEventListener("click", minhaFuncao);</code>
+                        </li>
+                        <li>
+                            <strong class="text-white">Modificar:</strong> Altere texto, estilo ou classes.
+                            <br><code class="inline text-sm">elemento.textContent = "Novo Texto";</code>
+                            <br><code class="inline text-sm">elemento.classList.toggle("ativo");</code>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+
+             <!-- TÓPICO 5: ASSINCRONISMO E API -->
+             <div id="async-api">
+                <h3 class="text-3xl font-bold mb-6 section-title">5. Assincronismo e APIs</h3>
+                <p class="text-lg mb-6 leading-relaxed">
+                   O JavaScript não para. Se algo demora (como buscar dados em um servidor), usamos promessas (`async/await`) para esperar sem travar a tela.
+                </p>
+                
+                <div class="bg-gray-800 p-6 rounded-lg border border-gray-700">
+                    <h4 class="text-xl font-bold text-white mb-4">Fetch API (O "Garçom")</h4>
+                    <code class="block">
+async function buscarDados() {
+  try {
+    // 1. Faz o pedido (espera chegar)
+    const resposta = await fetch("https://api.exemplo.com/dados");
+    
+    // 2. Converte o pacote (espera converter)
+    const dados = await resposta.json();
+    
+    // 3. Usa os dados
+    console.log(dados);
+    
+  } catch (erro) {
+    console.error("Deu ruim:", erro);
+  }
+}
+                    </code>
+                </div>
+            </div>
+
+            <!-- TÓPICO 6: ARRAYS AVANÇADOS (HOF) -->
+            <div id="hof">
+                <h3 class="text-3xl font-bold mb-6 section-title">6. Poder dos Arrays (Métodos)</h3>
+                <p class="text-lg mb-6 leading-relaxed">
+                   Maneiras modernas de lidar com listas sem usar o `for` tradicional.
+                </p>
+                <ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <li class="bg-gray-800 p-4 rounded border border-gray-700">
+                        <strong class="text-e80170">.forEach()</strong>: Executa uma ação para cada item (sem retorno).
+                    </li>
+                    <li class="bg-gray-800 p-4 rounded border border-gray-700">
+                        <strong class="text-e80170">.map()</strong>: Transforma cada item e cria uma NOVA lista.
+                    </li>
+                    <li class="bg-gray-800 p-4 rounded border border-gray-700">
+                        <strong class="text-e80170">.filter()</strong>: Cria uma nova lista apenas com os itens que passaram no teste.
+                    </li>
+                    <li class="bg-gray-800 p-4 rounded border border-gray-700">
+                        <strong class="text-e80170">.find()</strong>: Encontra o PRIMEIRO item que passa no teste.
+                    </li>
+                </ul>
+            </div>
+
+            <!-- TÓPICO 7: LOCALSTORAGE -->
+            <div id="storage">
+                <h3 class="text-3xl font-bold mb-6 section-title">7. Persistência (localStorage)</h3>
+                <p class="text-lg mb-6 leading-relaxed">
+                   Guardando dados no navegador para não perder ao recarregar (ex: Todo List).
+                </p>
+                <code class="block">
+// Salvar (precisa virar texto/JSON)
+const usuario = { nome: "Vitor", tema: "dark" };
+localStorage.setItem("user_data", JSON.stringify(usuario));
+
+// Ler (precisa voltar a ser Objeto)
+const dadosSalvos = localStorage.getItem("user_data");
+const objetoUsuario = JSON.parse(dadosSalvos);
+                </code>
+            </div>
+
+            <!-- TÓPICO 8: GLOSSÁRIO DE COMANDOS -->
+            <div id="glossario-comandos">
+                <h3 class="text-3xl font-bold mb-6 section-title">8. Glossário de Comandos Essenciais</h3>
+                <p class="text-lg mb-6 leading-relaxed">
+                   Uma lista rápida para você consultar enquanto programa.
+                </p>
+
+                <div class="grid md:grid-cols-2 gap-8">
+                    
+                    <!-- Interação Básica -->
+                    <div class="bg-gray-800 p-6 rounded-lg border border-gray-700">
+                        <h4 class="text-xl font-bold text-white mb-4">Básico & Debug</h4>
+                        <table class="glossary-table">
+                            <tr>
+                                <th>console.log(x)</th>
+                                <td>Mostra mensagem ou valor no console do navegador.</td>
+                            </tr>
+                            <tr>
+                                <th>alert(msg)</th>
+                                <td>Mostra um pop-up de aviso na tela.</td>
+                            </tr>
+                            <tr>
+                                <th>prompt(msg)</th>
+                                <td>Pede um texto ao usuário via pop-up.</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <!-- Manipulação do DOM -->
+                    <div class="bg-gray-800 p-6 rounded-lg border border-gray-700">
+                        <h4 class="text-xl font-bold text-white mb-4">DOM (HTML)</h4>
+                        <table class="glossary-table">
+                            <tr>
+                                <th>document.getElementById('id')</th>
+                                <td>Seleciona elemento pelo ID.</td>
+                            </tr>
+                            <tr>
+                                <th>document.querySelector('.classe')</th>
+                                <td>Seleciona o primeiro elemento que bate com o seletor.</td>
+                            </tr>
+                            <tr>
+                                <th>elm.textContent = '...'</th>
+                                <td>Muda o texto dentro do elemento.</td>
+                            </tr>
+                            <tr>
+                                <th>elm.innerHTML = '...'</th>
+                                <td>Muda o HTML interno (perigoso, use com cuidado).</td>
+                            </tr>
+                            <tr>
+                                <th>elm.classList.add('classe')</th>
+                                <td>Adiciona uma classe CSS.</td>
+                            </tr>
+                            <tr>
+                                <th>elm.classList.toggle('classe')</th>
+                                <td>Liga/Desliga uma classe CSS.</td>
+                            </tr>
+                            <tr>
+                                <th>elm.addEventListener('click', fn)</th>
+                                <td>Executa uma função quando o evento ocorre.</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <!-- Dados e Armazenamento -->
+                    <div class="bg-gray-800 p-6 rounded-lg border border-gray-700">
+                        <h4 class="text-xl font-bold text-white mb-4">Dados & Storage</h4>
+                        <table class="glossary-table">
+                            <tr>
+                                <th>JSON.stringify(obj)</th>
+                                <td>Converte Objeto/Array para String.</td>
+                            </tr>
+                            <tr>
+                                <th>JSON.parse(str)</th>
+                                <td>Converte String JSON para Objeto/Array.</td>
+                            </tr>
+                            <tr>
+                                <th>localStorage.setItem('k', 'v')</th>
+                                <td>Salva um item no navegador.</td>
+                            </tr>
+                            <tr>
+                                <th>localStorage.getItem('k')</th>
+                                <td>Recupera um item do navegador.</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <!-- Arrays -->
+                    <div class="bg-gray-800 p-6 rounded-lg border border-gray-700">
+                        <h4 class="text-xl font-bold text-white mb-4">Arrays</h4>
+                        <table class="glossary-table">
+                            <tr>
+                                <th>arr.push(item)</th>
+                                <td>Adiciona item ao final da lista.</td>
+                            </tr>
+                            <tr>
+                                <th>arr.length</th>
+                                <td>Retorna o tamanho da lista.</td>
+                            </tr>
+                            <tr>
+                                <th>arr.forEach(fn)</th>
+                                <td>Loop simples para cada item.</td>
+                            </tr>
+                            <tr>
+                                <th>arr.map(fn)</th>
+                                <td>Cria nova lista transformada.</td>
+                            </tr>
+                            <tr>
+                                <th>arr.filter(fn)</th>
+                                <td>Cria nova lista filtrada.</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+  </main>
+</body>
+</html>
